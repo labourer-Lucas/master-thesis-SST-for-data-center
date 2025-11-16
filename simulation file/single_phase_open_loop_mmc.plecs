@@ -1,5 +1,5 @@
 Plecs {
-  Name          "three_levle_mmc_open"
+  Name          "single_phase_open_loop_mmc"
   Version       "4.9"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
@@ -316,7 +316,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V-"
           SrcTerminal   1
-          Points        [205, 320; 265, 320; 265, 295]
+          Points        [265, 320]
           DstComponent  "MHB1"
           DstTerminal   3
         }
@@ -324,7 +324,7 @@ Plecs {
           Type          Signal
           SrcComponent  "PWM"
           SrcTerminal   1
-          Points        [120, 210; 155, 210; 155, 210]
+          Points        [155, 210]
           Branch {
             Points        [155, 250]
             DstComponent  "Logical\nOperator"
@@ -339,7 +339,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V+"
           SrcTerminal   1
-          Points        [195, 150; 265, 150; 265, 165]
+          Points        [265, 150]
           DstComponent  "MHB1"
           DstTerminal   2
         }
@@ -671,7 +671,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V-"
           SrcTerminal   1
-          Points        [205, 320; 265, 320; 265, 295]
+          Points        [265, 320]
           DstComponent  "MHB1"
           DstTerminal   3
         }
@@ -679,7 +679,7 @@ Plecs {
           Type          Signal
           SrcComponent  "PWM"
           SrcTerminal   1
-          Points        [120, 210; 155, 210; 155, 210]
+          Points        [155, 210]
           Branch {
             Points        [155, 250]
             DstComponent  "Logical\nOperator"
@@ -694,7 +694,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V+"
           SrcTerminal   1
-          Points        [195, 150; 265, 150; 265, 165]
+          Points        [265, 150]
           DstComponent  "MHB1"
           DstTerminal   2
         }
@@ -962,7 +962,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V-"
           SrcTerminal   1
-          Points        [205, 320; 265, 320; 265, 295]
+          Points        [265, 320]
           DstComponent  "MHB1"
           DstTerminal   3
         }
@@ -970,7 +970,7 @@ Plecs {
           Type          Signal
           SrcComponent  "PWM"
           SrcTerminal   1
-          Points        [120, 210; 155, 210; 155, 210]
+          Points        [155, 210]
           Branch {
             Points        [155, 250]
             DstComponent  "Logical\nOperator"
@@ -985,7 +985,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V+"
           SrcTerminal   1
-          Points        [195, 150; 265, 150; 265, 165]
+          Points        [265, 150]
           DstComponent  "MHB1"
           DstTerminal   2
         }
@@ -1246,7 +1246,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V-"
           SrcTerminal   1
-          Points        [205, 320; 265, 320; 265, 295]
+          Points        [265, 320]
           DstComponent  "MHB1"
           DstTerminal   3
         }
@@ -1254,7 +1254,7 @@ Plecs {
           Type          Signal
           SrcComponent  "PWM"
           SrcTerminal   1
-          Points        [120, 210; 155, 210; 155, 210]
+          Points        [155, 210]
           Branch {
             Points        [155, 250]
             DstComponent  "Logical\nOperator"
@@ -1269,7 +1269,7 @@ Plecs {
           Type          Wire
           SrcComponent  "V+"
           SrcTerminal   1
-          Points        [195, 150; 265, 150; 265, 165]
+          Points        [265, 150]
           DstComponent  "MHB1"
           DstTerminal   2
         }
@@ -1699,16 +1699,16 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [640, 276; 990, 583]
+      Location      [640, 276; 990, 613]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABRAP///wAAAV4AAAEYAAAA"
+"///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAFeAAAAgvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAV4AAABRAP///wAAAV4AAACwAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":185,\"Labels\":[],"
-"\"VisualIdxs\":[]}"
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":185,\"Labels\":["
+"\"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
