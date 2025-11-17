@@ -1,17 +1,17 @@
 Plecs {
-  Name          "three_phase_open_loop_mmc"
+  Name          "three_phase_close_loop_mmc"
   Version       "4.9"
-  CircuitModel  "DiscStateSpace"
+  CircuitModel  "ContStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "FixedStepDiscrete"
-  MaxStep       "1e-3"
+  Solver        "auto"
+  MaxStep       "1e-5"
   InitStep      "-1"
   FixedStep     "Ts"
   Refine        "1"
   ZCStepSize    "1e-9"
-  RelTol        "1e-3"
+  RelTol        "1e-5"
   AbsTol        "-1"
   TurnOnThreshold "0"
   NonIdealSwitchResistance "1"
@@ -28,12 +28,32 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "%Simulation step\nTs=1e-6;\n%Submodule initila condi"
-"tion\nC_0=1e-3;\nV_0=2000;\n\nR_0=1e-3;\nR_s=10e6;\nC_s=inf;\n% Levels of inv"
-"ertered\nN=3;\nnum_sm=N-1;\n% FundamentaL frequency\nf_0=50;\n% Switching fre"
-"quency\nf_sw=1000;\n\nV_dc=2e3;\n% Arm Inductor and Resistor\nL_0=0;\nR_o=1;"
-"\n% DC filter inductance\nL_dc=1e-3;\nR_dc=0.01;\n% DC capacoitor\nC_dc=1.2e-"
-"3;\nVc_dc=V_dc/2;\n% Load \nL_g=1e-3;\nR_g=1;"
+  InitializationCommands base64 "JVNpbXVsYXRpb24gc3RlcApUcz0xZS02OwolU3VibW9kd"
+"WxlIGluaXRpbGEgY29uZGl0aW9uCkNfMD0xZS0zOwpWXzA9MTAwMDsKClJfMD0xZS0zOwpSX3M9MT"
+"BlNjsKQ19zPWluZjsKJSBMZXZlbHMgb2YgaW52ZXJ0ZXJlZApOPTM7Cm51bV9zbT1OLTE7CiUgRnV"
+"uZGFtZW50YUwgZnJlcXVlbmN5CmZfMD01MDsKJSBTd2l0Y2hpbmcgZnJlcXVlbmN5CmZfc3c9MTAw"
+"MDsKClZfZGM9MmUzOwolIEFybSBJbmR1Y3RvciBhbmQgUmVzaXN0b3IKTF8wPTA7ClJfbz0xOwolI"
+"ERDIGZpbHRlciBpbmR1Y3RhbmNlCkxfZGM9MWUtMzsKUl9kYz0wLjAxOwolIERDIGNhcGFjb2l0b3"
+"IKQ19kYz0xLjJlLTM7ClZjX2RjPVZfZGMvMjsKJSBMb2FkIApMX2c9MWUtMzsKUl9nPTEwOwpWbGx"
+"fcm1zID0gNDAwOwolQ3VycmVudCBjb250cm9sbGVyIGRlc2lnbgolJSBQbGFudDogRyhzKSA9IDEg"
+"LyAocypMICsgUikKUj1SX2crUl8wLzI7Ckw9TF9nK0xfMC8yOwolJSBEZXNpZ24gc3BlY3M6CiUlJ"
+"SBjcm9zc2luZyBmcmVxdWVuY3kgZmMgPSA1MDAgSHoKJSUlIHBoYXNlIG1hcmdpbiBQTSA9IDYwIG"
+"RlZwoKZmMgID0gNTA7ICAgICAgICAgICAgICAgJSBIegp3YyAgPSAyKnBpKmZjOyAgICAgICAgICA"
+"gJSByYWQvcwoKJSUgRGVzaWduIHNwZWNzOgolJSUgY3Jvc3NpbmcgZnJlcXVlbmN5IGZjID0gNTAw"
+"IEh6CiUlJSBwaGFzZSBtYXJnaW4gUE0gPSA2MCBkZWcKCiUgMS4g6K6+572u6K6+6K6h5oyH5qCHC"
+"mZjICA9IDEwMDsgICAgICAgICAgICAgICUgSHogKCoqKiDlt7Lku44gNTAg5L+u5q2j5Li6IDUwMC"
+"AqKiopCndjICA9IDIqcGkqZmM7ICAgICAgICAgICUgcmFkL3MKUE0gID0gNDA7ICAgICAgICAgICA"
+"gICAgJSBkZWcKCiUgMi4g6K6h566X5Lit6Ze05q+U546HIE1fcAolIE1fcCA9IHRhbihhdGFuKHdj"
+"KkwvUikgLSAzMF9kZWcpCiUgTV9wID0gKHRhbihhdGFuKHdjKkwvUikpIC0gdGFuKDMwKSkgLyAoM"
+"SArIHRhbihhdGFuKHdjKkwvUikpICogdGFuKDMwKSkKJSBNX3AgPSAod2MqTC9SIC0gMS9zcXJ0KD"
+"MpKSAvICgxICsgKHdjKkwvUikqKDEvc3FydCgzKSkpCiUgTV9wID0gKHNxcnQoMykqd2MqTCAtIFI"
+"pIC8gKHNxcnQoMykqUiArIHdjKkwpCk1wID0gKHNxcnQoMykqd2MqTCAtIFIpIC8gKHNxcnQoMykq"
+"UiArIHdjKkwpOwoKJSAzLiDorqHnrpflnKggd2Mg5aSE55qE5a+56LGh5aKe55uK55qE5YCS5pWwC"
+"iUgfEcoandjKXwgPSAxIC8gc3FydChSXjIgKyAod2MqTCleMikKJSDmiJHku6zpnIDopoEgfEMoan"
+"djKXwgPSAxIC8gfEcoandjKXwKbWFnX0NfcmVxID0gc3FydChSXjIgKyAod2MqTCleMik7CgolIDQ"
+"uIOaxguinoyBLcCDlkowgS2kKJSB8Qyhqd2MpfCA9IEtfaSAqIHNxcnQoMSArIE1wXjIpIC8gd2MK"
+"JUtfaSA9IHxDKGp3Yyl8ICogd2MgLyBzcXJ0KDEgKyBNcF4yKQpLaV9jdXJyZW50ID0gMC4wMDAxO"
+"woKIApLcF9jdXJyZW50ID0gMAo7"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -58,8 +78,8 @@ Plecs {
   ScriptsDialogGeometry "[754 386 446 243]"
   ScriptsDialogSplitterPos "95"
   Schematic {
-    Location      [426, 171; 1388, 654]
-    ZoomFactor    0.999995
+    Location      [792, 167; 2019, 874]
+    ZoomFactor    0.763603
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
@@ -110,7 +130,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [529, 118; 1679, 786]
+        Location      [637, 201; 1787, 869]
         ZoomFactor    0.873846
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -4412,12 +4432,7 @@ Plecs {
           Probe {
             Component     "Vm1"
             Path          "MMC-3phase"
-            Signals       {}
-          }
-          Probe {
-            Component     "C1"
-            Path          "MMC-3phase"
-            Signals       {"Capacitor voltage"}
+            Signals       {"Measured voltage"}
           }
         }
         Component {
@@ -4428,11 +4443,11 @@ Plecs {
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [640, 276; 990, 533]
+          Location      [640, 276; 990, 553]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABRAP///wAAAV4AAADm"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABRAP///wAAAV4AAAD6"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -4931,109 +4946,10 @@ Plecs {
       }
     }
     Component {
-      Type          Inductor
-      Name          "L1"
-      Show          on
-      Position      [440, 155]
-      Direction     left
-      Flipped       off
-      LabelPosition north
-      Parameter {
-        Variable      "L"
-        Value         "L_g"
-        Show          off
-      }
-      Parameter {
-        Variable      "i_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Resistor
-      Name          "R1"
-      Show          on
-      Position      [495, 155]
-      Direction     right
-      Flipped       off
-      LabelPosition north
-      Parameter {
-        Variable      "R"
-        Value         "R_g"
-        Show          off
-      }
-    }
-    Component {
-      Type          Inductor
-      Name          "L2"
-      Show          on
-      Position      [440, 185]
-      Direction     left
-      Flipped       off
-      LabelPosition north
-      Parameter {
-        Variable      "L"
-        Value         "L_g"
-        Show          off
-      }
-      Parameter {
-        Variable      "i_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Resistor
-      Name          "R2"
-      Show          on
-      Position      [495, 185]
-      Direction     right
-      Flipped       off
-      LabelPosition north
-      Parameter {
-        Variable      "R"
-        Value         "R_g"
-        Show          off
-      }
-    }
-    Component {
-      Type          Inductor
-      Name          "L3"
-      Show          on
-      Position      [440, 210]
-      Direction     left
-      Flipped       off
-      LabelPosition north
-      Parameter {
-        Variable      "L"
-        Value         "L_g"
-        Show          off
-      }
-      Parameter {
-        Variable      "i_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Resistor
-      Name          "R3"
-      Show          on
-      Position      [495, 210]
-      Direction     right
-      Flipped       off
-      LabelPosition north
-      Parameter {
-        Variable      "R"
-        Value         "R_g"
-        Show          off
-      }
-    }
-    Component {
       Type          SineGenerator
       Name          "Voltage ref"
       Show          on
-      Position      [105, 365]
+      Position      [75, 365]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -5054,7 +4970,7 @@ Plecs {
       }
       Parameter {
         Variable      "Phase"
-        Value         "[0 -120 -240]"
+        Value         "[0 120 240]"
         Show          off
       }
       Parameter {
@@ -5232,36 +5148,36 @@ Plecs {
     }
     Component {
       Type          PlecsProbe
-      Name          "Probe"
+      Name          "Three phase voltage and current"
       Show          on
-      Position      [530, 335]
+      Position      [725, 60]
       Direction     right
       Flipped       off
       LabelPosition south
       Probe {
         Component     "3ph Meter"
         Path          ""
-        Signals       {"Measured voltage", "Measured current"}
+        Signals       {"Measured current", "Measured voltage"}
       }
     }
     Component {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [595, 335]
-      Direction     up
+      Position      [840, 60]
+      Direction     right
       Flipped       off
-      LabelPosition south
-      Location      [758, 310; 1496, 697]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAACBAAABSvwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAvAA"
-"AA1QAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAALwAAAUoAAABnAP///wAAAAMAAALiAAAAlPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAuIAAABRAP///wAAAuIAAADQAAAA"
+      LabelPosition west
+      Location      [931, 342; 1724, 792]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAMZAAAAlPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAxkAAABRAP///wAAAxkAAAEPAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":225,\"Labels\":[\""
-"Delta\"],\"VisualIdxs\":[3]}"
+"Delta\",\"THD\"],\"VisualIdxs\":[3,10]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -5271,7 +5187,7 @@ Plecs {
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
-      ShowLegend    "2"
+      ShowLegend    "1"
       Axis {
         Name          ""
         AutoScale     1
@@ -5829,86 +5745,160 @@ Plecs {
       }
     }
     Component {
-      Type          Ground
-      Name          "Ground"
+      Type          Goto
+      Name          "Goto"
       Show          off
-      Position      [425, 270]
+      Position      [425, 110]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "Iabc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto1"
+      Show          off
+      Position      [415, 70]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "Vabc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "L1"
+      Show          on
+      Position      [440, 155]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "L"
+        Value         "L_g"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "L2"
+      Show          on
+      Position      [440, 185]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "L"
+        Value         "L_g"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "L3"
+      Show          on
+      Position      [440, 210]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "L"
+        Value         "L_g"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R1"
+      Show          on
+      Position      [520, 155]
+      Direction     right
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "R"
+        Value         "R_g"
+        Show          off
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R2"
+      Show          on
+      Position      [520, 185]
+      Direction     right
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "R"
+        Value         "R_g"
+        Show          off
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R3"
+      Show          on
+      Position      [520, 210]
+      Direction     right
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "R"
+        Value         "R_g"
+        Show          off
+      }
+    }
+    Component {
+      Type          Ground
+      Name          "Ground2"
+      Show          off
+      Position      [390, 260]
       Direction     up
       Flipped       off
       LabelPosition east
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "L1"
-      SrcTerminal   2
-      DstComponent  "R1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "L2"
-      SrcTerminal   2
-      DstComponent  "R2"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "L3"
-      SrcTerminal   2
-      DstComponent  "R3"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "3ph Meter"
-      SrcTerminal   4
-      Points        [395, 175; 395, 155]
-      DstComponent  "L1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "3ph Meter"
-      SrcTerminal   5
-      DstComponent  "L2"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "3ph Meter"
-      SrcTerminal   6
-      Points        [395, 195; 395, 210]
-      DstComponent  "L3"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "R1"
-      SrcTerminal   1
-      Points        [515, 185]
-      Branch {
-        DstComponent  "R2"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [515, 210]
-        Branch {
-          DstComponent  "R3"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [515, 245; 425, 245]
-          Branch {
-            Points        [355, 245]
-            DstComponent  "3ph Meter"
-            DstTerminal   9
-          }
-          Branch {
-            DstComponent  "Ground"
-            DstTerminal   1
-          }
-        }
-      }
     }
     Connection {
       Type          Wire
@@ -5954,17 +5944,102 @@ Plecs {
     }
     Connection {
       Type          Signal
+      SrcComponent  "Three phase voltage and current"
+      SrcTerminal   1
+      Points        [795, 60; 795, 30]
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   7
+      Points        [350, 70]
+      DstComponent  "Goto1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   8
+      Points        [360, 110]
+      DstComponent  "Goto"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L1"
+      SrcTerminal   1
+      Points        [395, 155; 395, 175]
+      DstComponent  "3ph Meter"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L2"
+      SrcTerminal   1
+      DstComponent  "3ph Meter"
+      DstTerminal   5
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L3"
+      SrcTerminal   1
+      Points        [395, 210; 395, 195]
+      DstComponent  "3ph Meter"
+      DstTerminal   6
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L3"
+      SrcTerminal   2
+      DstComponent  "R3"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L2"
+      SrcTerminal   2
+      DstComponent  "R2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L1"
+      SrcTerminal   2
+      DstComponent  "R1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
       SrcComponent  "Voltage ref"
       SrcTerminal   1
       DstComponent  "Phase shift PWM modulation"
       DstTerminal   1
     }
     Connection {
-      Type          Signal
-      SrcComponent  "Probe"
+      Type          Wire
+      SrcComponent  "R1"
       SrcTerminal   1
-      DstComponent  "Scope"
+      Points        [595, 155; 595, 175; 650, 175; 650, 195; 600, 195; 600, 210]
+      DstComponent  "R3"
       DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Ground2"
+      SrcTerminal   1
+      Points        [390, 250]
+      Branch {
+        Points        [350, 250; 350, 225; 355, 225]
+        DstComponent  "3ph Meter"
+        DstTerminal   9
+      }
+      Branch {
+        Points        [650, 250; 650, 185]
+        DstComponent  "R2"
+        DstTerminal   1
+      }
     }
   }
 }

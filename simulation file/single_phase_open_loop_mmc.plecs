@@ -30,8 +30,8 @@ Plecs {
   FixedPointDatatypeOverride "1"
   InitializationCommands "%Simulation step\nTs=1e-6;\n%Submodule initila condi"
 "tion\nC_0=1e-3;\nV_0=500;\n\nR_0=1e-3;\nR_s=10e6;\nC_s=inf;\n% Levels of inve"
-"rtered\nN=3;\nnum_sm=N-1;\nf_0=50;\nf_sw=1000;\nV_dc=12e3;\n\nL_0=10e-3;\nR_o"
-"=1;\nL_g=1e-3;\nR_g=0.01;"
+"rtered\nN=3;\nnum_sm=N-1;\nf_0=50;\nf_sw=1000;\nV_dc=12e3;\n\nL_0=0;\nR_o=1;"
+"\nL_g=1e-3;\nR_g=0.01;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -1613,7 +1613,7 @@ Plecs {
       LabelPosition north
       Parameter {
         Variable      "L"
-        Value         "0.001"
+        Value         "1e-3"
         Show          off
       }
       Parameter {
@@ -1699,16 +1699,16 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [640, 276; 990, 613]
+      Location      [640, 276; 1227, 673]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAFeAAAAgvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAV4AAABRAP///wAAAV4AAACwAAAA"
+"///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAJLAAAAgvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAksAAABRAP///wAAAksAAADsAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":185,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+"\"Delta\",\"THD\"],\"VisualIdxs\":[3,10]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
