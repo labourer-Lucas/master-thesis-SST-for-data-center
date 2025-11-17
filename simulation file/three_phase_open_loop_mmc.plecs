@@ -29,11 +29,11 @@ Plecs {
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
   InitializationCommands "%Simulation step\nTs=1e-6;\n%Submodule initila condi"
-"tion\nC_0=1e-3;\nV_0=2000;\n\nR_0=1e-3;\nR_s=10e6;\nC_s=inf;\n% Levels of inv"
+"tion\nC_0=1e-3;\nV_0=1000;\n\nR_0=1e-3;\nR_s=10e6;\nC_s=inf;\n% Levels of inv"
 "ertered\nN=3;\nnum_sm=N-1;\n% FundamentaL frequency\nf_0=50;\n% Switching fre"
-"quency\nf_sw=1000;\n\nV_dc=2e3;\n% Arm Inductor and Resistor\nL_0=0;\nR_o=1;"
-"\n% DC filter inductance\nL_dc=1e-3;\nR_dc=0.01;\n% DC capacoitor\nC_dc=1.2e-"
-"3;\nVc_dc=V_dc/2;\n% Load \nL_g=1e-3;\nR_g=1;"
+"quency\nf_sw=1000;\n\nV_dc=2e3;\n% Arm Inductor and Resistor\nL_0=0.001;\nR_o"
+"=1;\n% DC filter inductance\nL_dc=1e-3;\nR_dc=0.01;\n% DC capacoitor\nC_dc=1."
+"2e-3;\nVc_dc=V_dc/2;\n% Load \nL_g=0.001;\nR_g=1;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -5252,11 +5252,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [758, 310; 1496, 697]
+      Location      [758, 310; 1496, 757]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAACBAAABSvwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAvAA"
 "AA1QAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAALwAAAUoAAABnAP///wAAAAMAAALiAAAAlPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAuIAAABRAP///wAAAuIAAADQAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAuIAAABRAP///wAAAuIAAAEMAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5267,7 +5267,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
