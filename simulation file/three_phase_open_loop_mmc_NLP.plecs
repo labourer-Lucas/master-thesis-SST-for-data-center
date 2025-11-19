@@ -16303,11 +16303,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [-47, 312; 891, 1009]
+      Location      [0, 312; 938, 1019]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABRAP///wAAA6oAAAKeAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABRAP///wAAA6oAAAKoAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -16631,7 +16631,7 @@ Plecs {
     Annotation {
       Name          "<html><body>\n<p>Nearest Level Modulation</p></body></htm"
 "l>"
-      Position      [775, 125]
+      Position      [775, 120]
     } 
   }
 }
