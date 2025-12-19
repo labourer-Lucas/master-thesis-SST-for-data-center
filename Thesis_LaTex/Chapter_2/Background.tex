@@ -3,8 +3,117 @@
 \clearpage
 
 \chapter{Modeling and Control of MMC-SST} \label{chapter:modeling_control_mmc_sst}
-\section{Topology of MMC-SST}
-\section{Modeling of MMC}
+The chapter presents the modeling and control strategies for MMC-SST. It covers the topology, modeling, and control methods for both the MMC and the DAB converter used in the SST system.
+% \section{Topology of MMC-SST}
+ 
+\section{Topology of MMC and its working principle}
+\subsection{Topology of three-phase MMC}
+The topology of a three-phase MMC is illustrated in Figure~\ref{fig:three_phase_mmc_topology}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapter_2/Graphics/three_phase_mmc_topology.png}
+    \caption{Topology of Three-Phase MMC}
+    \label{fig:three_phase_mmc_topology}
+\end{figure}
+
+In the Figure~\ref{fig:three_phase_mmc_topology}, $u_{sj}(j=a,b,c)$ represents the AC side phase voltages, and $i_{sj}$ represents the AC side phase currents. $u_{uj}$ and $u_{lj}$ represent the upper and lower arm voltages of phase $j$, respectively. $i_{uj}$ and $i_{lj}$ represent the upper and lower arm currents of phase $j$, respectively.$L_s$ and $R_s$ represent the AC side filter inductance and resistance, respectively. $L_0$ and $R_0$ represent the arm inductance and resistance, respectively. $I_{dc}$ represents the DC side current, and $U_{dc}$ represents the DC side voltage.
+
+Each phase of the MMC consists of upper and lower arms, each containing multiple submodules (SMs) connected in series. Each arm also includes an arm inductor $L_{0}$ and an arm resistor $R_{0}$. $L_0$ helps to limit the change rate of arm current when faults occur, and helps to suppress circulating current ripples. 
+The arms are connected to the AC side through inductors $L_s$ and its equavilant resistance $R_s$. 
+
+\subsection{Topology of SMs of MMC}
+SMs are the minimal blocks of MMC, and its performance directly affects the performance of MMC. Different types of SMs have diffetent characteristics. The most commonly used SM types are half-bridge SM and full-bridge SM. The topology of half-bridge SM and full-bridge SM are illustrated in Figure~\ref{fig:sm_topology}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapter_2/Graphics/sm_topology.png}
+    \caption{Topology of SMs: (a) Half-Bridge SM (HB-SM); (b) Full-Bridge SM (FB-SM)}
+    \label{fig:sm_topology}
+\end{figure}
+
+Different SM types have different characteristics in terms of number of switches, voltage levels, fault handling capability, control complexity, and losses. A comparison of the characteristics of half-bridge SM and full-bridge SM is provided in Table~\ref{tab:mmc_sm_comparison}.
+\begin{table}[H]
+    \centering
+    \caption{Comparison of MMC Submodule Topological Characteristics}
+    \label{tab:mmc_sm_comparison}
+    \begin{tabular}{cccccc}
+        \toprule
+        Submodule Type & Switches & Levels & Fault Handling & Control Complexity & Losses \\
+        \midrule
+        HB-SM & 2 & 2 & No & Simple & Low \\
+        FB-SM & 4 & 3 & Yes & Simple & High \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Working principle of SMs}
+HB-SM is most commonly used in MMC due to its simple structure and low losses. HB-SM can only insert or bypass the capacitor voltage, thus it can only generate two voltage levels: 0 and $U_{c}$. The working principle of HB-SM is illustrated in Figure~\ref{fig:hb_sm_working_principle}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapter_2/Graphics/hb_sm_working_principle.png}
+    \caption{Working Principle of HB-SM}
+    \label{fig:hb_sm_working_principle}
+\end{figure}
+When the switch S1 is closed and S2 is open, the capacitor voltage $V_{c}$ is inserted into the circuit, resulting in an output voltage of $V_{c}$. When S1 is open and S2 is closed, the capacitor is bypassed, resulting in an output voltage of 0. The red arrows indicate the current flow direction in each state.
+
+For FB-SM, it can generate three voltage levels: $U_{c}$, 0, and $-U_{c}$. The working principle of FB-SM is illustrated in Figure~\ref{fig:fb_sm_working_principle}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Chapter_2/Graphics/fb_sm_working_principle.png}
+    \caption{Working Principle of FB-SM}
+    \label{fig:fb_sm_working_principle}
+\end{figure}
+
+The switches of FB-SM have four working states. When S1 and S4 are closed while S2 and S3 are open, the capacitor voltage $V_{c}$ is inserted into the circuit, resulting in an output voltage of $V_{c}$. When S2 and S3 are closed while S1 and S4 are open, the negative capacitor voltage $-V_{c}$ is inserted into the circuit, resulting in an output voltage of $-V_{c}$. When S1 and S3 are closed while S2 and S4 are open and vice versa, the capacitor is bypassed, resulting in an output voltage of 0. The red arrows indicate the current flow direction in each state.
+
+\subsection{Working principle of 3-phase MMC}
+The topology of the three-phase MMC is illustrated in Figure~\ref{fig:three_phase_mmc_topology}. During normal steady-state operation, the MMC control system generates trigger pulses based on specific control objectives to manage the switching devices in each arm, thereby regulating the operating states of SMs. By superimposing the SM voltages and controlling the number of SMs inserted into the upper and lower arms at any given time, a multi-level stepped waveform approximating a sine wave is produced on the AC side, while a stable DC voltage $U_{dc}$ is maintained on the DC side.
+
+To analyze the operating principle of the three-phase MMC, the voltage drops across the arm inductors and resistors, as well as SM redundancy, are initially neglected. This implies that the arm inductors and resistors are considered short-circuited, and the insertion or bypass states of the SMs are distributed between the upper and lower arms. If each arm contains $N$ submodules, the total number of SMs per phase is $2N$. Since the DC bus voltage is supported by the capacitors of the inserted SMs across the three phases, maintaining a constant DC bus voltage $U_{dc}$ requires the number of inserted submodules $N_{in}$ in each phase to remain fixed or nearly constant, such that $N_{in} = N$. Under the assumption of no redundancy, the SMs in the upper and lower arms of each phase are typically operated complementarily, satisfying the condition:
+\begin{equation}
+    n_{uj} + n_{lj} = N
+    \label{eq:mmc_complementary_insertion}
+\end{equation}
+where $n_{uj}$ and $n_{lj}$ are the number of inserted submodules in the upper and lower arms of phase $j$, respectively. Since the number of submodules in each phase is equal to $N$, the bus voltage is maintained by the series structure of the arm submodules. The relationship for the average operating voltage of the submodules should satisfy:
+\begin{equation}
+    U_c = \frac{U_{dc}}{n_{uj} + n_{lj}} = \frac{U_{dc}}{N}
+    \label{eq:mmc_sm_avg_voltage}
+\end{equation}
+where $U_c$ is the average capacitor voltage of the submodules. 
+
+Since the three phase units are structurally symmetrical, the DC side current should be equally divided among the phases. Therefore, the DC current contained in each phase is $1/3$ of the DC side current. Furthermore, because the upper and lower arm structures are symmetrical and have identical parameters, the AC current is equally divided between the upper and lower arms. Thus, the currents in the upper and lower arms should satisfy:
+\begin{equation}
+    i_{uj} = \frac{I_{dc}}{3} + \frac{i_{sj}}{2}
+    \label{eq:mmc_upper_arm_current}
+\end{equation}
+\begin{equation}
+    i_{lj} = \frac{I_{dc}}{3} - \frac{i_{sj}}{2}
+    \label{eq:mmc_lower_arm_current}
+\end{equation}
+where $i_{uj}$ and $i_{lj}$ are the upper and lower arm currents of phase $j$, respectively; $I_{dc}$ is the DC bus side current; and $i_{sj}$ is the AC side current of phase $j$.
+
+Taking the case where the number of submodules in each arm is $N=4$ as an example, a 5-level voltage output is achieved by inserting different numbers of submodules into the upper and lower arms at different times, as shown in Table~\ref{tab:mmc_5level_operation}.
+
+\begin{table}[H]
+    \centering
+    \caption{Working States and Operating Modes of 5-Level MMC Output Modules}
+    \label{tab:mmc_5level_operation}
+    \begin{tabular}{ccccccccc}
+        \toprule
+        Time Period & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        \midrule
+        AC Output Voltage & 0 & $U_{dc}/4$ & $U_{dc}/2$ & $U_{dc}/4$ & 0 & $-U_{dc}/4$ & $-U_{dc}/2$ & $-U_{dc}/4$ \\
+        Upper Arm SMs & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 3 \\
+        Lower Arm SMs & 2 & 3 & 4 & 3 & 2 & 1 & 0 & 1 \\
+        Total SMs per Phase & 4 & 4 & 4 & 4 & 4 & 4 & 4 & 4 \\
+        DC Voltage & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The more submodules are used in each arm, the more voltage levels can be generated, resulting in a waveform that more closely approximates a sine wave. This reduces the harmonic content in the output voltage and current, improving power quality.
+
+\section{Mathmatical modle of MMC}
+
 \section{Control of MMC}
 \section{Modeling of DAB}
 \section{Control of DAB}
