@@ -91,28 +91,132 @@ Since the three phase units are structurally symmetrical, the DC side current sh
 \end{equation}
 where $i_{uj}$ and $i_{lj}$ are the upper and lower arm currents of phase $j$, respectively; $I_{dc}$ is the DC bus side current; and $i_{sj}$ is the AC side current of phase $j$.
 
-Taking the case where the number of submodules in each arm is $N=4$ as an example, a 5-level voltage output is achieved by inserting different numbers of submodules into the upper and lower arms at different times, as shown in Table~\ref{tab:mmc_5level_operation}.
-
-\begin{table}[H]
-    \centering
-    \caption{Working States and Operating Modes of 5-Level MMC Output Modules}
-    \label{tab:mmc_5level_operation}
-    \begin{tabular}{ccccccccc}
-        \toprule
-        Time Period & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-        \midrule
-        AC Output Voltage & 0 & $U_{dc}/4$ & $U_{dc}/2$ & $U_{dc}/4$ & 0 & $-U_{dc}/4$ & $-U_{dc}/2$ & $-U_{dc}/4$ \\
-        Upper Arm SMs & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 3 \\
-        Lower Arm SMs & 2 & 3 & 4 & 3 & 2 & 1 & 0 & 1 \\
-        Total SMs per Phase & 4 & 4 & 4 & 4 & 4 & 4 & 4 & 4 \\
-        DC Voltage & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ & $U_{dc}$ \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
 The more submodules are used in each arm, the more voltage levels can be generated, resulting in a waveform that more closely approximates a sine wave. This reduces the harmonic content in the output voltage and current, improving power quality.
 
-\section{Mathmatical modle of MMC}
+\section{Mathematical Model of MMC}
+During normal operation, the operating state of the MMC submodule can be changed by controlling the on-off states of the two IGBTs in the submodule arm. Therefore, the submodule can be equivalent to a controllable voltage source. Assuming the switching devices are ideal components, the ideal switching model of the MMC submodule can be obtained, as shown in Figure~\ref{fig:sm_ideal_model}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapter_2/Graphics/sm_ideal_model.png}
+    \caption{Ideal Switching Model of MMC Submodule}
+    \label{fig:sm_ideal_model}
+\end{figure}
+
+According to Figure~\ref{fig:sm_ideal_model}, the insertion or bypass state of a submodule can be represented by a switching function. Define $S_k$ as the switching function of the $k$-th ($1 \le k \le N$) submodule in the arm, as follows:
+\begin{equation}
+    S_k = \begin{cases} 
+        1, & S_1=1, S_2=0, \text{ submodule inserted} \\ 
+        0, & S_1=0, S_2=1, \text{ submodule bypassed} 
+    \end{cases}
+    \label{eq:mmc_switching_function}
+\end{equation}
+Then the output voltage of the $k$-th submodule is:
+\begin{equation}
+    u_{smk} = S_k \cdot U_c
+    \label{eq:mmc_sm_output_voltage}
+\end{equation}
+Under ideal conditions, the capacitor voltage of each submodule is always maintained at $U_c$. Therefore, the arm output voltage can be expressed as:
+\begin{equation}
+    u_{arm} = \sum_{k=1}^{N} S_k \cdot U_c = U_c \cdot \sum_{k=1}^{N} S_k
+    \label{eq:mmc_arm_output_voltage}
+\end{equation}
+Due to the symmetrical three-phase structure of the MMC, only one phase needs to be analyzed when studying its mathematical model and operating principle. To simplify the analysis, the capacitor voltages of the $N$ submodules in the upper and lower arms can be replaced by an equivalent controllable voltage source. The single-phase equivalent circuit of the MMC is shown in Figure~\ref{fig:mmc_single_phase_equivalent}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_2/Graphics/mmc_single_phase_equivalent.png}
+    \caption{Single-Phase Equivalent Circuit of MMC}
+    \label{fig:mmc_single_phase_equivalent}
+\end{figure}
+
+By applying Kirchhoff's Voltage Law (KVL) to the equivalent circuit in Figure~\ref{fig:mmc_single_phase_equivalent}, the voltage equations for the upper and lower arms of the MMC can be derived as follows:
+\begin{equation}
+    u_{sj} = \frac{U_{dc}}{2} - L_0 \frac{di_{uj}}{dt} - R_0 i_{uj} - u_{uj} - L_s \frac{di_{sj}}{dt} - R_s i_{sj}
+    \label{eq:mmc_kvl_upper}
+\end{equation}
+\begin{equation}
+    u_{sj} = -\frac{U_{dc}}{2} + L_0 \frac{di_{lj}}{dt} + R_0 i_{lj} + u_{lj} - L_s \frac{di_{sj}}{dt} - R_s i_{sj}
+    \label{eq:mmc_kvl_lower}
+\end{equation}
+By adding and subtracting equations \eqref{eq:mmc_kvl_upper} and \eqref{eq:mmc_kvl_lower} and simplifying, we obtain the differential mode voltage of MMC:
+\begin{equation}
+    u_{sj} = \frac{u_{lj} - u_{uj}}{2} + (L_s + \frac{1}{2}L_0) \frac{d(i_{lj} - i_{uj})}{dt} + (R_s + \frac{1}{2}R_0)(i_{lj} - i_{uj})
+    \label{eq:mmc_v_diff}
+\end{equation}
+and the common mode voltage of MMC:
+\begin{equation}
+    U_{dc} = (u_{lj} + u_{uj}) + L_0 \frac{d(i_{lj} + i_{uj})}{dt} + R_0(i_{lj} + i_{uj})
+    \label{eq:mmc_v_sum}
+\end{equation}
+Neglecting the circulating current, the current equations can be written according to Kirchhoff's Current Law (KCL) as:
+\begin{equation}
+    i_{sj} = i_{uj} - i_{lj}= 2i^{\Delta}_{j}
+    \label{eq:mmc_kcl}
+\end{equation}
+
+Substituting equations \eqref{eq:mmc_kcl} into equations \eqref{eq:mmc_v_diff}, we obtain the voltage equation of the MMC in terms of AC side current:
+\begin{equation}
+    u_{sj} = \frac{u_{lj} - u_{uj}}{2} - (L_s + \frac{1}{2}L_0) \frac{di_{sj}}{dt} - (R_s + \frac{1}{2}R_0)i_{sj}
+    \label{eq:mmc_voltage_equation}
+\end{equation}
+
+For simplification, we define the equivalent inductance and resistance of the MMC as:
+\begin{equation}
+    \begin{cases}
+        L_{eq} = L_s + \frac{1}{2}L_0 \\
+        R_{eq} = R_s + \frac{1}{2}R_0
+    \end{cases}
+    \label{eq:mmc_equivalent_parameters}
+\end{equation}
+and the differential voltage and common voltage of the MMC as:
+\begin{equation}
+    \begin{cases}
+        u^{\Delta}_{j} = \frac{u_{lj} - u_{uj}}{2} \\
+        u^{\Sigma}_{j} = \frac{u_{lj} + u_{uj}}{2}
+    \end{cases}
+    \label{eq:mmc_voltage_components}
+\end{equation}
+
+Therefore, the voltage equation of the MMC can be rewritten as:
+\begin{equation}
+    u_{sj} = u^{\Delta}_{j} - L_{eq} \frac{di_{sj}}{dt} - R_{eq} i_{sj}
+    \label{eq:mmc_voltage_equation_simplified}
+\end{equation}
+
+From equation \eqref{eq:mmc_voltage_equation_simplified}, it can be observed that the AC side voltage $u_{sj}$ is determined by the differential voltage $u^{\Delta}_{j}$, the AC side current $i_{sj}$, and the equivalent parameters of the MMC. By controlling the differential voltage $u^{\Delta}_{j}$ through appropriate modulation strategies, the output voltage waveform of the MMC can be shaped to meet specific requirements.
+
+As can be seen from Figure~\ref{fig:mmc_single_phase_equivalent}, internal circulating currents are generated between the three phase units during the operation of the MMC, while simultaneously producing voltage drops across the arm impedances. The circulating current $i^{\Sigma}_{j}$ and the internal unbalanced voltage drop $u_{zj}$ are defined as:
+\begin{equation}
+    i^{\Sigma}_{j} = \frac{1}{2}(i_{uj} + i_{lj})
+    \label{eq:mmc_circulating_current}
+\end{equation}
+\begin{equation}
+    u_{zj} = L_0 \frac{di^{\Sigma}_{j}}{dt} + R_0 i^{\Sigma}_{j}
+    \label{eq:mmc_unbalanced_voltage_drop}
+\end{equation}
+
+Substituting equations \eqref{eq:mmc_circulating_current} and \eqref{eq:mmc_unbalanced_voltage_drop} into equation \eqref{eq:mmc_v_sum}, we obtain:
+\begin{equation}
+    u_{zj} = L_0 \frac{di^{\Sigma}_{j}}{dt} + R_0 i^{\Sigma}_{j} = \frac{U_{dc}}{2} - u^{\Sigma}_{j}
+    \label{eq:mmc_dc_dynamic_characteristic}
+\end{equation}
+
+Equation \eqref{eq:mmc_dc_dynamic_characteristic} represents the dynamic characteristic equation of the MMC DC side in the $abc$ three-phase stationary coordinate system.
+
+Therefroe, the complete mathematical model of the MMC can be described by equations \eqref{eq:mmc_voltage_equation_simplified} and \eqref{eq:mmc_dc_dynamic_characteristic}, which capture both the AC side voltage dynamics and the DC side dynamic characteristics of the MMC. The equavilant circuit for AC side of MMC is shown in Figure~\ref{fig:mmc_ac_equivalent_circuit}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_2/Graphics/mmc_ac_equivalent_circuit.png}
+    \caption{AC Side Equivalent Circuit of MMC}
+    \label{fig:mmc_ac_equivalent_circuit}
+\end{figure}
+and the equavilant circuit for DC side of MMC is shown in Figure~\ref{fig:mmc_dc_equivalent_circuit}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_2/Graphics/mmc_dc_equivalent_circuit.png}
+    \caption{DC Side Equivalent Circuit of MMC}
+    \label{fig:mmc_dc_equivalent_circuit}
+\end{figure}
+
 
 \section{Control of MMC}
 \section{Modeling of DAB}
