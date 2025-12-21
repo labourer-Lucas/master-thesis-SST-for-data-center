@@ -2,21 +2,21 @@
 
 \clearpage
 
-\chapter{Modeling and Control of MMC-SST} \label{chapter:modeling_control_mmc_sst}
-The chapter presents the modeling and control strategies for MMC-SST. It covers the topology, modeling, and control methods for both the MMC and the DAB converter used in the SST system.
-% \section{Topology of MMC-SST}
+\chapter{Modeling and Control of MMC} \label{chapter:modeling_control_mmc_sst}
+The chapter presents the modeling and control strategies for MMC. It covers the topology, modeling, and control methods for the MMC.
+
  
 \section{Topology of MMC and its working principle}
 \subsection{Topology of three-phase MMC}
 The topology of a three-phase MMC is illustrated in Figure~\ref{fig:three_phase_mmc_topology}. 
+
+In the Figure~\ref{fig:three_phase_mmc_topology}, $u_{sj}(j=a,b,c)$ represents the AC side phase voltages, and $i_{sj}$ represents the AC side phase currents. $u_{uj}$ and $u_{lj}$ represent the upper and lower arm voltages of phase $j$, respectively. $i_{uj}$ and $i_{lj}$ represent the upper and lower arm currents of phase $j$, respectively.$L_s$ and $R_s$ represent the AC side filter inductance and resistance, respectively. $L_0$ and $R_0$ represent the arm inductance and resistance, respectively. $I_{dc}$ represents the DC side current, and $U_{dc}$ represents the DC side voltage.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapter_2/Graphics/three_phase_mmc_topology.png}
     \caption{Topology of Three-Phase MMC}
     \label{fig:three_phase_mmc_topology}
 \end{figure}
-
-In the Figure~\ref{fig:three_phase_mmc_topology}, $u_{sj}(j=a,b,c)$ represents the AC side phase voltages, and $i_{sj}$ represents the AC side phase currents. $u_{uj}$ and $u_{lj}$ represent the upper and lower arm voltages of phase $j$, respectively. $i_{uj}$ and $i_{lj}$ represent the upper and lower arm currents of phase $j$, respectively.$L_s$ and $R_s$ represent the AC side filter inductance and resistance, respectively. $L_0$ and $R_0$ represent the arm inductance and resistance, respectively. $I_{dc}$ represents the DC side current, and $U_{dc}$ represents the DC side voltage.
 
 Each phase of the MMC consists of upper and lower arms, each containing multiple submodules (SMs) connected in series. Each arm also includes an arm inductor $L_{0}$ and an arm resistor $R_{0}$. $L_0$ helps to limit the change rate of arm current when faults occur, and helps to suppress circulating current ripples. 
 The arms are connected to the AC side through inductors $L_s$ and its equavilant resistance $R_s$. 
@@ -94,6 +94,7 @@ where $i_{uj}$ and $i_{lj}$ are the upper and lower arm currents of phase $j$, r
 The more submodules are used in each arm, the more voltage levels can be generated, resulting in a waveform that more closely approximates a sine wave. This reduces the harmonic content in the output voltage and current, improving power quality.
 
 \section{Mathematical Model of MMC}
+\subsection{Model in stationary frame}
 During normal operation, the operating state of the MMC submodule can be changed by controlling the on-off states of the two IGBTs in the submodule arm. Therefore, the submodule can be equivalent to a controllable voltage source. Assuming the switching devices are ideal components, the ideal switching model of the MMC submodule can be obtained, as shown in Figure~\ref{fig:sm_ideal_model}.
 \begin{figure}[H]
     \centering
@@ -200,7 +201,7 @@ Substituting equations \eqref{eq:mmc_circulating_current} and \eqref{eq:mmc_unba
     \label{eq:mmc_dc_dynamic_characteristic}
 \end{equation}
 
-Equation \eqref{eq:mmc_dc_dynamic_characteristic} represents the dynamic characteristic equation of the MMC DC side in the $abc$ three-phase stationary coordinate system.
+Equation \eqref{eq:mmc_dc_dynamic_characteristic} represents the dynamic characteristic equation of the MMC DC side in the $abc$ three-phase stationary coordinate system. To minimize the impact of circulating currents, we can control the common mode voltage $u^{\Sigma}_{j}$ through appropriate modulation strategies, thereby regulating the circulating current $i^{\Sigma}_{j}$ within acceptable limits.
 
 Therefroe, the complete mathematical model of the MMC can be described by equations \eqref{eq:mmc_voltage_equation_simplified} and \eqref{eq:mmc_dc_dynamic_characteristic}, which capture both the AC side voltage dynamics and the DC side dynamic characteristics of the MMC. The equavilant circuit for AC side of MMC is shown in Figure~\ref{fig:mmc_ac_equivalent_circuit}.
 \begin{figure}[H]
@@ -217,9 +218,200 @@ and the equavilant circuit for DC side of MMC is shown in Figure~\ref{fig:mmc_dc
     \label{fig:mmc_dc_equivalent_circuit}
 \end{figure}
 
+\subsection{Model in dq frame}
+Based on the analysis in the previous section, the expression of the MMC AC side dynamic mathematical model in the $abc$ coordinate system is:
+\begin{equation}
+    \begin{cases}
+        -u_{sa} + u^{\Delta}_{a} = L_{eq} \frac{di_{sa}}{dt} + R_{eq} i_{sa} \\
+        -u_{sb} + u^{\Delta}_{b} = L_{eq} \frac{di_{sb}}{dt} + R_{eq} i_{sb} \\
+        -u_{sc} + u^{\Delta}_{c} = L_{eq} \frac{di_{sc}}{dt} + R_{eq} i_{sc}
+    \end{cases}
+    \label{eq:mmc_ac_dynamic_abc}
+\end{equation}
+Rearranging equation \eqref{eq:mmc_ac_dynamic_abc} into matrix form gives:
+\begin{equation}
+    L_{eq} \frac{d}{dt} \begin{bmatrix} i_{sa} \\ i_{sb} \\ i_{sc} \end{bmatrix} = -\begin{bmatrix} u_{sa} \\ u_{sb} \\ u_{sc} \end{bmatrix} + \begin{bmatrix} u^{\Delta}_{a} \\ u^{\Delta}_{b} \\ u^{\Delta}_{c} \end{bmatrix} - R_{eq} \begin{bmatrix} i_{sa} \\ i_{sb} \\ i_{sc} \end{bmatrix}
+    \label{eq:mmc_ac_dynamic_matrix}
+\end{equation}
+From equation \eqref{eq:mmc_ac_dynamic_matrix}, it can be seen that during steady-state operation, both voltage and current are AC quantities. To simplify the control design steps and obtain DC quantities that are easier to control, equation \eqref{eq:mmc_ac_dynamic_matrix} is subjected to the Park transformation. The transformation steps between the two coordinate systems are:
+\begin{equation}
+    \mathbf{X_{dq}} = T_{abc-dq} \mathbf{X_{abc}}
+    \label{eq:park_transformation}
+\end{equation}
+The Park transformation matrix $T_{abc-dq}$ in equation \eqref{eq:park_transformation} is defined as:
+\begin{equation}
+    T_{abc-dq} = \frac{2}{3} \begin{bmatrix} \cos\theta & \cos(\theta - 2\pi/3) & \cos(\theta + 2\pi/3) \\ -\sin\theta & -\sin(\theta - 2\pi/3) & -\sin(\theta + 2\pi/3) \end{bmatrix}
+    \label{eq:park_matrix}
+\end{equation}
+where $\theta$ is the phase angle of the phase voltage, $\theta = \omega t$.
 
+Suppose the three-phase AC system is balanced, and the amplitude of the phase voltage is ${U_g}$, then the three-phase AC voltages can be expressed as:
+\begin{equation}
+    \begin{bmatrix} u_{sa} \\ u_{sb} \\ u_{sc} \end{bmatrix} = U_g \begin{bmatrix} \cos\omega t \\ \cos(\omega t - 2\pi/3) \\ \cos(\omega t + 2\pi/3) \end{bmatrix}
+    \label{eq:ac_phase_voltage}
+\end{equation}
+where $U_g$ is the peak value of the phase voltage, and $\omega$ is the angular frequency of the AC system. Substituting equation \eqref{eq:ac_phase_voltage} into equation \eqref{eq:park_matrix} gives:
+\begin{equation}
+    \begin{bmatrix} u_{sd} \\ u_{sq} \end{bmatrix} = T_{abc-dq} \begin{bmatrix} u_{sa} \\ u_{sb} \\ u_{sc} \end{bmatrix} = \begin{bmatrix} U_g \\ 0 \end{bmatrix}
+    \label{eq:ac_voltage_dq}
+\end{equation}
+Equation \eqref{eq:ac_voltage_dq} reflects that when $\theta$ is the phase angle $\omega t$ of the phase $a$ voltage $u_{sa}$, the $d$-axis coincides with the vector of the AC voltage. Therefore, in steady state, the $d$-axis component $u_{sd}$ of the AC system voltage is equal to the phase voltage peak $U_g$, and the $q$-axis component $u_{sq}$ is equal to 0.
+
+By applying the transformation matrix $T_{abc-dq}$ to equation \eqref{eq:mmc_ac_dynamic_matrix}, the mathematical model of the MMC in the $dq$ coordinate system can be obtained:
+\begin{equation}
+    L_{eq} \frac{d}{dt} \begin{bmatrix} i_{sd} \\ i_{sq} \end{bmatrix} = -\begin{bmatrix} u_{sd} \\ u_{sq} \end{bmatrix} + \begin{bmatrix} u^{\Delta}_{d} \\ u^{\Delta}_{q} \end{bmatrix} - R_{eq} \begin{bmatrix} i_{sd} \\ i_{sq} \end{bmatrix} + \begin{bmatrix} 0 & \omega L_{eq} \\ -\omega L_{eq} & 0 \end{bmatrix} \begin{bmatrix} i_{sd} \\ i_{sq} \end{bmatrix}
+    \label{eq:mmc_ac_dynamic_dq}
+\end{equation}
+To simplify the calculation, performing the Laplace transform on equation \eqref{eq:mmc_ac_dynamic_dq} derives the frequency-domain expression in the $dq$ coordinate system:
+\begin{equation}
+    \begin{cases} (sL_{eq} + R_{eq})i_{sd} = -u_{sd} + u^{\Delta}_{d} + \omega L_{eq} i_{sq} \\ (sL_{eq} + R_{eq})i_{sq} = -u_{sq} + u^{\Delta}_{q} - \omega L_{eq} i_{sd} \end{cases}
+    \label{eq:mmc_ac_dynamic_laplace}
+\end{equation}
+According to equation \eqref{eq:mmc_ac_dynamic_laplace}, the equivalent mathematical model under the $dq$ coordinate axes can be established, as shown in Figure~\ref{fig:mmc_dq_model}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_2/Graphics/mmc_dq_model.png}
+    \caption{Equivalent Mathematical Model of MMC in $dq$ Coordinate System}
+    \label{fig:mmc_dq_model}
+\end{figure}
 \section{Control of MMC}
-\section{Modeling of DAB}
-\section{Control of DAB}
+\subsection{Decoupling control of current}
+From the equivalent mathematical model of the MMC in the $dq$ coordinate system shown in Figure~\ref{fig:mmc_dq_model}, it can be observed that the $d$-axis and $q$-axis currents are coupled through the terms $\omega L_{eq} i_{sq}$ and $-\omega L_{eq} i_{sd}$. To achieve independent control of the $d$-axis and $q$-axis currents, decoupling control is necessary.
+
+The block diagram of the decoupling control strategy is illustrated in Figure~\ref{fig:mmc_decoupling_control}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapter_2/Graphics/mmc_decoupling_control.png}
+    \caption{Block Diagram of Decoupling Control Strategy}
+    \label{fig:mmc_decoupling_control}
+\end{figure}
+
+The ${u^{\Delta}_d}^*$ and ${u^{\Delta}_q}^*$ are the reference values for the differential voltages in the $d$-axis and $q$-axis, respectively, which are generated by the PI controllers.
+
+\subsection{Control of the power loop}
+From instantaneous power theory\cite{akagi2017instantaneous}, the active power $P$ and reactive power $Q$ in terms of $abc$ coordinates can be expressed as:
+\begin{equation}
+    \begin{cases}
+    P = u_a i_a + u_b i_b + u_c i_c\\
+    Q = \frac{1}{\sqrt{3}} \left[ (u_b - u_c)i_a + (u_c - u_a)i_b + (u_a - u_b)i_c \right]
+    \end{cases}
+\end{equation}
+
+By applying the Park transformation to the above equations, the expressions for active power $P$ and reactive power $Q$ in the $dq$ coordinate system can be derived as:
+%matrix form
+\begin{equation}
+    \begin{bmatrix} P \\ Q \end{bmatrix} =\frac{3}{2} \begin{bmatrix} u_{sd} & u_{sq} \\ u_{sq} & -u_{sd} \end{bmatrix} \begin{bmatrix} i_{sd} \\ i_{sq} \end{bmatrix}
+    \label{eq:mmc_power_dq}
+\end{equation}
+
+From equation \eqref{eq:mmc_power_dq}, it can be observed that we can control the active power $P$ and reactive power $Q$ by adjusting the $d$-axis current $i_{sd}$ and $q$-axis current $i_{sq}$.
+
+For oprn loop control of active and reactive power, we can calculate the reference values of $d$-axis and $q$-axis currents based on the desired active power $P^*$ and reactive power $Q^*$ as follows:
+\begin{equation}
+    \begin{bmatrix} i_{sd}^* \\ i_{sq}^* \end{bmatrix} = \frac{3}{2(u_{sd}^2 + u_{sq}^2)} \begin{bmatrix} u_{sd} & -u_{sq} \\ -u_{sq} & -u_{sd} \end{bmatrix} \begin{bmatrix} P^* \\ Q^* \end{bmatrix}
+    \label{eq:mmc_current_reference}
+\end{equation}
+
+In steady-state operation, the $d$-axis voltage $u_{sd}$ is equal to the peak value of the phase voltage $U_g$, and the $q$-axis voltage $u_{sq}$ is equal to 0. Therefore, the instantaneous active power $P$ and reactive power $Q$ can be simplified as:
+\begin{equation}
+    \begin{cases}
+        P = \frac{3}{2} u_{sd} i_{sd} \\
+        Q = -\frac{3}{2} u_{sd} i_{sq}
+    \end{cases}
+    \label{eq:mmc_power_simplified}
+\end{equation}
+
+From equation \eqref{eq:mmc_power_simplified}, it can be seen that the instantaneous active power $P$ is proportional to the $d$-axis current component $i_{sd}$, and the instantaneous reactive power $Q$ is proportional to the negative value of the $q$-axis current component $i_{sq}$. By controlling $i_{sd}$ and $i_{sq}$, independent control of $P$ and $Q$ can be achieved. To eliminate steady-state errors, a PI regulation term is introduced, and its expression is:
+\begin{equation}
+    \begin{cases}
+        i_{sd}^*(s) = \frac{2 P^*}{3 u_{sd}(s)} + C_{PI}(s) (P^* - P(s)) \\
+        i_{sq}^*(s) = -\frac{2 Q^*}{3 u_{sd}(s)} + C_{PI}(s) (Q^* - Q(s))
+    \end{cases}
+    \label{eq:mmc_outer_loop_pi}
+\end{equation}
+According to equation \eqref{eq:mmc_outer_loop_pi}, the outer-loop controllers for active and reactive power can be designed respectively. The block diagram of the power loop control strategy is illustrated in Figure~\ref{fig:mmc_power_loop_control}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_2/Graphics/mmc_power_loop_control.png}
+    \caption{Block Diagram of Power Loop Control Strategy}
+    \label{fig:mmc_power_loop_control}
+\end{figure}
+\section{Modulation of MMC}
+The modulation strategy of MMC directly affects its output voltage quality, harmonic content, and overall performance. 
+
+Various modulation strategies can be employed for MMC. From the difference of switching frequency, modulation strategies can be classified into multiple-carrier-based modulation, staircase waveform modulation, and space vector modulation\cite{9058591}.
+\subsection{Multiple-carrier-based modulation}
+High-frequency multicarrier techniques include Carrier-Disposition PWM (CD-PWM)—with variants such as Phase Disposition (PD), Phase Opposition Disposition (POD), and Alternate POD (APOD)—which utilize vertically stacked triangular carriers. While CD-PWM can achieve low harmonic distortion, it is inherently prone to unbalanced capacitor voltage fluctuations and uneven energy distribution among SMs, often requiring signal or carrier rotation to maintain balance.
+
+Carrier Phase-Shifted Sinusoidal Pulse Width Modulation (CPS-SPWM) is the most commonly used modulation method for MMC. It employs horizontally displaced carriers to facilitate natural voltage balancing and high-quality output waveforms, although it incurs higher switching losses due to increased switching activity. This strategy combines the concept of interleaving with Sinusoidal Pulse Width Modulation (SPWM), achieving a high equivalent switching frequency even at low actual switching frequencies. For an MMC with $N$ submodules per arm, CPS-SPWM generates $N$ sets of PWM signals by comparing the modulating wave with $N$ carriers that have the same amplitude and frequency but are phase-shifted by $2\pi/N$ relative to each other. These $N$ sets of modulation signals control the operating states (inserted or bypassed) of the corresponding $N$ submodules to obtain the converter's output voltage. In this method, the phase difference between corresponding submodules in the upper and lower arms of the same phase is $\theta$ ($0 \le \theta \le \pi/N$), and the modulating waves for the upper and lower arm submodules of each phase are exactly opposite in phase. The expressions for the carrier ratio $k$, and voltage modulation index $m$ are as follows:
+\begin{equation}
+    k = \frac{f_c}{f_m}, \quad k \ge 1
+    \label{eq:mmc_carrier_ratio}
+\end{equation}
+\begin{equation}
+    m = \frac{A_m}{A_c}
+    \label{eq:mmc_modulation_index}
+\end{equation}
+where $f_c$ is the triangular carrier frequency, $f_m$ is the modulating wave frequency, $A_c$ is the triangular carrier amplitude, and $A_m$ is the modulating wave amplitude.
+
+The multiple-carrier-based modulation strategy is illustrated in Figure~\ref{fig:mmc_multiple_carrier_modulation}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Chapter_2/Graphics/mmc_multiple_carrier_modulation.png}
+    \caption{Multiple-Carrier-Based Modulation Strategy: a) PD, b) POD, c) APOD, d) CPS\cite{5138833}}
+    \label{fig:mmc_multiple_carrier_modulation}
+\end{figure}
+
+\subsection{Staircase modulation}
+When the number of MMC submodules is large, the computational load of the CPS-SPWM modulation strategy becomes very high and its implementation becomes complex. Therefore, CPS-SPWM is no longer suitable for high-voltage applications with a large number of submodules. Compared with CPS-SPWM, the Nearest Level Modulation (NLM) strategy is relatively simple to implement, has a low switching frequency, and results in smaller switching losses. However, when the number of levels is small, the approximation error is large and the harmonic content increases. Thus, NLM is mainly used in high-voltage applications with a large number of levels.
+
+NLM is also known as the quantization rounding method. Its core idea is to select the voltage level from the possible converter output levels that is closest to the sampled value of the modulating wave as the control command, and then control the corresponding submodules to obtain the required voltage output. The modulation principle of this strategy is shown in Figure~\ref{fig:mmc_nlm_principle}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Chapter_2/Graphics/mmc_nlm_principle.png}
+    \caption{Modulation Principle of Nearest Level Modulation}
+    \label{fig:mmc_nlm_principle}
+\end{figure}
+
+In this strategy, $N$ submodules are inserted in the upper and lower arms of each phase at any time. The number of inserted submodules in the upper arm $n_{pj}$ and the lower arm $n_{nj}$ are expressed as:
+\begin{equation}
+    \begin{cases}
+        n_{uj} = \frac{N}{2} - \text{round}\left(\frac{{u_j^\Delta}^*}{U_c}\right) \\
+        n_{lj} = \frac{N}{2} + \text{round}\left(\frac{{u_j^\Delta}^*}{U_c}\right)
+    \end{cases}
+    \label{eq:mmc_nlm_sm_number}
+\end{equation}
+where ${u_j^\Delta}^*$ is the reference value of the MMC output voltage; $U_c$ is the average value of the submodule capacitor voltage; and $\text{round}()$ is the rounding function, with $0 \le n_{uj}, n_{lj} \le N$. Theoretically, NLM can control the difference between the output voltage and the modulating voltage within $\pm U_{dc}/2$.
+
+Selective Harmonic Elimination (SHE) is another low-frequency staircase modulation strategy. Its core idea is to calculate specific switching angles to eliminate certain low-order harmonics in the output voltage waveform. By solving a set of nonlinear equations, the switching angles that eliminate specific harmonics can be determined. However, as the number of levels increases, the calculation becomes extremely complex, making it impractical for MMCs with a large number of submodules.
+
+\subsection{Space vector modulation}
+Space Vector Modulation (SVM) offers superior flexibility in optimizing performance parameters such as circulating currents and harmonics by directly controlling line-to-line voltages, but its implementation faces significant challenges in computational complexity as the number of sub-modules increases.
+
+\subsection{Comparison}
+The comparison of different MMC modulation strategies is summarized in Table~\ref{tab:mmc_modulation_comparison}.
+
+\begin{table}[H]
+    \centering
+    \caption{Comparison of MMC Modulation Strategies}
+    \label{tab:mmc_modulation_comparison}
+    \begin{tabular}{p{2.5cm}p{2.5cm}p{3cm}p{5cm}}
+        \toprule
+        Category & Method & Principle & Characteristics \\
+        \midrule
+        PWM & CD-PWM (PD/POD/APOD) & Carriers are vertically stacked and compared & Good harmonic characteristics, but capacitor voltages are prone to imbalance; requires rotation algorithms. \\
+        \addlinespace
+        PWM & PSC-PWM & Carriers are horizontally phase-shifted and compared & Strong natural balancing capability, extremely high output quality, but higher switching losses. \\
+        \midrule
+        staircase modulation & NLC  & Selects the level closest to the reference value & Extremely low losses, suitable for HVDC systems with many SMs, simple algorithm. \\
+        \addlinespace
+        staircase modulation & SHE & Calculates specific switching angles to eliminate harmonics & Precisely eliminates low-order harmonics, but calculation is extremely complex for many levels. \\
+        \midrule
+        Space vector modulation & SVM & Directly controls AC line-to-line voltages & Highest control flexibility, allows multi-objective optimization, but computational complexity grows exponentially with the number of levels. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \cleardoublepage
