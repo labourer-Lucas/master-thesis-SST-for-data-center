@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-1466, 370; -603, 807]
+    Location      [265, 241; 1128, 678]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -498,12 +498,12 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "InputWidth"
-        Value         "[8]"
+        Value         "[4*N]"
         Show          off
       }
       Parameter {
         Variable      "OutputIndices"
-        Value         "[1 5]"
+        Value         "[1 2*N+1]"
         Show          off
       }
     }
@@ -1133,7 +1133,7 @@ Plecs {
       Type          Signal
       SrcComponent  "UL-DS"
       SrcTerminal   2
-      Points        [320, 55]
+      Points        [320, 55; 320, 70]
       DstComponent  "modulator"
       DstTerminal   1
     }
