@@ -1,9 +1,73 @@
 \setcounter{equation}{0}
 
 \clearpage
-
 \chapter{Research on Modulation and Control Optimization of MMC-SST} \label{chapter:research_modulation_control_optimization_mmc_sst}
 \section{Modeling of Single Stage AC-AC MMC}
+The circuit diagram of single stage AC-AC MMC is shown in Figure \ref{fig:single_stage_ac_ac_mmc_circuit_model}. Instead of the DC source in MMC inverter or rectifier, the single stage AC-AC MMC uses three-phase AC source as the input, which are $u_{sj}$, where $j = a, b, c$. The output of the MMC is single phase AC voltage $u_{p}$. $u_{uj}$ and $u_{lj}$ are the upper arm and lower arm voltages of phase $j$, respectively. The upper arm and lower arm currents of phase $j$ are represented by $i_{uj}$ and $i_{lj}$, respectively. The AC source current of phase $j$ is represented by $i_{sj}$. The output current is represented by $i_{p}$. Each arm of the MMC consists of $N$ SMs, and each SM is built with a full-bridge circuit. $L_0$ and $R_0$ are the arm inductance and resistance.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Chapter_3/Graphics/single_stage_ac_ac_mmc_circuit_model.png}
+    \caption{Circuit Model of Single Stage AC-AC MMC}
+    \label{fig:single_stage_ac_ac_mmc_circuit_model}
+\end{figure}
+
+Similar to Section \ref{section:mmc_model_stationary_frame}, we apply KVL to the upper and lower arms of phase $j$ to obtain the following equations:
+\begin{equation}
+    L_0 \frac{di_{uj}}{dt} + R_0 i_{uj} = u_{uj}+u_{sj}-\frac{u_{p}}{2}
+    \label{eq:upper_arm_voltage_single_stage_ac_ac_mmc}
+\end{equation}
+\begin{equation}
+    L_0 \frac{di_{lj}}{dt} + R_0 i_{lj} = u_{lj}-u_{sj}-\frac{u_{p}}{2}
+    \label{eq:lower_arm_voltage_single_stage_ac_ac_mmc}
+\end{equation}
+
+We define the common and differential mode variables of the upper and lower armas follows:
+\begin{equation}
+    \begin{cases}
+        u^{\Delta}_{j} = \frac{u_{lj} - u_{uj}}{2} \\
+        u^{\Sigma}_{j} = \frac{u_{lj} + u_{uj}}{2}
+    \end{cases}
+    \label{eq:mmc_voltage_components}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        i^{\Delta}_{j} = \frac{i_{lj} - i_{uj}}{2} \\
+        i^{\Sigma}_{j} = \frac{i_{lj} + i_{uj}}{2}
+    \end{cases}
+    \label{eq:mmc_current_components}
+\end{equation}
+ 
+Thus, substitution of equations \eqref{eq:mmc_voltage_components} and \eqref{eq:mmc_current_components} into equations \eqref{eq:upper_arm_voltage_single_stage_ac_ac_mmc} and \eqref{eq:lower_arm_voltage_single_stage_ac_ac_mmc} yields:
+\begin{equation}
+    L_0 \frac{di^{\Sigma}_{j}}{dt} + R_0 i^{\Sigma}_{j} = u^{\Sigma}_{j} - \frac{u_{p}}{2}
+    \label{eq:common_mode_voltage_single_stage_ac_ac_mmc}
+\end{equation}
+\begin{equation}
+    L_0 \frac{di^{\Delta}_{j}}{dt} + R_0 i^{\Delta}_{j} = u^{\Delta}_{j} + u_{sj}
+    \label{eq:differential_mode_voltage_single_stage_ac_ac_mmc}
+\end{equation}
+
+From equations \eqref{eq:differential_mode_voltage_single_stage_ac_ac_mmc}, we can draw the equivalent circuit of the low frequency side of AC-AC MMC, which is connected to the three-phase grid, as shown in Figure \ref{fig:single_stage_ac_ac_mmc_low_frequency_equivalent_circuit}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_3/Graphics/single_stage_ac_ac_mmc_low_frequency_equivalent_circuit.png}
+    \caption{Low Frequency Side Equivalent Circuit of Single Stage AC-AC MMC}
+    \label{fig:single_stage_ac_ac_mmc_low_frequency_equivalent_circuit}
+\end{figure}
+
+From equations \eqref{eq:common_mode_voltage_single_stage_ac_ac_mmc}, we can draw the equivalent circuit of the high frequency side of AC-AC MMC, which is connected to the single phase AC load, as shown in Figure \ref{fig:single_stage_ac_ac_mmc_high_frequency_equivalent_circuit}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapter_3/Graphics/single_stage_ac_ac_mmc_high_frequency_equivalent_circuit.png}
+    \caption{High Frequency Side Equivalent Circuit of Single Stage AC-AC MMC}
+    \label{fig:single_stage_ac_ac_mmc_high_frequency_equivalent_circuit}
+\end{figure}
+
+Therefore, if we want to control the output voltage $u_{p}$ and the AC source current $i_{sj}$, we need to control the common mode voltage $u^{\Sigma}_{j}$ and differential mode voltage $u^{\Delta}_{j}$ of each phase $j$.
+
+
 \section{Control of Single Stage AC-AC MMC}
 \section{Pulse Amplitude Control (PAC) for MMC-SST}
 
