@@ -30,7 +30,7 @@ Plecs {
   FixedPointDatatypeOverride "1"
   InitializationCommands "%Simulation step\nTs=1e-6;\n%Submodule initila condi"
 "tion\nC_0=1e-3;\nV_0=500;\n\nR_0=1e-3;\nR_s=10e6;\nC_s=inf;\n% Levels of inve"
-"rtered\nN=3;\nnum_sm=N-1;\nf_0=50;\nf_sw=1000;\nV_dc=12e3;\n\nL_0=0;\nR_o=1;"
+"rtered\nN=3;\nnum_sm=N-1;\nf_0=50;\nf_sw=10000;\nV_dc=12e3;\n\nL_0=0;\nR_o=1;"
 "\nL_g=1e-3;\nR_g=0.01;"
   InitialState  "1"
   SystemState   ""
@@ -56,7 +56,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [539, 99; 1395, 930]
+    Location      [539, 62; 1395, 865]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -1701,14 +1701,14 @@ Plecs {
       LabelPosition south
       Location      [640, 276; 1227, 673]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADUA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABnAP///wAAAAMAAAJLAAAAgvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAksAAABRAP///wAAAksAAADsAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAJLAAAA8vw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAksAAAA+AP///wAAAksAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":185,\"Labels\":["
-"\"Delta\",\"THD\"],\"VisualIdxs\":[3,10]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":185,\"Labels\":[\""
+"Delta\",\"THD\"],\"VisualIdxs\":[3,10]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"

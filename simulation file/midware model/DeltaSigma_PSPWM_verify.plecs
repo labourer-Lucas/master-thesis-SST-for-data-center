@@ -1,14 +1,14 @@
 Plecs {
   Name          "DeltaSigma_PSPWM_verify"
   Version       "4.9"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "1e-6"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [265, 241; 1128, 678]
+    Location      [-10, 250; 853, 687]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -515,7 +515,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition southSouthwest
-      Location      [-1279, 316; -891, 544]
+      Location      [0, 316; 388, 544]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAAyPw"
@@ -523,8 +523,8 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":183,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":183,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -761,22 +761,22 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 344; 388, 796]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [308, 337; 696, 789]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAACsAAABJPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAABFvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAAAAAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMBAAAAHAAAASQAAABmAP///wAAAAMAAAGEAAAAg/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAANcAAAEkAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":159,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":159,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
