@@ -53,16 +53,16 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [409, 62; 1470, 855]
+    Location      [839, 241; 1354, 588]
     ZoomFactor    1.05305
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
       Type          Subsystem
-      Name          "MMC"
+      Name          "MMC_single"
       Show          on
-      Position      [275, 190]
+      Position      [315, 220]
       Direction     up
       Flipped       off
       LabelPosition none
@@ -142,12 +142,12 @@ Plecs {
       }
       Terminal {
         Type          Output
-        Position      [99, -65]
+        Position      [99, 15]
         Direction     right
       }
       Terminal {
         Type          Output
-        Position      [99, -80]
+        Position      [99, 25]
         Direction     right
       }
       Terminal {
@@ -155,8 +155,18 @@ Plecs {
         Position      [-95, 15]
         Direction     left
       }
+      Terminal {
+        Type          Output
+        Position      [99, 50]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 60]
+        Direction     right
+      }
       Schematic {
-        Location      [-1195, 263; 275, 1056]
+        Location      [714, 184; 1792, 894]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -202,7 +212,7 @@ Plecs {
           Type          Inductor
           Name          "L2"
           Show          on
-          Position      [305, 460]
+          Position      [305, 440]
           Direction     down
           Flipped       off
           LabelPosition west
@@ -297,7 +307,7 @@ Plecs {
           Type          Input
           Name          "PWMAP"
           Show          on
-          Position      [165, 150]
+          Position      [45, 105]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -467,7 +477,7 @@ Plecs {
         }
         Component {
           Type          Output
-          Name          "VAP"
+          Name          "VCAP"
           Show          on
           Position      [580, 140]
           Direction     right
@@ -488,7 +498,7 @@ Plecs {
           Type          SignalDemux
           Name          "Demux"
           Show          off
-          Position      [225, 150]
+          Position      [105, 105]
           Direction     right
           Flipped       on
           LabelPosition south
@@ -502,7 +512,7 @@ Plecs {
           Type          Goto
           Name          "Goto"
           Show          off
-          Position      [250, 135]
+          Position      [130, 90]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -526,7 +536,7 @@ Plecs {
           Type          Goto
           Name          "Goto1"
           Show          off
-          Position      [250, 145]
+          Position      [130, 100]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -550,7 +560,7 @@ Plecs {
           Type          Goto
           Name          "Goto2"
           Show          off
-          Position      [250, 155]
+          Position      [130, 110]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -574,7 +584,7 @@ Plecs {
           Type          Goto
           Name          "Goto3"
           Show          off
-          Position      [250, 165]
+          Position      [130, 120]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -826,7 +836,7 @@ Plecs {
         }
         Component {
           Type          Output
-          Name          "VAL"
+          Name          "VCAL"
           Show          on
           Position      [580, 525]
           Direction     right
@@ -943,7 +953,7 @@ Plecs {
           Type          Input
           Name          "PWMAL"
           Show          on
-          Position      [155, 535]
+          Position      [65, 455]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -962,7 +972,7 @@ Plecs {
           Type          SignalDemux
           Name          "Demux1"
           Show          off
-          Position      [215, 535]
+          Position      [125, 455]
           Direction     right
           Flipped       on
           LabelPosition south
@@ -976,13 +986,13 @@ Plecs {
           Type          Goto
           Name          "Goto4"
           Show          off
-          Position      [240, 520]
+          Position      [150, 440]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL1"
+            Value         "AL11"
             Show          off
           }
           Parameter {
@@ -1000,13 +1010,13 @@ Plecs {
           Type          Goto
           Name          "Goto5"
           Show          off
-          Position      [240, 530]
+          Position      [150, 450]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL2"
+            Value         "AL12"
             Show          off
           }
           Parameter {
@@ -1024,13 +1034,13 @@ Plecs {
           Type          Goto
           Name          "Goto6"
           Show          off
-          Position      [240, 540]
+          Position      [150, 460]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL3"
+            Value         "AL21"
             Show          off
           }
           Parameter {
@@ -1048,13 +1058,13 @@ Plecs {
           Type          Goto
           Name          "Goto7"
           Show          off
-          Position      [240, 550]
+          Position      [150, 470]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL4"
+            Value         "AL22"
             Show          off
           }
           Parameter {
@@ -1065,6 +1075,62 @@ Plecs {
           Parameter {
             Variable      "NoMatchingCounterpartAction"
             Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          Voltmeter
+          Name          "Vm1"
+          Show          off
+          Position      [265, 160]
+          Direction     down
+          Flipped       on
+          LabelPosition east
+        }
+        Component {
+          Type          Output
+          Name          "VAU"
+          Show          on
+          Position      [170, 160]
+          Direction     left
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Index"
+            Value         "10"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Voltmeter
+          Name          "Vm2"
+          Show          off
+          Position      [265, 540]
+          Direction     down
+          Flipped       on
+          LabelPosition east
+        }
+        Component {
+          Type          Output
+          Name          "VAL"
+          Show          on
+          Position      [170, 540]
+          Direction     left
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Index"
+            Value         "11"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
             Show          off
           }
         }
@@ -1102,16 +1168,8 @@ Plecs {
           Type          Signal
           SrcComponent  "Vm7"
           SrcTerminal   3
-          DstComponent  "VAP"
+          DstComponent  "VCAP"
           DstTerminal   1
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "MFB1"
-          SrcTerminal   3
-          Points        [305, 160]
-          DstComponent  "L1"
-          DstTerminal   2
         }
         Connection {
           Type          Signal
@@ -1214,7 +1272,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Vm8"
           SrcTerminal   3
-          DstComponent  "VAL"
+          DstComponent  "VCAL"
           DstTerminal   1
         }
         Connection {
@@ -1248,14 +1306,6 @@ Plecs {
           Points        [455, 615; 455, 570]
           DstComponent  "MFB2"
           DstTerminal   5
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "L2"
-          SrcTerminal   1
-          Points        [305, 535]
-          DstComponent  "MFB2"
-          DstTerminal   2
         }
         Connection {
           Type          Signal
@@ -1308,22 +1358,6 @@ Plecs {
         }
         Connection {
           Type          Wire
-          SrcComponent  "VDC-"
-          SrcTerminal   1
-          Points        [305, 650; 305, 545]
-          DstComponent  "MFB2"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "VDC+"
-          SrcTerminal   1
-          Points        [305, 55; 305, 150]
-          DstComponent  "MFB1"
-          DstTerminal   2
-        }
-        Connection {
-          Type          Wire
           SrcComponent  "VA"
           SrcTerminal   1
           Points        [305, 355]
@@ -1349,6 +1383,83 @@ Plecs {
           SrcTerminal   3
           DstComponent  "IAL"
           DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "VDC+"
+          SrcTerminal   1
+          Points        [305, 55; 305, 95]
+          Branch {
+            Points        [305, 150]
+            DstComponent  "MFB1"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [265, 95]
+            DstComponent  "Vm1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "MFB1"
+          SrcTerminal   3
+          Points        [305, 160; 305, 225]
+          Branch {
+            DstComponent  "L1"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [265, 225]
+            DstComponent  "Vm1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vm1"
+          SrcTerminal   3
+          DstComponent  "VAU"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vm2"
+          SrcTerminal   3
+          DstComponent  "VAL"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "L2"
+          SrcTerminal   1
+          Points        [305, 475]
+          Branch {
+            Points        [305, 535]
+            DstComponent  "MFB2"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [265, 475]
+            DstComponent  "Vm2"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "VDC-"
+          SrcTerminal   1
+          Points        [305, 650; 305, 605]
+          Branch {
+            Points        [305, 545]
+            DstComponent  "MFB2"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [265, 605]
+            DstComponent  "Vm2"
+            DstTerminal   2
+          }
         }
       }
     }
