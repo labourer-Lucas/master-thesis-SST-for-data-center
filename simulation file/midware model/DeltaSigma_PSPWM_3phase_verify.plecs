@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-1642, 338; -609, 1036]
+    Location      [0, 160; 1033, 858]
     ZoomFactor    1.3484
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -531,7 +531,8 @@ Plecs {
       Frame         [-10, -10; 10, 10]
       Parameter {
         Variable      "Value"
-        Value         "[1 1 1 1 1 1]"
+        Value         "[1/N*ones(1,N) 1/N*ones(1,N) 1/N*ones(1,N) 1/N*ones(1,N"
+") 1/N*ones(1,N) 1/N*ones(1,N)]"
         Show          off
       }
       Parameter {
@@ -1146,16 +1147,16 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [-1279, 316; -406, 827]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAANpAAAA9vwCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 316; 873, 827]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAKRAAABLPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMBAAAAHAAAAPYAAABmAP///wAAAAMAAANpAAAA7Pw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA2kAAAA+AP///wAAAAAAAACOAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAASwAAABmAP///wAAAAMAAANpAAABTfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA2kAAAA+AP///wAAA2kAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":71,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":139,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"

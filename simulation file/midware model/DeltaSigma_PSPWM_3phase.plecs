@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-1168, 443; -740, 761]
+    Location      [0, 443; 428, 761]
     ZoomFactor    1.5535
     SliderPosition [73, 43]
     ShowBrowser   off
@@ -114,9 +114,9 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [-1361, 157; -490, 835]
+        Location      [0, 69; 1145, 858]
         ZoomFactor    1.46204
-        SliderPosition [-1, 0]
+        SliderPosition [24, 51]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -423,13 +423,13 @@ Plecs {
           Type          From
           Name          "From30"
           Show          off
-          Position      [535, 155]
+          Position      [475, 155]
           Direction     right
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "VAU"
+            Value         "VcAU"
             Show          off
           }
           Parameter {
@@ -447,13 +447,13 @@ Plecs {
           Type          From
           Name          "From31"
           Show          off
-          Position      [535, 170]
+          Position      [475, 195]
           Direction     right
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "VAL"
+            Value         "VcAL"
             Show          off
           }
           Parameter {
@@ -471,13 +471,13 @@ Plecs {
           Type          From
           Name          "From32"
           Show          off
-          Position      [535, 260]
+          Position      [475, 310]
           Direction     right
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "VBU"
+            Value         "VcBU"
             Show          off
           }
           Parameter {
@@ -495,13 +495,13 @@ Plecs {
           Type          From
           Name          "From33"
           Show          off
-          Position      [535, 275]
+          Position      [475, 355]
           Direction     right
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "VBL"
+            Value         "VcBL"
             Show          off
           }
           Parameter {
@@ -519,13 +519,13 @@ Plecs {
           Type          From
           Name          "From34"
           Show          off
-          Position      [535, 365]
+          Position      [475, 465]
           Direction     right
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "VCU"
+            Value         "VcCU"
             Show          off
           }
           Parameter {
@@ -543,13 +543,13 @@ Plecs {
           Type          From
           Name          "From35"
           Show          off
-          Position      [535, 380]
+          Position      [475, 515]
           Direction     right
           Flipped       off
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "VCL"
+            Value         "VcCL"
             Show          off
           }
           Parameter {
@@ -573,7 +573,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VAU"
+            Value         "VcAU"
             Show          off
           }
           Parameter {
@@ -597,7 +597,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VAL"
+            Value         "VcAL"
             Show          off
           }
           Parameter {
@@ -621,7 +621,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VBU"
+            Value         "VcBU"
             Show          off
           }
           Parameter {
@@ -645,7 +645,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VBL"
+            Value         "VcBL"
             Show          off
           }
           Parameter {
@@ -669,7 +669,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VCU"
+            Value         "VcCU"
             Show          off
           }
           Parameter {
@@ -693,7 +693,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VCL"
+            Value         "VcCL"
             Show          off
           }
           Parameter {
@@ -717,7 +717,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Width"
-            Value         "6"
+            Value         "[N N N N N N]"
             Show          off
           }
         }
@@ -749,7 +749,7 @@ Plecs {
           Type          From
           Name          "From1"
           Show          off
-          Position      [535, 215]
+          Position      [535, 265]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -773,7 +773,7 @@ Plecs {
           Type          From
           Name          "From2"
           Show          off
-          Position      [535, 320]
+          Position      [535, 420]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -821,7 +821,7 @@ Plecs {
           Type          From
           Name          "From4"
           Show          off
-          Position      [535, 225]
+          Position      [535, 275]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -845,7 +845,7 @@ Plecs {
           Type          From
           Name          "From5"
           Show          off
-          Position      [535, 330]
+          Position      [535, 430]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -871,7 +871,7 @@ Plecs {
           SrcModel      "DeltaSigma_PSPWM.plecs"
           Name          "Modulator phse B"
           Show          on
-          Position      [630, 250]
+          Position      [630, 300]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -923,7 +923,7 @@ Plecs {
           SrcModel      "DeltaSigma_PSPWM.plecs"
           Name          "Modulator phse C"
           Show          on
-          Position      [630, 355]
+          Position      [630, 455]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -1179,7 +1179,7 @@ Plecs {
           Type          Goto
           Name          "Goto15"
           Show          off
-          Position      [725, 225]
+          Position      [725, 275]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1203,7 +1203,7 @@ Plecs {
           Type          Goto
           Name          "Goto16"
           Show          off
-          Position      [725, 260]
+          Position      [725, 310]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1227,7 +1227,7 @@ Plecs {
           Type          Goto
           Name          "Goto17"
           Show          off
-          Position      [725, 330]
+          Position      [725, 430]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1251,7 +1251,7 @@ Plecs {
           Type          Goto
           Name          "Goto18"
           Show          off
-          Position      [725, 365]
+          Position      [725, 465]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1268,6 +1268,180 @@ Plecs {
           Parameter {
             Variable      "NoMatchingCounterpartAction"
             Value         "3"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum1"
+          Show          off
+          Position      [520, 155]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum2"
+          Show          off
+          Position      [520, 195]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum3"
+          Show          off
+          Position      [520, 310]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum4"
+          Show          off
+          Position      [520, 355]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum5"
+          Show          off
+          Position      [520, 465]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum6"
+          Show          off
+          Position      [520, 515]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
             Show          off
           }
         }
@@ -1390,20 +1564,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "From30"
-          SrcTerminal   1
-          DstComponent  "Modulator phse A"
-          DstTerminal   5
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From31"
-          SrcTerminal   1
-          DstComponent  "Modulator phse A"
-          DstTerminal   6
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "From1"
           SrcTerminal   1
           DstComponent  "Modulator phse B"
@@ -1436,34 +1596,6 @@ Plecs {
           SrcTerminal   1
           DstComponent  "Modulator phse C"
           DstTerminal   4
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From32"
-          SrcTerminal   1
-          DstComponent  "Modulator phse B"
-          DstTerminal   5
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From33"
-          SrcTerminal   1
-          DstComponent  "Modulator phse B"
-          DstTerminal   6
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From34"
-          SrcTerminal   1
-          DstComponent  "Modulator phse C"
-          DstTerminal   5
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From35"
-          SrcTerminal   1
-          DstComponent  "Modulator phse C"
-          DstTerminal   6
         }
         Connection {
           Type          Signal
@@ -1556,6 +1688,93 @@ Plecs {
           DstComponent  "Goto17"
           DstTerminal   1
         }
+        Connection {
+          Type          Signal
+          SrcComponent  "From30"
+          SrcTerminal   1
+          DstComponent  "Sum1"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum1"
+          SrcTerminal   1
+          DstComponent  "Modulator phse A"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From31"
+          SrcTerminal   1
+          DstComponent  "Sum2"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum2"
+          SrcTerminal   1
+          Points        [545, 195; 545, 170]
+          DstComponent  "Modulator phse A"
+          DstTerminal   6
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From32"
+          SrcTerminal   1
+          DstComponent  "Sum3"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum3"
+          SrcTerminal   1
+          DstComponent  "Modulator phse B"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From33"
+          SrcTerminal   1
+          DstComponent  "Sum4"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum4"
+          SrcTerminal   1
+          Points        [545, 355; 545, 325]
+          DstComponent  "Modulator phse B"
+          DstTerminal   6
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From34"
+          SrcTerminal   1
+          DstComponent  "Sum5"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum5"
+          SrcTerminal   1
+          DstComponent  "Modulator phse C"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From35"
+          SrcTerminal   1
+          DstComponent  "Sum6"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum6"
+          SrcTerminal   1
+          Points        [545, 515; 545, 480]
+          DstComponent  "Modulator phse C"
+          DstTerminal   6
+        }
         RectangleAnnotation {
           Position     [195, 245]
           Width        250
@@ -1572,9 +1791,9 @@ Plecs {
           Position      [110, 85]
         } 
         RectangleAnnotation {
-          Position     [615, 240]
-          Width        330
-          Height       350
+          Position     [590, 310]
+          Width        380
+          Height       490
           CornerRadius 3
           Thickness    2
           PenColor     4278190080
