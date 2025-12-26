@@ -123,7 +123,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [644, 158; 1475, 736]
+        Location      [369, 178; 1435, 878]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -151,7 +151,7 @@ Plecs {
           Type          Output
           Name          "PWM_u"
           Show          on
-          Position      [620, 345]
+          Position      [690, 345]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -170,7 +170,7 @@ Plecs {
           Type          Output
           Name          "PWM_l"
           Show          on
-          Position      [620, 470]
+          Position      [690, 470]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -748,24 +748,10 @@ Plecs {
           }
         }
         Component {
-          Type          RelationalOperator
-          Name          "Relational\nOperator"
-          Show          off
-          Position      [395, 300]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "5"
-            Show          off
-          }
-        }
-        Component {
           Type          LogicalOperator
           Name          "Logical\nOperator"
           Show          off
-          Position      [475, 340]
+          Position      [545, 340]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -777,20 +763,6 @@ Plecs {
           Parameter {
             Variable      "Inputs"
             Value         "2"
-            Show          off
-          }
-        }
-        Component {
-          Type          RelationalOperator
-          Name          "Relational\nOperator1"
-          Show          off
-          Position      [395, 390]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "4"
             Show          off
           }
         }
@@ -832,7 +804,7 @@ Plecs {
           Type          SignalMux
           Name          "Mux"
           Show          off
-          Position      [555, 345]
+          Position      [625, 345]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -877,24 +849,10 @@ Plecs {
           }
         }
         Component {
-          Type          RelationalOperator
-          Name          "Relational\nOperator2"
-          Show          off
-          Position      [395, 425]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "5"
-            Show          off
-          }
-        }
-        Component {
           Type          LogicalOperator
           Name          "Logical\nOperator2"
           Show          off
-          Position      [475, 465]
+          Position      [545, 465]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -906,20 +864,6 @@ Plecs {
           Parameter {
             Variable      "Inputs"
             Value         "2"
-            Show          off
-          }
-        }
-        Component {
-          Type          RelationalOperator
-          Name          "Relational\nOperator3"
-          Show          off
-          Position      [395, 515]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Operator"
-            Value         "4"
             Show          off
           }
         }
@@ -961,7 +905,7 @@ Plecs {
           Type          LogicalOperator
           Name          "Logical\nOperator3"
           Show          off
-          Position      [475, 475]
+          Position      [545, 475]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -980,7 +924,7 @@ Plecs {
           Type          SignalMux
           Name          "Mux1"
           Show          off
-          Position      [555, 470]
+          Position      [625, 470]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -994,7 +938,7 @@ Plecs {
           Type          LogicalOperator
           Name          "Logical\nOperator1"
           Show          off
-          Position      [475, 350]
+          Position      [545, 350]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -1006,6 +950,278 @@ Plecs {
           Parameter {
             Variable      "Inputs"
             Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          Relay
+          Name          "Relay"
+          Show          off
+          Position      [445, 300]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "OnSwitchValue"
+            Value         "1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffSwitchValue"
+            Value         "-1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OnOutputValue"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffOutputValue"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "InitialState"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum1"
+          Show          off
+          Position      [385, 300]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+-"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum2"
+          Show          off
+          Position      [385, 425]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "+-"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Relay
+          Name          "Relay1"
+          Show          off
+          Position      [445, 425]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "OnSwitchValue"
+            Value         "1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffSwitchValue"
+            Value         "-1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OnOutputValue"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffOutputValue"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "InitialState"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
+            Show          off
+          }
+        }
+        Component {
+          Type          Relay
+          Name          "Relay2"
+          Show          off
+          Position      [445, 390]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "OnSwitchValue"
+            Value         "1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffSwitchValue"
+            Value         "-1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OnOutputValue"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffOutputValue"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "InitialState"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
+            Show          off
+          }
+        }
+        Component {
+          Type          Relay
+          Name          "Relay3"
+          Show          off
+          Position      [445, 515]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "OnSwitchValue"
+            Value         "1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffSwitchValue"
+            Value         "-1e-6"
+            Show          off
+          }
+          Parameter {
+            Variable      "OnOutputValue"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "OffOutputValue"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "InitialState"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum3"
+          Show          off
+          Position      [385, 390]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "-+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Sum
+          Name          "Sum4"
+          Show          off
+          Position      [385, 515]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "-+"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
             Show          off
           }
         }
@@ -1087,8 +1303,8 @@ Plecs {
           SrcTerminal   1
           Points        [275, 295]
           Branch {
-            DstComponent  "Relational\nOperator"
-            DstTerminal   1
+            DstComponent  "Sum1"
+            DstTerminal   2
           }
           Branch {
             DstComponent  "Gain"
@@ -1102,13 +1318,13 @@ Plecs {
           Points        [330, 350]
           Branch {
             Points        [330, 305]
-            DstComponent  "Relational\nOperator"
-            DstTerminal   2
+            DstComponent  "Sum1"
+            DstTerminal   3
           }
           Branch {
             Points        [330, 395]
-            DstComponent  "Relational\nOperator1"
-            DstTerminal   2
+            DstComponent  "Sum3"
+            DstTerminal   3
           }
         }
         Connection {
@@ -1116,23 +1332,8 @@ Plecs {
           SrcComponent  "Gain"
           SrcTerminal   2
           Points        [275, 385]
-          DstComponent  "Relational\nOperator1"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Relational\nOperator"
-          SrcTerminal   3
-          Points        [430, 300; 430, 330]
-          Branch {
-            Points        [430, 340]
-            DstComponent  "Logical\nOperator"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "Mux"
-            DstTerminal   2
-          }
+          DstComponent  "Sum3"
+          DstTerminal   2
         }
         Connection {
           Type          Signal
@@ -1155,13 +1356,13 @@ Plecs {
           Points        [330, 475]
           Branch {
             Points        [330, 430]
-            DstComponent  "Relational\nOperator2"
-            DstTerminal   2
+            DstComponent  "Sum2"
+            DstTerminal   3
           }
           Branch {
             Points        [330, 520]
-            DstComponent  "Relational\nOperator3"
-            DstTerminal   2
+            DstComponent  "Sum4"
+            DstTerminal   3
           }
         }
         Connection {
@@ -1169,23 +1370,8 @@ Plecs {
           SrcComponent  "Gain1"
           SrcTerminal   2
           Points        [275, 510]
-          DstComponent  "Relational\nOperator3"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Relational\nOperator2"
-          SrcTerminal   3
-          Points        [430, 425; 430, 455]
-          Branch {
-            Points        [430, 465]
-            DstComponent  "Logical\nOperator2"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "Mux1"
-            DstTerminal   2
-          }
+          DstComponent  "Sum4"
+          DstTerminal   2
         }
         Connection {
           Type          Signal
@@ -1200,8 +1386,8 @@ Plecs {
           SrcTerminal   1
           Points        [275, 420]
           Branch {
-            DstComponent  "Relational\nOperator2"
-            DstTerminal   1
+            DstComponent  "Sum2"
+            DstTerminal   2
           }
           Branch {
             DstComponent  "Gain1"
@@ -1217,21 +1403,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Relational\nOperator1"
-          SrcTerminal   3
-          Points        [430, 390; 430, 360; 435, 360]
-          Branch {
-            DstComponent  "Mux"
-            DstTerminal   5
-          }
-          Branch {
-            Points        [435, 350]
-            DstComponent  "Logical\nOperator1"
-            DstTerminal   2
-          }
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Logical\nOperator1"
           SrcTerminal   1
           DstComponent  "Mux"
@@ -1239,11 +1410,91 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Relational\nOperator3"
-          SrcTerminal   3
-          Points        [430, 515; 430, 485]
+          SrcComponent  "Logical\nOperator3"
+          SrcTerminal   1
+          DstComponent  "Mux1"
+          DstTerminal   4
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum1"
+          SrcTerminal   1
+          DstComponent  "Relay"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Relay"
+          SrcTerminal   2
+          Points        [500, 300; 500, 330]
           Branch {
-            Points        [430, 475]
+            Points        [500, 340]
+            DstComponent  "Logical\nOperator"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Mux"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum2"
+          SrcTerminal   1
+          DstComponent  "Relay1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Relay1"
+          SrcTerminal   2
+          Points        [500, 425; 500, 455]
+          Branch {
+            Points        [500, 465]
+            DstComponent  "Logical\nOperator2"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Mux1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum3"
+          SrcTerminal   1
+          DstComponent  "Relay2"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Relay2"
+          SrcTerminal   2
+          Points        [500, 390; 500, 360; 505, 360]
+          Branch {
+            DstComponent  "Mux"
+            DstTerminal   5
+          }
+          Branch {
+            Points        [505, 350]
+            DstComponent  "Logical\nOperator1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Sum4"
+          SrcTerminal   1
+          DstComponent  "Relay3"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Relay3"
+          SrcTerminal   2
+          Points        [500, 515; 500, 485]
+          Branch {
+            Points        [500, 475]
             DstComponent  "Logical\nOperator3"
             DstTerminal   2
           }
@@ -1251,13 +1502,6 @@ Plecs {
             DstComponent  "Mux1"
             DstTerminal   5
           }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Logical\nOperator3"
-          SrcTerminal   1
-          DstComponent  "Mux1"
-          DstTerminal   4
         }
         RectangleAnnotation {
           Position     [190, 95]
@@ -1292,9 +1536,9 @@ Plecs {
           Position      [420, 65]
         } 
         RectangleAnnotation {
-          Position     [395, 395]
-          Width        540
-          Height       270
+          Position     [425, 400]
+          Width        610
+          Height       300
           CornerRadius 3
           Thickness    2
           PenColor     4278190080
