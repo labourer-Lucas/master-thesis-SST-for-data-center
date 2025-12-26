@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-678, 325; 368, 929]
+    Location      [0, 255; 1046, 859]
     ZoomFactor    1.45221
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -181,9 +181,9 @@ Plecs {
         Direction     down
       }
       Schematic {
-        Location      [-1206, 177; -128, 887]
-        ZoomFactor    0.807741
-        SliderPosition [0, 121]
+        Location      [0, 149; 1078, 859]
+        ZoomFactor    1.17038
+        SliderPosition [515, 38]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -1133,7 +1133,7 @@ Plecs {
           Type          Reference
           SrcComponent  "Components/Electrical/Power Modules/MFB1"
           Name          "MFB3"
-          Show          off
+          Show          on
           Position      [1020, 155]
           Direction     down
           Flipped       on
@@ -1473,7 +1473,7 @@ Plecs {
           Type          Reference
           SrcComponent  "Components/Electrical/Power Modules/MFB1"
           Name          "MFB4"
-          Show          off
+          Show          on
           Position      [1020, 540]
           Direction     down
           Flipped       on
@@ -1613,7 +1613,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL11"
+            Value         "BL11"
             Show          off
           }
           Parameter {
@@ -1637,7 +1637,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL22"
+            Value         "BL22"
             Show          off
           }
           Parameter {
@@ -1661,7 +1661,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL21"
+            Value         "BL21"
             Show          off
           }
           Parameter {
@@ -1685,7 +1685,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "AL12"
+            Value         "BL12"
             Show          off
           }
           Parameter {
@@ -3309,7 +3309,7 @@ Plecs {
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "IAP"
+            Value         "IAU"
             Show          off
           }
           Parameter {
@@ -3357,7 +3357,7 @@ Plecs {
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "IBP"
+            Value         "IBU"
             Show          off
           }
           Parameter {
@@ -3405,7 +3405,7 @@ Plecs {
           LabelPosition north
           Parameter {
             Variable      "Tag"
-            Value         "ICP"
+            Value         "ICU"
             Show          off
           }
           Parameter {
