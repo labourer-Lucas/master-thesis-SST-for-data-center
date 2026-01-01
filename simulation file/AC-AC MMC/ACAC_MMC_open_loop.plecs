@@ -1,19 +1,19 @@
 Plecs {
   Name          "ACAC_MMC_open_loop"
   Version       "4.9"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "5e-7"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
   AbsTol        "-1"
-  TurnOnThreshold "0"
+  TurnOnThreshold "01e-3"
   NonIdealSwitchResistance "1"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "2"
@@ -28,9 +28,9 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "N=20;\nC_sub=0.01;\nL_arm=1e9;\nR_arm=1e-3;\nV_c_0=1"
-"000/N;\nf_sw=10000;\nN_PWM=N*4;\n% Grid parameter\nL_g=1e9;\nv_g=800;\nf_g=50"
-";"
+  InitializationCommands "N=100;\nC_sub=0.01;\nL_arm=1e9;\nR_arm=1e-3;\nV_c_0="
+"10000/N;\nf_sw=10000;\nN_PWM=N*4;\n% Grid parameter\nL_g=1e9;\nv_g=8000;\nf_g"
+"=50;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -55,9 +55,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [297, 146; 1275, 857]
+    Location      [297, 144; 1275, 855]
     ZoomFactor    1.35447
-    SliderPosition [-1, 86]
+    SliderPosition [-1, 140]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1358,7 +1358,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [202, 187; 590, 778]
+      Location      [225, 147; 613, 738]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAABU/w"
@@ -1499,8 +1499,8 @@ Plecs {
       Location      [280, 461; 746, 881]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAHSAAAAlPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAdIAAAA+AP///wAAAdIAAADzAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAHSAAABDvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAdIAAAA+AP///wAAAdIAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1511,7 +1511,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1555,12 +1555,12 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Hi"
-        Value         "100"
+        Value         "2000"
         Show          off
       }
       Parameter {
         Variable      "Lo"
-        Value         "-100"
+        Value         "-2000"
         Show          off
       }
       Parameter {
@@ -1599,7 +1599,7 @@ Plecs {
       }
       Parameter {
         Variable      "n"
-        Value         "[2 [1 1]]"
+        Value         "[2 [5 5]]"
         Show          off
       }
       Parameter {
@@ -1823,19 +1823,19 @@ Plecs {
       Location      [415, 220; 803, 448]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAAgvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAABFAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAArvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":170,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":170,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -2139,8 +2139,8 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":242,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":242,\"Labels\":[\""
+"Delta\",\"THD\"],\"VisualIdxs\":[3,10]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -2355,6 +2355,25 @@ Plecs {
       Parameter {
         Variable      "LowerLimit"
         Value         "-inf"
+        Show          off
+      }
+    }
+    Component {
+      Type          Capacitor
+      Name          "C1"
+      Show          on
+      Position      [190, 300]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "C"
+        Value         "100e-6"
+        Show          off
+      }
+      Parameter {
+        Variable      "v_init"
+        Value         "800"
         Show          off
       }
     }
@@ -2675,9 +2694,16 @@ Plecs {
         DstTerminal   2
       }
       Branch {
-        Points        [150, 245]
-        DstComponent  "Vm2"
-        DstTerminal   1
+        Points        [190, 245]
+        Branch {
+          Points        [150, 245]
+          DstComponent  "Vm2"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "C1"
+          DstTerminal   1
+        }
       }
     }
     Connection {
@@ -2690,9 +2716,16 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        Points        [150, 355]
-        DstComponent  "Vm2"
-        DstTerminal   2
+        Points        [190, 355]
+        Branch {
+          Points        [150, 355]
+          DstComponent  "Vm2"
+          DstTerminal   2
+        }
+        Branch {
+          DstComponent  "C1"
+          DstTerminal   2
+        }
       }
     }
     Connection {
