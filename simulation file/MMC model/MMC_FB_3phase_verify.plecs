@@ -54,7 +54,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-1490, 115; -356, 823]
+    Location      [0, 115; 1134, 823]
     ZoomFactor    1.10892
     SliderPosition [0, 132]
     ShowBrowser   off
@@ -1384,7 +1384,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"

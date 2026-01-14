@@ -1,5 +1,5 @@
 Plecs {
-  Name          "ACAC_MMC_open_loop"
+  Name          "ACAC_MMC_open_loop_nopower"
   Version       "4.9"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
@@ -57,7 +57,7 @@ Plecs {
   Schematic {
     Location      [297, 144; 1275, 855]
     ZoomFactor    1.35447
-    SliderPosition [-1, 140]
+    SliderPosition [63, 276]
     ShowBrowser   off
     BrowserWidth  100
     Component {

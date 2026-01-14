@@ -55,9 +55,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-1501, 142; -523, 853]
+    Location      [0, 142; 978, 853]
     ZoomFactor    0.749997
-    SliderPosition [92, 204]
+    SliderPosition [92, 87]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -558,7 +558,7 @@ Plecs {
       Type          Goto
       Name          "Goto9"
       Show          off
-      Position      [915, 485]
+      Position      [900, 485]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -1491,11 +1491,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [280, 461; 746, 881]
+      Location      [204, 326; 670, 746]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAHSAAABDvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAdIAAAA+AP///wAAAdIAAAAAAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAHSAAAA7vw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAdIAAABCAP///wAAAdIAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1560,7 +1560,7 @@ Plecs {
       Location      [415, 220; 803, 448]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAArvw"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAAjPw"
 "BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
@@ -2090,7 +2090,7 @@ Plecs {
       Type          VoltageSource
       Name          "V"
       Show          on
-      Position      [660, 310]
+      Position      [690, 310]
       Direction     up
       Flipped       off
       LabelPosition west
@@ -2109,7 +2109,7 @@ Plecs {
       Type          Inductor
       Name          "L4"
       Show          on
-      Position      [600, 280]
+      Position      [630, 280]
       Direction     left
       Flipped       on
       LabelPosition southeast
@@ -2128,7 +2128,7 @@ Plecs {
       Type          Transformer
       Name          "Tr2"
       Show          on
-      Position      [510, 310]
+      Position      [540, 310]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -2162,7 +2162,7 @@ Plecs {
       Type          IgbtWithDiode
       Name          "IGBTD"
       Show          off
-      Position      [450, 270]
+      Position      [480, 270]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -2191,7 +2191,7 @@ Plecs {
       Type          IgbtWithDiode
       Name          "IGBTD1"
       Show          off
-      Position      [450, 350]
+      Position      [480, 350]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -2220,7 +2220,7 @@ Plecs {
       Type          IgbtWithDiode
       Name          "IGBTD2"
       Show          off
-      Position      [355, 270]
+      Position      [385, 270]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -2249,7 +2249,7 @@ Plecs {
       Type          IgbtWithDiode
       Name          "IGBTD3"
       Show          off
-      Position      [355, 350]
+      Position      [385, 350]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -2278,7 +2278,7 @@ Plecs {
       Type          DCVoltageSource
       Name          "V_dc"
       Show          on
-      Position      [285, 310]
+      Position      [315, 310]
       Direction     up
       Flipped       off
       LabelPosition west
@@ -2292,7 +2292,7 @@ Plecs {
       Type          From
       Name          "From11"
       Show          off
-      Position      [410, 270]
+      Position      [440, 270]
       Direction     left
       Flipped       on
       LabelPosition south
@@ -2316,7 +2316,7 @@ Plecs {
       Type          From
       Name          "From12"
       Show          off
-      Position      [315, 350]
+      Position      [345, 350]
       Direction     left
       Flipped       on
       LabelPosition south
@@ -2340,7 +2340,7 @@ Plecs {
       Type          From
       Name          "From13"
       Show          off
-      Position      [410, 350]
+      Position      [440, 350]
       Direction     left
       Flipped       on
       LabelPosition south
@@ -2364,7 +2364,7 @@ Plecs {
       Type          From
       Name          "From14"
       Show          off
-      Position      [315, 270]
+      Position      [345, 270]
       Direction     left
       Flipped       on
       LabelPosition south
@@ -2388,7 +2388,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm2"
       Show          on
-      Position      [480, 350]
+      Position      [510, 350]
       Direction     down
       Flipped       on
       LabelPosition east
@@ -2688,7 +2688,7 @@ Plecs {
       Type          From
       Name          "From17"
       Show          off
-      Position      [720, 990]
+      Position      [645, 990]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -2712,7 +2712,7 @@ Plecs {
       Type          From
       Name          "From18"
       Show          off
-      Position      [720, 940]
+      Position      [645, 940]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -3006,13 +3006,16 @@ Plecs {
       Flipped       off
       LabelPosition south
       Location      [415, 225; 803, 453]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAACrAAAAyPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAAcAA"
+"AAyAAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAANgAAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
+      SavedViews    "AAAAAgAAAAIAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxAAAAAAAAA"
+"AA/8AAAAAAAAAAAAAEAf/gAAAAAAAB/+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAUwBhAH"
+"YAZQBkACAAdgBpAGUAdwAgADIAAAAAAAAAAD/wAAAAAAAAAAAAAQB/+AAAAAAAAH/4AAAAAAAAAAA"
+"AAAAAAAAAAAAAAAAAAAAA"
       HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":159,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -3020,7 +3023,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -3201,7 +3204,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -3402,7 +3405,6 @@ Plecs {
       Type          Signal
       SrcComponent  "Ref"
       SrcTerminal   13
-      Points        [880, 485]
       DstComponent  "Goto9"
       DstTerminal   1
     }
@@ -3782,7 +3784,7 @@ Plecs {
       Type          Wire
       SrcComponent  "V"
       SrcTerminal   1
-      Points        [660, 280]
+      Points        [690, 280]
       DstComponent  "L4"
       DstTerminal   1
     }
@@ -3790,7 +3792,7 @@ Plecs {
       Type          Wire
       SrcComponent  "L4"
       SrcTerminal   2
-      Points        [535, 280; 535, 295]
+      Points        [565, 280; 565, 295]
       DstComponent  "Tr2"
       DstTerminal   1
     }
@@ -3798,7 +3800,7 @@ Plecs {
       Type          Wire
       SrcComponent  "Tr2"
       SrcTerminal   2
-      Points        [520, 345; 660, 345]
+      Points        [550, 345; 690, 345]
       DstComponent  "V"
       DstTerminal   2
     }
@@ -3806,13 +3808,13 @@ Plecs {
       Type          Wire
       SrcComponent  "IGBTD1"
       SrcTerminal   1
-      Points        [450, 295]
+      Points        [480, 295]
       Branch {
         DstComponent  "IGBTD"
         DstTerminal   2
       }
       Branch {
-        Points        [480, 295]
+        Points        [510, 295]
         Branch {
           DstComponent  "Tr2"
           DstTerminal   3
@@ -3827,19 +3829,19 @@ Plecs {
       Type          Wire
       SrcComponent  "IGBTD3"
       SrcTerminal   1
-      Points        [355, 325]
+      Points        [385, 325]
       Branch {
         DstComponent  "IGBTD2"
         DstTerminal   2
       }
       Branch {
-        Points        [490, 325]
+        Points        [520, 325]
         Branch {
           DstComponent  "Tr2"
           DstTerminal   4
         }
         Branch {
-          Points        [490, 370]
+          Points        [520, 370]
           DstComponent  "Vm2"
           DstTerminal   2
         }
@@ -3849,13 +3851,13 @@ Plecs {
       Type          Wire
       SrcComponent  "IGBTD"
       SrcTerminal   1
-      Points        [355, 250]
+      Points        [385, 250]
       Branch {
         DstComponent  "IGBTD2"
         DstTerminal   1
       }
       Branch {
-        Points        [285, 250]
+        Points        [315, 250]
         DstComponent  "V_dc"
         DstTerminal   1
       }
@@ -3864,13 +3866,13 @@ Plecs {
       Type          Wire
       SrcComponent  "IGBTD3"
       SrcTerminal   2
-      Points        [355, 370]
+      Points        [385, 370]
       Branch {
         DstComponent  "IGBTD1"
         DstTerminal   2
       }
       Branch {
-        Points        [285, 370]
+        Points        [315, 370]
         DstComponent  "V_dc"
         DstTerminal   2
       }
