@@ -28,9 +28,9 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "N=100;\nC_sub=0.01;\nL_arm=1e9;\nR_arm=1e-3;\nV_c_0="
-"10000/N;\nf_sw=10000;\nN_PWM=N*4;\n% Grid parameter\nL_g=1e9;\nv_g=8000;\nf_g"
-"=50;"
+  InitializationCommands "N=20;\nC_sub=0.01;\nL_arm=1e9;\nR_arm=1e-3;\nV_c_0=1"
+"0000/N;\nf_sw=5000;\nN_PWM=N*4;\n% Grid parameter\nL_g=1e9;\nv_g=8000;\nf_g=5"
+"0;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -55,9 +55,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 142; 978, 853]
+    Location      [335, 154; 1313, 865]
     ZoomFactor    0.749997
-    SliderPosition [92, 87]
+    SliderPosition [92, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -926,11 +926,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [165, 317; 553, 545]
+      Location      [334, 449; 722, 677]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAAAYQAAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -997,11 +997,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [257, 228; 645, 456]
+      Location      [244, 323; 1065, 892]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAAAzUAAAIdAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1354,26 +1354,26 @@ Plecs {
       Type          Scope
       Name          "Scope2"
       Show          on
-      Position      [740, 485]
+      Position      [510, 560]
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [225, 147; 613, 738]
+      Location      [476, 212; 864, 803]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAAYfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAAHRAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAABTPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAABCAP///wAAAYQAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":194,\"Labels\":[\""
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":177,\"Labels\":[\""
 "Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1411,14 +1411,19 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe"
       Show          on
-      Position      [675, 485]
+      Position      [425, 560]
       Direction     right
       Flipped       off
       LabelPosition south
       Probe {
         Component     "Vm1"
         Path          ""
-        Signals       {"Measured voltage"}
+        Signals       {}
+      }
+      Probe {
+        Component     "V_dc"
+        Path          ""
+        Signals       {"Source power"}
       }
     }
     Component {
@@ -1859,11 +1864,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [14, 125; 783, 597]
+      Location      [451, 260; 1220, 732]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAMBAAAA9PwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMBAAAAHAAAAPQAAABmAP///wAAAAMAAAMBAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAwEAAAA+AP///wAAAAAAAAD0AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAwEAAABCAP///wAAAAAAAAD0AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -2139,7 +2144,7 @@ Plecs {
       }
       Parameter {
         Variable      "n"
-        Value         "[1 1]"
+        Value         "[1 10]"
         Show          off
       }
       Parameter {
@@ -3005,25 +3010,25 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [415, 225; 803, 453]
+      Location      [495, 486; 1105, 714]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAACrAAAAyPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAAcAA"
 "AAyAAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAANgAAADIAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAAAbYAAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAIAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxAAAAAAAAA"
 "AA/8AAAAAAAAAAAAAEAf/gAAAAAAAB/+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAUwBhAH"
 "YAZQBkACAAdgBpAGUAdwAgADIAAAAAAAAAAD/wAAAAAAAAAAAAAQB/+AAAAAAAAH/4AAAAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAA"
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":159,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":165,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -3189,11 +3194,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [446, 398; 1003, 626]
+      Location      [314, 303; 871, 531]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAi0AAADIAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAAAi0AAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3204,7 +3209,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -3272,7 +3277,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "K"
-        Value         "[400 400 400]"
+        Value         "[4000 4000 4000]"
         Show          off
       }
       Parameter {
