@@ -121,7 +121,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [-979, 330; -644, 603]
+        Location      [123, 328; 458, 601]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -174,7 +174,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "DialogGeometry"
-            Value         "[-1243 255 582 371]"
+            Value         "[0 283 582 371]"
             Show          off
           }
           Parameter {
@@ -214,7 +214,7 @@ Plecs {
           }
           Parameter {
             Variable      "TerminalBasedSampleTimes"
-            Value         "2"
+            Value         "1"
             Show          off
           }
           Parameter {
