@@ -1,5 +1,5 @@
 Plecs {
-  Name          base64 "REFCX1BBQ1/lia/mnKw="
+  Name          "Active_birdge"
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [194, 311; 1415, 1045]
+    Location      [-1452, 209; -231, 933]
     ZoomFactor    1.44245
     SliderPosition [0, 241]
     ShowBrowser   off
@@ -77,6 +77,24 @@ Plecs {
       Parameter {
         Variable      "L_s"
         Prompt        "Series Inducrtance"
+        Type          FreeText
+        Value         ""
+        Show          off
+        Tunable       off
+        TabName       ""
+      }
+      Parameter {
+        Variable      "V_dc"
+        Prompt        "Secondary Voltaeg"
+        Type          FreeText
+        Value         ""
+        Show          off
+        Tunable       off
+        TabName       ""
+      }
+      Parameter {
+        Variable      "f_sw"
+        Prompt        "Switching frequency"
         Type          FreeText
         Value         ""
         Show          off
@@ -118,7 +136,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [-954, 147; -211, 774]
+        Location      [-895, 401; -152, 1028]
         ZoomFactor    1
         SliderPosition [0, 36]
         ShowBrowser   off
@@ -568,16 +586,23 @@ Plecs {
           Type          Scope
           Name          "Scope"
           Show          off
-          Position      [160, 425]
+          Position      [170, 425]
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [0, 0; 0, 0]
-          State         ""
-          SavedViews    ""
-          HeaderState   ""
-          PlotPalettes  ""
-          Axes          "1"
+          Location      [0, 181; 388, 409]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADI"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":72,\"Labels\":"
+"[],\"VisualIdxs\":[]}"
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"QAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+          Axes          "2"
           TimeRange     "0.0"
           ScrollingMode "1"
           SingleTimeAxis "1"
@@ -586,6 +611,17 @@ Plecs {
           SampleLimit   "0"
           XAxisLabel    "Time / s"
           ShowLegend    "1"
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
           Axis {
             Name          ""
             AutoScale     1
@@ -613,11 +649,21 @@ Plecs {
               KeepBaseline  off
               BaselineValue 0
             }
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
           }
         }
         Component {
           Type          PlecsProbe
-          Name          "inductor l&r"
+          Name          "inductor voltage l&r"
           Show          on
           Position      [260, 425]
           Direction     right
@@ -647,16 +693,23 @@ Plecs {
           Type          Scope
           Name          "Scope1"
           Show          off
-          Position      [355, 425]
+          Position      [395, 405]
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [0, 0; 0, 0]
-          State         ""
-          SavedViews    ""
-          HeaderState   ""
-          PlotPalettes  ""
-          Axes          "1"
+          Location      [0, 226; 388, 454]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADI"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":72,\"Labels\":"
+"[],\"VisualIdxs\":[]}"
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"QAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+          Axes          "2"
           TimeRange     "0.0"
           ScrollingMode "1"
           SingleTimeAxis "1"
@@ -676,12 +729,33 @@ Plecs {
             KeepBaseline  off
             BaselineValue 0
           }
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
           Fourier {
             SingleXAxis       on
             AxisLabel         "Frequency / Hz"
             Scaling           0
             PhaseDisplay      0
             ShowFourierLegend off
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
             Axis {
               Name          ""
               AutoScale     1
@@ -718,7 +792,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "T_average"
-            Value         "0.1"
+            Value         "1/f_sw"
             Show          off
           }
         }
@@ -730,11 +804,17 @@ Plecs {
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [0, 0; 0, 0]
-          State         ""
-          SavedViews    ""
-          HeaderState   ""
-          PlotPalettes  ""
+          Location      [-1119, 181; -731, 409]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADI"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":71,\"Labels\":"
+"[],\"VisualIdxs\":[]}"
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           Axes          "1"
           TimeRange     "0.0"
           ScrollingMode "1"
@@ -836,6 +916,35 @@ Plecs {
           Parameter {
             Variable      "Width"
             Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalDemux
+          Name          "Demux"
+          Show          off
+          Position      [130, 425]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          Function
+          Name          "Fcn"
+          Show          on
+          Position      [335, 425]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Frame         [-20, -10; 20, 10]
+          Parameter {
+            Variable      "f(u)"
+            Value         "u[2]-u[1]"
             Show          off
           }
         }
@@ -955,13 +1064,6 @@ Plecs {
           DstTerminal   1
         }
         Connection {
-          Type          Signal
-          SrcComponent  "Inductor"
-          SrcTerminal   1
-          DstComponent  "Scope"
-          DstTerminal   1
-        }
-        Connection {
           Type          Wire
           SrcComponent  "L1"
           SrcTerminal   2
@@ -1029,13 +1131,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "inductor l&r"
-          SrcTerminal   1
-          DstComponent  "Scope1"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Induc current"
           SrcTerminal   1
           DstComponent  "indctor_cur"
@@ -1055,6 +1150,50 @@ Plecs {
             DstTerminal   2
           }
         }
+        Connection {
+          Type          Signal
+          SrcComponent  "Inductor"
+          SrcTerminal   1
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   2
+          DstComponent  "Scope"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   3
+          DstComponent  "Scope"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "inductor voltage l&r"
+          SrcTerminal   1
+          Points        [300, 425]
+          Branch {
+            Points        [300, 400]
+            DstComponent  "Scope1"
+            DstTerminal   1
+          }
+          Branch {
+            DstComponent  "Fcn"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Fcn"
+          SrcTerminal   2
+          Points        [365, 425]
+          DstComponent  "Scope1"
+          DstTerminal   2
+        }
         RectangleAnnotation {
           Position     [215, 290]
           Width        320
@@ -1072,8 +1211,8 @@ Plecs {
           Position      [130, 245]
         } 
         RectangleAnnotation {
-          Position     [235, 490]
-          Width        360
+          Position     [240, 490]
+          Width        370
           Height       230
           CornerRadius 3
           Thickness    2
