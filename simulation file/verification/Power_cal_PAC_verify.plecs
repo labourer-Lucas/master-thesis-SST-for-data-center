@@ -53,58 +53,11 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [2403, 310; 3042, 765]
+    Location      [528, 301; 1167, 795]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
-    Component {
-      Type          ModelReference
-      SrcComponent  "Power_cal_PAC/PAC power2phi"
-      SrcModel      "../midware model/Power_cal_PAC.plecs"
-      Name          "Power_cal"
-      Show          on
-      Position      [195, 270]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-35, -25; 35, 25]
-      Parameter {
-        Variable      "L_eq"
-        Value         "L_eq"
-        Show          off
-      }
-      Parameter {
-        Variable      "f_sw"
-        Value         "f_sw"
-        Show          off
-      }
-      Parameter {
-        Variable      "n_tr"
-        Value         "N"
-        Show          off
-      }
-      Parameter {
-        Variable      "V_dc"
-        Value         "V_dc"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-35, -10]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [39, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-35, 10]
-        Direction     left
-      }
-    }
     Component {
       Type          ModelReference
       SrcComponent  "Active_birdge/Active bridge"
@@ -160,48 +113,6 @@ Plecs {
         Type          Output
         Position      [59, 10]
         Direction     right
-      }
-    }
-    Component {
-      Type          ModelReference
-      SrcComponent  "PAC_modulation/PAC_modulation"
-      SrcModel      "../midware model/PAC_modulation.plecs"
-      Name          "Modulator"
-      Show          on
-      Position      [370, 285]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-60, -40; 60, 40]
-      Terminal {
-        Type          Input
-        Position      [-60, -15]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [64, 5]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-60, -30]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-60, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-60, 15]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-60, 30]
-        Direction     left
       }
     }
     Component {
@@ -346,7 +257,7 @@ Plecs {
       Type          Goto
       Name          "Goto"
       Show          off
-      Position      [460, 290]
+      Position      [500, 290]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -398,7 +309,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1532, 363; 1920, 591]
+      Location      [1082, 363; 1470, 591]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -407,63 +318,6 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":205,\"Labels\":[],"
-"\"VisualIdxs\":[]}"
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "1"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "Scope1"
-      Show          off
-      Position      [480, 140]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Location      [1910, 318; 2298, 546]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":208,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
@@ -506,22 +360,23 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope2"
+      Name          "Scope1"
       Show          off
-      Position      [480, 240]
+      Position      [480, 120]
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1532, 315; 1920, 543]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
+      Location      [603, 329; 1214, 793]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAACsAAAAyPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAcAA"
+"AAyAAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAJjAAABC/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAmMAAAA+AP///wAAAmMAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":119,\"Labels\":[],"
-"\"VisualIdxs\":[]}"
+      SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxP+AAOZGP0"
+"Ng/4AYL1cPNWAAAAAEAf/gAAAAAAAB/+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":208,\"Labels\":["
+"\"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -571,7 +426,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Time"
-        Value         "0.5001"
+        Value         "0.5005"
         Show          off
       }
       Parameter {
@@ -598,7 +453,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [2110, 315; 2498, 543]
+      Location      [1082, 315; 1470, 543]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -647,12 +502,101 @@ Plecs {
         }
       }
     }
+    Component {
+      Type          ModelReference
+      SrcComponent  "Power_cal_PAC/PAC power2phi"
+      SrcModel      "../midware model/Power_cal_PAC.plecs"
+      Name          "Ref"
+      Show          on
+      Position      [195, 270]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-35, -25; 35, 25]
+      Parameter {
+        Variable      "L_eq"
+        Value         "L_eq"
+        Show          off
+      }
+      Parameter {
+        Variable      "f_sw"
+        Value         "f_sw"
+        Show          off
+      }
+      Parameter {
+        Variable      "n_tr"
+        Value         "N"
+        Show          off
+      }
+      Parameter {
+        Variable      "V_dc"
+        Value         "V_dc"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-35, -10]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [39, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-35, 10]
+        Direction     left
+      }
+    }
+    Component {
+      Type          ModelReference
+      SrcComponent  "PAC_modulation/PAC_modulation"
+      SrcModel      "../midware model/PAC_modulation.plecs"
+      Name          "Ref1"
+      Show          on
+      Position      [370, 285]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-60, -40; 60, 40]
+      Terminal {
+        Type          Input
+        Position      [-60, -15]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [64, 5]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, -30]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 15]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 30]
+        Direction     left
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Step"
       SrcTerminal   1
       Points        [110, 215; 110, 260]
-      DstComponent  "Power_cal"
+      DstComponent  "Ref"
       DstTerminal   1
     }
     Connection {
@@ -661,12 +605,12 @@ Plecs {
       SrcTerminal   1
       Points        [125, 280]
       Branch {
-        DstComponent  "Power_cal"
+        DstComponent  "Ref"
         DstTerminal   3
       }
       Branch {
         Points        [125, 315; 275, 315; 275, 300]
-        DstComponent  "Modulator"
+        DstComponent  "Ref1"
         DstTerminal   5
       }
     }
@@ -674,7 +618,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Constant2"
       SrcTerminal   1
-      DstComponent  "Modulator"
+      DstComponent  "Ref1"
       DstTerminal   4
     }
     Connection {
@@ -682,24 +626,8 @@ Plecs {
       SrcComponent  "Constant3"
       SrcTerminal   1
       Points        [290, 335; 290, 315]
-      DstComponent  "Modulator"
+      DstComponent  "Ref1"
       DstTerminal   6
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Pulse\nGenerator"
-      SrcTerminal   1
-      Points        [220, 200]
-      Branch {
-        Points        [270, 200; 270, 255]
-        DstComponent  "Modulator"
-        DstTerminal   3
-      }
-      Branch {
-        Points        [220, 115]
-        DstComponent  "Saturation"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -733,38 +661,46 @@ Plecs {
       Type          Signal
       SrcComponent  "active bridge"
       SrcTerminal   5
-      Points        [450, 110]
+      Points        [440, 110; 440, 120]
       DstComponent  "Scope1"
       DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "Modulator"
-      SrcTerminal   2
-      Points        [440, 290]
-      Branch {
-        DstComponent  "Goto"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [440, 240]
-        DstComponent  "Scope2"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Power_cal"
+      SrcComponent  "Ref"
       SrcTerminal   2
       Points        [280, 270]
       Branch {
-        DstComponent  "Modulator"
+        DstComponent  "Ref1"
         DstTerminal   1
       }
       Branch {
         Points        [280, 200]
         DstComponent  "Scope3"
         DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Ref1"
+      SrcTerminal   2
+      DstComponent  "Goto"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pulse\nGenerator"
+      SrcTerminal   1
+      Points        [220, 200]
+      Branch {
+        Points        [220, 115]
+        DstComponent  "Saturation"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [220, 255]
+        DstComponent  "Ref1"
+        DstTerminal   3
       }
     }
   }
