@@ -126,7 +126,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [1875, 318; 2424, 591]
+        Location      [1470, 318; 2019, 591]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -171,7 +171,7 @@ Plecs {
         }
         Component {
           Type          Input
-          Name          "phi"
+          Name          "sigma"
           Show          on
           Position      [45, 110]
           Direction     right
@@ -350,7 +350,7 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "phi"
+          SrcComponent  "sigma"
           SrcTerminal   1
           Points        [70, 110]
           DstComponent  "Saturation"
