@@ -1,0 +1,464 @@
+Plecs {
+  Name          "PAC_modulation"
+  Version       "4.9"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "1.0"
+  Timeout       ""
+  Solver        "auto"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  NonIdealSwitchResistance "1"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  DatatypeOverflowMsg "3"
+  DatatypeInheritanceConflictMsg "2"
+  ContSampleTimeConflictMsg "2"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  FixedPointDatatypeOverride "1"
+  InitializationCommands ""
+  InitialState  "1"
+  SystemState   ""
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  RemoveUnusedStateSpaceOutputs "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  Schematic {
+    Location      [164, 479; 856, 929]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          Subsystem
+      Name          "PAC_modulation"
+      Show          on
+      Position      [215, 165]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-60, -40; 60, 40]
+      SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
+      CodeGenTarget "Generic"
+      MaskDisplayLang "2"
+      MaskIconFrame on
+      MaskIconOpaque off
+      MaskIconRotates on
+      Terminal {
+        Type          Input
+        Position      [-60, -15]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [64, 5]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, -30]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 15]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 30]
+        Direction     left
+      }
+      Schematic {
+        Location      [415, 62; 999, 482]
+        ZoomFactor    1
+        SliderPosition [0, 0]
+        ShowBrowser   off
+        BrowserWidth  100
+        Component {
+          Type          Input
+          Name          "Vd"
+          Show          on
+          Position      [60, 80]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "1"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "V_PAC_ref"
+          Show          on
+          Position      [285, 170]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "2"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          CScript
+          Name          "C-Script"
+          Show          on
+          Position      [195, 170]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "DialogGeometry"
+            Value         "[281 62 877 753]"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumInputs"
+            Value         "5"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumOutputs"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumContStates"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumDiscStates"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumZCSignals"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "DirectFeedthrough"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "TerminalBasedSampleTimes"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Parameters"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "LangStandard"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "GnuExtensions"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "RuntimeCheck"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "HighlightLevel"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Declarations"
+            Value         base64 "I2luY2x1ZGUgPG1hdGguaD4KCiNpZm5kZWYgTV9QSQoj"
+"ZGVmaW5lIE1fUEkgMy4xNDE1OTI2NTM1ODk3OTMyMzg0NgojZW5kaWYKCi8vIOi+k+WFpeerr+WPo"
+"+Wuj+WumuS5iQojZGVmaW5lIFZkX2luICAgIElucHV0U2lnbmFsKDAsIDApCiNkZWZpbmUgVmJfaW"
+"4gICAgSW5wdXRTaWduYWwoMCwgMSkKI2RlZmluZSBWcV9pbiAgICBJbnB1dFNpZ25hbCgwLCAyKQo"
+"jZGVmaW5lIHNpZ21hX2luIElucHV0U2lnbmFsKDAsIDMpICAvLyDov5nmmK/lrp7ml7bovpPlhaXn"
+"moQgc2lnbWEKI2RlZmluZSBmcmVxX2luICBJbnB1dFNpZ25hbCgwLCA0KQoKLy8gLS0tIOaWsOWin"
+"u+8mumdmeaAgeWPmOmHj+eUqOS6jumUgeWtmCAtLS0KLy8gc3RhdGljIOWPmOmHj+WcqOWHveaVsO"
+"iwg+eUqOS5i+mXtOS8muS/neaMgeWFtuWAvApzdGF0aWMgZG91YmxlIHNpZ21hX2xhdGNoZWQ7IC8"
+"vIOW9k+WJjeWRqOacn+WunumZheS9v+eUqOeahCBzaWdtYQpzdGF0aWMgZG91YmxlIHRoZXRhX3By"
+"ZXY7ICAgIC8vIOS/neWtmOS4iuS4gOatpeeahOebuOS9je+8jOeUqOS6juajgOa1i+i/h+mbtueCu"
+"QpzdGF0aWMgaW50IGlzX2ZpcnN0X3J1bjsgICAgIC8vIOagh+iusOaYr+WQpuaYr+esrOS4gOasoe"
+"i/kOihjA=="
+            Show          off
+          }
+          Parameter {
+            Variable      "StartFcn"
+            Value         "sigma_latched = 0.0;\n"
+"theta_prev = 0.0;\n"
+"is_first_run = 1;"
+            Show          off
+          }
+          Parameter {
+            Variable      "OutputFcn"
+            Value         base64 "Ly8gMS4g6I635Y+W5b2T5YmN5Lu/55yf5pe26Ze0CmRv"
+"dWJsZSB0ID0gQ3VycmVudFRpbWU7CgovLyAyLiDorqHnrpflvZPliY3nm7jkvY0gdGhldGEgKDAgf"
+"iAyKnBpKQpkb3VibGUgb21lZ2EgPSAyLjAgKiBNX1BJICogZnJlcV9pbjsKLy8g5L2/55SoIGZtb2"
+"Qg6K6h566X55u45L2NCmRvdWJsZSB0aGV0YSA9IGZtb2Qob21lZ2EgKiB0LCAyLjAgKiBNX1BJKTs"
+"KCi8vIOmYsuatoua1rueCueaVsOeyvuW6puWvvOiHtOeahOW+ruWwj+i0n+WAvAppZiAodGhldGEg"
+"PCAwLjApIHsKICAgIHRoZXRhICs9IDIuMCAqIE1fUEk7Cn0KCi8vID09PT09PT09PT09PT09PT09P"
+"T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQovLyDlhbPplK7pgLvovpHvvJ"
+"pTaWdtYSDplIHlrZggKExhdGNoaW5nKQovLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0"
+"9PT09PT09PT09PT09PT09PT09PT09PT09PT0KLy8g5Yik5pat5p2h5Lu277yaCi8vIDEuIOesrOS4"
+"gOasoei/kOihjCAoaXNfZmlyc3RfcnVuKSAtPiDlv4XpobvliJ3lp4vljJYKLy8gMi4g55u45L2N5"
+"Zue5Y23ICh0aGV0YSA8IHRoZXRhX3ByZXYpIC0+IOivtOaYjuWImui/hyAyKnBpICjmlrDlkajmnJ"
+"/lvIDlp4spCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0"
+"9PT09PT09PT09PQppZiAoaXNfZmlyc3RfcnVuIHx8ICh0aGV0YSA8IHRoZXRhX3ByZXYpKSB7CiAg"
+"ICAvLyDlj6rmnInlnKjmlrDlkajmnJ/lvIDlp4vnmoTnnqzpl7TvvIzmiY3ku47ovpPlhaXnq6/lj"
+"6Por7vlj5bmlrDnmoQgc2lnbWEKICAgIHNpZ21hX2xhdGNoZWQgPSBzaWdtYV9pbjsKICAgIAogIC"
+"AgLy8g6ZmQ5Yi2IHNpZ21hIOiMg+WbtO+8jOmYsuatouiuoeeul+WHuumUmSAoMCB+IHBpKQogICA"
+"gaWYgKHNpZ21hX2xhdGNoZWQgPCAwKSBzaWdtYV9sYXRjaGVkID0gMDsKICAgIGlmIChzaWdtYV9s"
+"YXRjaGVkID4gTV9QSSkgc2lnbWFfbGF0Y2hlZCA9IE1fUEk7CiAgICAKICAgIGlzX2ZpcnN0X3J1b"
+"iA9IDA7IC8vIOa4hemZpOmmluasoei/kOihjOagh+W/lwp9CgovLyDmm7TmlrDljoblj7Lnm7jkvY"
+"3vvIzkvpvkuIvkuIDmraXmr5TovoPkvb/nlKgKdGhldGFfcHJldiA9IHRoZXRhOwoKLy8gPT09PT0"
+"9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Ci8vIOS4"
+"i+mdoueahOiuoeeul+WFqOmDqOS9v+eUqCBzaWdtYV9sYXRjaGVkICjogIzkuI3mmK8gc2lnbWFfa"
+"W4pCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT"
+"09PT09PQoKLy8gMy4g55Sf5oiQIHZiKHQpIC0gQmFzZSBWb2x0YWdlCmRvdWJsZSB2YWxfYjsKaWY"
+"gKHRoZXRhIDwgTV9QSSkgewogICAgdmFsX2IgPSBWYl9pbjsKfSBlbHNlIHsKICAgIHZhbF9iID0g"
+"LVZiX2luOwp9CgovLyA0LiDnlJ/miJAgdnEodCkgLSBRdWFkcmF0dXJlIFZvbHRhZ2UKZG91YmxlI"
+"HZhbF9xOwppZiAodGhldGEgPCBNX1BJKSB7CiAgICB2YWxfcSA9IC1WcV9pbjsKfSBlbHNlIHsKIC"
+"AgIHZhbF9xID0gVnFfaW47Cn0KCi8vIDUuIOeUn+aIkCB2ZCh0KSAtIERyaXZlIFZvbHRhZ2UKZG9"
+"1YmxlIHZhbF9kID0gMC4wOwovLyAqKiog5rOo5oSP77ya6L+Z6YeM5L2/55So6ZSB5a2Y5ZCO55qE"
+"IHNpZ21hX2xhdGNoZWQgKioqCmRvdWJsZSBoYWxmX3dpZHRoID0gc2lnbWFfbGF0Y2hlZCAvIDIuM"
+"DsKCi8vIOWIpOaWreaYr+WQpuWcqCAwICgycGkpIOmZhOi/keeahOiEieWGsuWMuumXtAppZiAodG"
+"hldGEgPCBoYWxmX3dpZHRoIHx8IHRoZXRhID4gKDIuMCAqIE1fUEkgLSBoYWxmX3dpZHRoKSkgewo"
+"gICAgdmFsX2QgPSBWZF9pbjsKfQovLyDliKTmlq3mmK/lkKblnKggcGkg6ZmE6L+R55qE6ISJ5Yay"
+"5Yy66Ze0CmVsc2UgaWYgKHRoZXRhID4gKE1fUEkgLSBoYWxmX3dpZHRoKSAmJiB0aGV0YSA8IChNX"
+"1BJICsgaGFsZl93aWR0aCkpIHsKICAgIHZhbF9kID0gLVZkX2luOwp9CgovLyA2LiDlkIjmiJDovp"
+"Plh7oKT3V0cHV0U2lnbmFsKDAsIDApID0gdmFsX2IgKyB2YWxfcSArIHZhbF9kOw=="
+            Show          off
+          }
+          Parameter {
+            Variable      "UpdateFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "DerivativeFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "TerminateFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "StoreCustomStateFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "RestoreCustomStateFcn"
+            Value         ""
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "Vb"
+          Show          on
+          Position      [60, 120]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "3"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "Vq"
+          Show          on
+          Position      [60, 170]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "4"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "sigma"
+          Show          on
+          Position      [60, 205]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "5"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "freq"
+          Show          on
+          Position      [60, 255]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "6"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalMux
+          Name          "Mux"
+          Show          off
+          Position      [125, 170]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "5"
+            Show          off
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "C-Script"
+          SrcTerminal   2
+          DstComponent  "V_PAC_ref"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vd"
+          SrcTerminal   1
+          Points        [95, 80; 95, 150]
+          DstComponent  "Mux"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vb"
+          SrcTerminal   1
+          Points        [90, 120; 90, 160]
+          DstComponent  "Mux"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vq"
+          SrcTerminal   1
+          DstComponent  "Mux"
+          DstTerminal   4
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "sigma"
+          SrcTerminal   1
+          Points        [95, 205; 95, 180]
+          DstComponent  "Mux"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "freq"
+          SrcTerminal   1
+          Points        [100, 255; 100, 190]
+          DstComponent  "Mux"
+          DstTerminal   6
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux"
+          SrcTerminal   1
+          DstComponent  "C-Script"
+          DstTerminal   1
+        }
+      }
+    }
+  }
+}
