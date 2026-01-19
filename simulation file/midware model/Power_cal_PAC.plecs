@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1534, 171; 2075, 626]
+    Location      [929, 171; 1470, 626]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -126,7 +126,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [1470, 318; 2019, 591]
+        Location      [644, 318; 1470, 591]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -154,7 +154,7 @@ Plecs {
           Type          Output
           Name          "V_d"
           Show          on
-          Position      [435, 65]
+          Position      [605, 65]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -173,7 +173,7 @@ Plecs {
           Type          Input
           Name          "sigma"
           Show          on
-          Position      [45, 110]
+          Position      [45, 125]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -192,7 +192,7 @@ Plecs {
           Type          Function
           Name          "Fcn"
           Show          off
-          Position      [225, 145]
+          Position      [395, 145]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -207,7 +207,7 @@ Plecs {
           Type          Gain
           Name          "Gain"
           Show          off
-          Position      [305, 70]
+          Position      [475, 70]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -241,7 +241,7 @@ Plecs {
           Type          Gain
           Name          "Gain1"
           Show          off
-          Position      [150, 60]
+          Position      [320, 60]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -275,7 +275,7 @@ Plecs {
           Type          Product
           Name          "Product"
           Show          off
-          Position      [355, 65]
+          Position      [525, 65]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -291,7 +291,7 @@ Plecs {
           }
           Parameter {
             Variable      "DataType"
-            Value         "11"
+            Value         "10"
             Show          off
           }
           Parameter {
@@ -304,7 +304,7 @@ Plecs {
           Type          Saturation
           Name          "Saturation"
           Show          off
-          Position      [100, 145]
+          Position      [270, 145]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -319,12 +319,47 @@ Plecs {
             Show          on
           }
         }
-        Connection {
-          Type          Signal
-          SrcComponent  "P_ref"
-          SrcTerminal   1
-          DstComponent  "Gain1"
-          DstTerminal   1
+        Component {
+          Type          ZeroOrderHold
+          Name          "Zero-Order\nHold"
+          Show          on
+          Position      [140, 100]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Ts"
+            Value         "1/f_sw"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalMux
+          Name          "Mux"
+          Show          off
+          Position      [95, 100]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalDemux
+          Name          "Demux"
+          Show          off
+          Position      [185, 100]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "2"
+            Show          off
+          }
         }
         Connection {
           Type          Signal
@@ -337,7 +372,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Fcn"
           SrcTerminal   2
-          Points        [250, 70]
+          Points        [420, 70]
           DstComponent  "Gain"
           DstTerminal   1
         }
@@ -347,14 +382,6 @@ Plecs {
           SrcTerminal   2
           DstComponent  "Product"
           DstTerminal   3
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "sigma"
-          SrcTerminal   1
-          Points        [70, 110]
-          DstComponent  "Saturation"
-          DstTerminal   1
         }
         Connection {
           Type          Signal
@@ -368,6 +395,52 @@ Plecs {
           SrcComponent  "Product"
           SrcTerminal   1
           DstComponent  "V_d"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "P_ref"
+          SrcTerminal   1
+          Points        [75, 60; 75, 95]
+          DstComponent  "Mux"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "sigma"
+          SrcTerminal   1
+          Points        [75, 125; 75, 105]
+          DstComponent  "Mux"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux"
+          SrcTerminal   1
+          DstComponent  "Zero-Order\nHold"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Zero-Order\nHold"
+          SrcTerminal   2
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   2
+          Points        [240, 95; 240, 60]
+          DstComponent  "Gain1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   3
+          Points        [215, 105; 215, 145]
+          DstComponent  "Saturation"
           DstTerminal   1
         }
       }
