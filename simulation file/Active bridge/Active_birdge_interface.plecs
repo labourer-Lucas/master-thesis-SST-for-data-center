@@ -141,7 +141,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [2013, 108; 2756, 735]
+        Location      [727, 108; 1470, 735]
         ZoomFactor    1
         SliderPosition [0, 5]
         ShowBrowser   off
@@ -150,7 +150,7 @@ Plecs {
           Type          Inductor
           Name          "L1"
           Show          on
-          Position      [160, 110]
+          Position      [160, 105]
           Direction     left
           Flipped       off
           LabelPosition northNorthwest
@@ -175,12 +175,12 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "Windings"
-            Value         "[1 1]"
+            Value         "[2 1]"
             Show          off
           }
           Parameter {
             Variable      "n"
-            Value         "[N 1]"
+            Value         "[N/2  N/2 1]"
             Show          off
           }
           Parameter {
@@ -637,6 +637,11 @@ Plecs {
           Flipped       off
           LabelPosition south
           Probe {
+            Component     "Vm2"
+            Path          "Active bridge"
+            Signals       {"Measured voltage"}
+          }
+          Probe {
             Component     "Vm1"
             Path          "Active bridge"
             Signals       {"Measured voltage"}
@@ -906,7 +911,7 @@ Plecs {
           Frame         [-20, -10; 20, 10]
           Parameter {
             Variable      "f(u)"
-            Value         "u[2]-u[1]"
+            Value         "u[1]-u[2]"
             Show          off
           }
         }
@@ -914,7 +919,7 @@ Plecs {
           Type          Port
           Name          "V+"
           Show          on
-          Position      [105, 110]
+          Position      [105, 105]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -948,6 +953,15 @@ Plecs {
             Show          off
           }
         }
+        Component {
+          Type          Voltmeter
+          Name          "Vm2"
+          Show          off
+          Position      [135, 140]
+          Direction     up
+          Flipped       off
+          LabelPosition west
+        }
         Connection {
           Type          Wire
           SrcComponent  "IGBTD1"
@@ -959,7 +973,7 @@ Plecs {
           }
           Branch {
             DstComponent  "Tr2"
-            DstTerminal   3
+            DstTerminal   5
           }
         }
         Connection {
@@ -973,7 +987,7 @@ Plecs {
           }
           Branch {
             DstComponent  "Tr2"
-            DstTerminal   4
+            DstTerminal   6
           }
         }
         Connection {
@@ -1052,9 +1066,8 @@ Plecs {
           Type          Wire
           SrcComponent  "L1"
           SrcTerminal   2
-          Points        [210, 110]
+          Points        [210, 105]
           Branch {
-            Points        [240, 110; 240, 125]
             DstComponent  "Tr2"
             DstTerminal   1
           }
@@ -1166,24 +1179,46 @@ Plecs {
         }
         Connection {
           Type          Wire
-          SrcComponent  "Tr2"
-          SrcTerminal   2
-          Points        [255, 175; 210, 175]
+          SrcComponent  "V-"
+          SrcTerminal   1
+          Points        [135, 175]
           Branch {
-            DstComponent  "Vm1"
-            DstTerminal   2
+            Points        [210, 175]
+            Branch {
+              DstComponent  "Vm1"
+              DstTerminal   2
+            }
+            Branch {
+              DstComponent  "Tr2"
+              DstTerminal   4
+            }
           }
           Branch {
-            DstComponent  "V-"
-            DstTerminal   1
+            DstComponent  "Vm2"
+            DstTerminal   2
           }
         }
         Connection {
           Type          Wire
           SrcComponent  "V+"
           SrcTerminal   1
-          DstComponent  "L1"
-          DstTerminal   1
+          Points        [135, 105]
+          Branch {
+            DstComponent  "L1"
+            DstTerminal   1
+          }
+          Branch {
+            DstComponent  "Vm2"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "Tr2"
+          SrcTerminal   3
+          Points        [250, 145; 250, 135]
+          DstComponent  "Tr2"
+          DstTerminal   2
         }
         RectangleAnnotation {
           Position     [215, 290]
