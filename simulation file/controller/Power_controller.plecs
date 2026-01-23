@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1645, 96; 2300, 502]
+    Location      [1470, 96; 2125, 502]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -128,7 +128,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [2240, 142; 2874, 451]
+        Location      [1899, 167; 2533, 476]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -864,14 +864,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Demux"
-          SrcTerminal   2
-          Points        [260, 130; 260, 120]
-          DstComponent  "Product"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Sum2"
           SrcTerminal   1
           DstComponent  "I_d_ref"
@@ -948,18 +940,26 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Demux"
-          SrcTerminal   3
-          Points        [260, 140; 260, 165]
-          DstComponent  "Product1"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Q"
           SrcTerminal   1
           DstComponent  "Sum3"
           DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   2
+          Points        [260, 130]
+          Branch {
+            Points        [260, 120]
+            DstComponent  "Product"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [260, 165]
+            DstComponent  "Product1"
+            DstTerminal   3
+          }
         }
       }
     }
