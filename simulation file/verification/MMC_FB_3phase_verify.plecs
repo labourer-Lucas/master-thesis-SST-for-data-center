@@ -54,113 +54,11 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 115; 1134, 823]
+    Location      [53, 143; 1187, 851]
     ZoomFactor    1.10892
-    SliderPosition [0, 132]
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
-    Component {
-      Type          ModelReference
-      SrcComponent  "MMC_FB_3phase/MMC_3phase"
-      SrcModel      "MMC_FB_3phase.plecs"
-      Name          "Ref"
-      Show          on
-      Position      [400, 225]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-155, -115; 155, 115]
-      Parameter {
-        Variable      "C_sub"
-        Value         "C_sub"
-        Show          off
-      }
-      Parameter {
-        Variable      "N"
-        Value         "N"
-        Show          off
-      }
-      Parameter {
-        Variable      "L_0"
-        Value         "L_arm"
-        Show          off
-      }
-      Parameter {
-        Variable      "V_c_0"
-        Value         "V_c_0"
-        Show          off
-      }
-      Terminal {
-        Type          Port
-        Position      [160, -40]
-        Direction     right
-      }
-      Terminal {
-        Type          Port
-        Position      [-160, 70]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-65, -115]
-        Direction     up
-      }
-      Terminal {
-        Type          Port
-        Position      [-160, -100]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-50, -115]
-        Direction     up
-      }
-      Terminal {
-        Type          Port
-        Position      [160, -25]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-35, -115]
-        Direction     up
-      }
-      Terminal {
-        Type          Input
-        Position      [-20, -115]
-        Direction     up
-      }
-      Terminal {
-        Type          Port
-        Position      [160, -10]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-5, -115]
-        Direction     up
-      }
-      Terminal {
-        Type          Input
-        Position      [10, -115]
-        Direction     up
-      }
-      Terminal {
-        Type          Output
-        Position      [-80, 119]
-        Direction     down
-      }
-      Terminal {
-        Type          Output
-        Position      [-65, 119]
-        Direction     down
-      }
-      Terminal {
-        Type          Output
-        Position      [-50, 119]
-        Direction     down
-      }
-    }
     Component {
       Type          ModelReference
       SrcComponent  "DeltaSigma_PSPWM_3phase/Modulator 3 Phase"
@@ -1384,7 +1282,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1521,6 +1419,108 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition west
+    }
+    Component {
+      Type          ModelReference
+      SrcComponent  "MMC_FB_3phase/MMC_3phase"
+      SrcModel      "../MMC model/MMC_FB_3phase.plecs"
+      Name          "Ref"
+      Show          on
+      Position      [400, 225]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-155, -115; 155, 115]
+      Parameter {
+        Variable      "C_sub"
+        Value         "C_sub"
+        Show          off
+      }
+      Parameter {
+        Variable      "N"
+        Value         "N"
+        Show          off
+      }
+      Parameter {
+        Variable      "L_0"
+        Value         "0.001"
+        Show          off
+      }
+      Parameter {
+        Variable      "V_c_0"
+        Value         ""
+        Show          off
+      }
+      Terminal {
+        Type          Port
+        Position      [160, -40]
+        Direction     right
+      }
+      Terminal {
+        Type          Port
+        Position      [-160, 70]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-65, -115]
+        Direction     up
+      }
+      Terminal {
+        Type          Port
+        Position      [-160, -100]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-50, -115]
+        Direction     up
+      }
+      Terminal {
+        Type          Port
+        Position      [160, -25]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-35, -115]
+        Direction     up
+      }
+      Terminal {
+        Type          Input
+        Position      [-20, -115]
+        Direction     up
+      }
+      Terminal {
+        Type          Port
+        Position      [160, -10]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-5, -115]
+        Direction     up
+      }
+      Terminal {
+        Type          Input
+        Position      [10, -115]
+        Direction     up
+      }
+      Terminal {
+        Type          Output
+        Position      [-80, 119]
+        Direction     down
+      }
+      Terminal {
+        Type          Output
+        Position      [-65, 119]
+        Direction     down
+      }
+      Terminal {
+        Type          Output
+        Position      [-50, 119]
+        Direction     down
+      }
     }
     Connection {
       Type          Signal

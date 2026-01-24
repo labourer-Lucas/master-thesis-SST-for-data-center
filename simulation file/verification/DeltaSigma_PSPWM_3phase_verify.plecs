@@ -53,53 +53,11 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 160; 1033, 858]
+    Location      [0, 155; 1033, 853]
     ZoomFactor    1.3484
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
-    Component {
-      Type          ModelReference
-      SrcComponent  "DeltaSigma_PSPWM_3phase/Modulator 3 Phase"
-      SrcModel      "DeltaSigma_PSPWM_3phase.plecs"
-      Name          "Ref"
-      Show          on
-      Position      [480, 140]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-75, -45; 75, 45]
-      Parameter {
-        Variable      "f_sw_abc"
-        Value         "1000"
-        Show          off
-      }
-      Parameter {
-        Variable      "N"
-        Value         "2"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-75, 30]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [79, 5]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-75, -40]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-75, -25]
-        Direction     left
-      }
-    }
     Component {
       Type          Subsystem
       Name          "UL-DS"
@@ -1150,7 +1108,7 @@ Plecs {
       Location      [0, 316; 873, 827]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAKRAAABLPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAASwAAABmAP///wAAAAMAAANpAAABTfw"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAHAAAASwAAABmAP///wAAAAMAAANpAAABGvw"
 "BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA2kAAAA+AP///wAAA2kAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
@@ -1196,6 +1154,48 @@ Plecs {
         }
       }
     }
+    Component {
+      Type          ModelReference
+      SrcComponent  "DeltaSigma_PSPWM_3phase/Modulator 3 Phase"
+      SrcModel      "../midware model/DeltaSigma_PSPWM_3phase.plecs"
+      Name          "Ref2"
+      Show          off
+      Position      [480, 140]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-75, -45; 75, 45]
+      Parameter {
+        Variable      "f_sw_abc"
+        Value         "f_sw"
+        Show          off
+      }
+      Parameter {
+        Variable      "N"
+        Value         "N"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-75, 30]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [79, 5]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-75, -40]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-75, -25]
+        Direction     left
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Sine Wave"
@@ -1230,8 +1230,8 @@ Plecs {
       Type          Signal
       SrcComponent  "UL-DS"
       SrcTerminal   2
-      Points        [345, 95; 345, 100]
-      DstComponent  "Ref"
+      Points        [220, 100]
+      DstComponent  "Ref2"
       DstTerminal   3
     }
     Connection {
@@ -1239,14 +1239,14 @@ Plecs {
       SrcComponent  "UL-DS"
       SrcTerminal   4
       Points        [220, 115]
-      DstComponent  "Ref"
+      DstComponent  "Ref2"
       DstTerminal   4
     }
     Connection {
       Type          Signal
       SrcComponent  "Constant"
       SrcTerminal   1
-      DstComponent  "Ref"
+      DstComponent  "Ref2"
       DstTerminal   1
     }
     Connection {
@@ -1293,7 +1293,7 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Ref"
+      SrcComponent  "Ref2"
       SrcTerminal   2
       DstComponent  "Demux"
       DstTerminal   1
