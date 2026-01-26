@@ -1,14 +1,14 @@
 Plecs {
   Name          "DeltaSigma_PSPWM_3phase_verify"
   Version       "4.9"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "1e-7"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -58,48 +58,6 @@ Plecs {
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
-    Component {
-      Type          ModelReference
-      SrcComponent  "DeltaSigma_PSPWM_3phase/Modulator 3 Phase"
-      SrcModel      "DeltaSigma_PSPWM_3phase.plecs"
-      Name          "Ref"
-      Show          on
-      Position      [480, 140]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-75, -45; 75, 45]
-      Parameter {
-        Variable      "f_sw_abc"
-        Value         "1000"
-        Show          off
-      }
-      Parameter {
-        Variable      "N"
-        Value         "2"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-75, 30]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [79, 5]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-75, -40]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-75, -25]
-        Direction     left
-      }
-    }
     Component {
       Type          Subsystem
       Name          "UL-DS"
@@ -1196,6 +1154,48 @@ Plecs {
         }
       }
     }
+    Component {
+      Type          ModelReference
+      SrcComponent  "DeltaSigma_PSPWM_3phase/Modulator 3 Phase"
+      SrcModel      "../midware model/DeltaSigma_PSPWM_3phase.plecs"
+      Name          "Ref"
+      Show          on
+      Position      [480, 140]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-75, -45; 75, 45]
+      Parameter {
+        Variable      "f_sw_abc"
+        Value         "1000"
+        Show          off
+      }
+      Parameter {
+        Variable      "N"
+        Value         "2"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-75, 30]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [79, 5]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-75, -40]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-75, -25]
+        Direction     left
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Sine Wave"
@@ -1230,7 +1230,7 @@ Plecs {
       Type          Signal
       SrcComponent  "UL-DS"
       SrcTerminal   2
-      Points        [345, 95; 345, 100]
+      Points        [220, 100]
       DstComponent  "Ref"
       DstTerminal   3
     }

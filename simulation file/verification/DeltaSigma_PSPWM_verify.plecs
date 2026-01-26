@@ -8,7 +8,7 @@ Plecs {
   Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-6"
+  FixedStep     "1e-7"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -53,63 +53,11 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-10, 250; 853, 687]
+    Location      [121, 242; 984, 679]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
-    Component {
-      Type          ModelReference
-      SrcComponent  "DeltaSigma_PSPWM/modulator"
-      SrcModel      "DeltaSigma_PSPWM.plecs"
-      Name          "modulator"
-      Show          on
-      Position      [405, 105]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-70, -40; 70, 40]
-      Parameter {
-        Variable      "f_sw"
-        Value         "f_sw"
-        Show          off
-      }
-      Parameter {
-        Variable      "N"
-        Value         "N"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, -35]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [74, -25]
-        Direction     right
-      }
-      Terminal {
-        Type          Output
-        Position      [74, 10]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, -25]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, 10]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, 25]
-        Direction     left
-      }
-    }
     Component {
       Type          Subsystem
       Name          "UL-DS"
@@ -523,7 +471,7 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":183,\"Labels\":[\""
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":147,\"Labels\":[\""
 "Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
@@ -761,11 +709,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [308, 337; 696, 789]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAACsAAABJPwCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [308, 337; 1037, 789]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAALZAAABV/wCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMBAAAAHAAAASQAAABmAP///wAAAAMAAAGEAAAAg/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAANcAAAEkAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMBAAAAHAAAAVcAAABmAP///wAAAAMAAALZAAAAUPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAtkAAAA+AP///wAAAAAAAAFXAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -776,7 +724,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1002,7 +950,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 344; 841, 796]
+      Location      [366, 339; 1207, 791]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAANJAAABFvw"
@@ -1114,11 +1062,63 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          ModelReference
+      SrcComponent  "DeltaSigma_PSPWM/modulator"
+      SrcModel      "../midware model/DeltaSigma_PSPWM.plecs"
+      Name          "Ref"
+      Show          on
+      Position      [405, 105]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-70, -40; 70, 40]
+      Parameter {
+        Variable      "f_sw"
+        Value         "1e3"
+        Show          off
+      }
+      Parameter {
+        Variable      "N"
+        Value         "2"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, -35]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [74, -25]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [74, 10]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, -25]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, 10]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, 25]
+        Direction     left
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Constant"
       SrcTerminal   1
-      DstComponent  "modulator"
+      DstComponent  "Ref"
       DstTerminal   5
     }
     Connection {
@@ -1126,27 +1126,27 @@ Plecs {
       SrcComponent  "Constant1"
       SrcTerminal   1
       Points        [310, 140; 310, 130]
-      DstComponent  "modulator"
+      DstComponent  "Ref"
       DstTerminal   6
     }
     Connection {
       Type          Signal
       SrcComponent  "UL-DS"
       SrcTerminal   2
-      Points        [320, 55; 320, 70]
-      DstComponent  "modulator"
+      Points        [320, 55]
+      DstComponent  "Ref"
       DstTerminal   1
     }
     Connection {
       Type          Signal
       SrcComponent  "UL-DS"
       SrcTerminal   4
-      DstComponent  "modulator"
+      DstComponent  "Ref"
       DstTerminal   4
     }
     Connection {
       Type          Signal
-      SrcComponent  "modulator"
+      SrcComponent  "Ref"
       SrcTerminal   2
       Points        [500, 80]
       Branch {
@@ -1272,7 +1272,7 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "modulator"
+      SrcComponent  "Ref"
       SrcTerminal   3
       Points        [495, 115; 495, 140]
       DstComponent  "Selector1"

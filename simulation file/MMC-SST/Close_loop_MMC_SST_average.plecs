@@ -1,14 +1,14 @@
 Plecs {
   Name          "Close_loop_MMC_SST_average"
   Version       "4.9"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-6"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "T_s"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-6"
@@ -28,11 +28,12 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "%Grid info\nV_g=10000;\nf_g=50;\nL_g=0.001;\n\n%MMC "
-"parameter\nL_arm=0.001;\n\n%Current controller parameter\nK_p_i=5000;\nK_i_i="
-"1000000;\nL_eq_g=L_g+L_arm/2;\n\n%PQ controller parameter\nK_p_P=0.00002;\nK_"
-"i_P=0.000002;\n\n%Secondary side Load parameter\nf_sw=1000;\nV_dc=800;\nN=10;"
-"\nL_power=0.001;\nL_eq_dc=2/3*L_arm+L_power;"
+  InitializationCommands "%Simulation parameters\nT_s=1e-7; %simulation step\n"
+"%Grid info\nV_g=10000;\nf_g=50;\nL_g=0.001;\n\n%MMC parameter\nL_arm=0.001;\n"
+"\n%Current controller parameter\nK_p_i=5000;\nK_i_i=1000000;\nL_eq_g=L_g+L_ar"
+"m/2;\n\n%PQ controller parameter\nK_p_P=0.00001;\nK_i_P=1;\n\n%Secondary side"
+" Load parameter\nf_sw=1000;\nV_dc=800;\nN=10;\nL_power=0.001;\nL_eq_dc=2/3*L_"
+"arm+L_power;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -57,9 +58,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1678, 24; 3038, 875]
+    Location      [110, 61; 1470, 839]
     ZoomFactor    0.988828
-    SliderPosition [0, 163]
+    SliderPosition [0, 240]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -328,54 +329,6 @@ Plecs {
       Parameter {
         Variable      "Tag"
         Value         "wt"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "NoMatchingCounterpartAction"
-        Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          Goto
-      Name          "Goto1"
-      Show          off
-      Position      [1080, 115]
-      Direction     right
-      Flipped       on
-      LabelPosition south
-      Parameter {
-        Variable      "Tag"
-        Value         "I_g_abc"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "NoMatchingCounterpartAction"
-        Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          Goto
-      Name          "Goto2"
-      Show          off
-      Position      [1080, 95]
-      Direction     right
-      Flipped       on
-      LabelPosition south
-      Parameter {
-        Variable      "Tag"
-        Value         "V_g_abc"
         Show          off
       }
       Parameter {
@@ -972,7 +925,7 @@ Plecs {
       Type          Goto
       Name          "Goto9"
       Show          off
-      Position      [1115, 695]
+      Position      [1170, 695]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -996,7 +949,7 @@ Plecs {
       Type          Goto
       Name          "Goto10"
       Show          off
-      Position      [1115, 735]
+      Position      [1170, 735]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -1753,7 +1706,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1663, 294; 2487, 813]
+      Location      [573, 311; 1397, 830]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -2216,7 +2169,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1741, 356; 2565, 875]
+      Location      [646, 347; 1470, 866]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -2224,13 +2177,14 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":104,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":106,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
-      PlotPalettes  "AAAAAQAAAAIAAAABAAAAAgAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
-"/8AAAAAAAIAAAABAAAAAAEAAAAAAgAAAAEAAAABAAAAAQAAAAEAAAACAAAAAQAAAAABAAAAAAIAAA"
-"ABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAACAAAAAQEAAAABAQAAAAIAAAABAAAAAgAAAAEC//8u4P/"
-"/zMwAAAAAAAEC//8AAP////8AAAAAAAIAAAABAAAAAAEAAAAAAgAAAAEAAAABAAAAAQAAAAEAAAAC"
-"AAAAAQAAAAABAAAAAAIAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAACAAAAAQEAAAABAQ=="
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
+"/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
+"BQAAAAAAAAAAAAAADAAAAAQEAAAABAQAAAAEBAAAAAgAAAAEAAAACAAAAAQL//y7g///MzAAAAAAA"
+"AQL//wAA/////wAAAAAAAgAAAAEAAAAAAQAAAAACAAAAAQAAAAEAAAABAAAAAQAAAAIAAAABAAAAA"
+"AEAAAAAAgAAAAFAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAIAAAABAQAAAAEB"
       Axes          "2"
       TimeRange     "0.0"
       ScrollingMode "1"
@@ -2273,7 +2227,7 @@ Plecs {
           AutoScale     1
           MinValue      0
           MaxValue      1
-          Signals       {"P_ref", "P_g"}
+          Signals       {"P_ref", "P_g", "P_sec"}
           Untangle      0
           KeepBaseline  off
           BaselineValue 0
@@ -3169,6 +3123,140 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Goto
+      Name          "Goto1"
+      Show          off
+      Position      [1035, 115]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "I_g_abc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto2"
+      Show          off
+      Position      [1035, 80]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "V_g_abc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay"
+      Show          off
+      Position      [1080, 80]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "T_s"
+        Show          off
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay1"
+      Show          off
+      Position      [1070, 115]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "T_s"
+        Show          off
+      }
+    }
+    Component {
+      Type          Saturation
+      Name          "Saturation2"
+      Show          off
+      Position      [1130, 695]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "UpperLimit"
+        Value         "1e7"
+        Show          off
+      }
+      Parameter {
+        Variable      "LowerLimit"
+        Value         "-1e7"
+        Show          off
+      }
+    }
+    Component {
+      Type          Saturation
+      Name          "Saturation3"
+      Show          off
+      Position      [1130, 735]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "UpperLimit"
+        Value         "1e7"
+        Show          off
+      }
+      Parameter {
+        Variable      "LowerLimit"
+        Value         "-1e7"
+        Show          off
+      }
+    }
     Connection {
       Type          Wire
       SrcComponent  "L1"
@@ -3255,21 +3343,6 @@ Plecs {
       SrcComponent  "3-phase_grid"
       SrcTerminal   5
       DstComponent  "Goto"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   8
-      DstComponent  "Goto1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   7
-      Points        [1110, 95]
-      DstComponent  "Goto2"
       DstTerminal   1
     }
     Connection {
@@ -3476,20 +3549,6 @@ Plecs {
       Points        [465, 700; 465, 665]
       DstComponent  "Scope"
       DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "power controller"
-      SrcTerminal   2
-      DstComponent  "Goto9"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "power controller"
-      SrcTerminal   7
-      DstComponent  "Goto10"
-      DstTerminal   1
     }
     Connection {
       Type          Signal
@@ -3837,9 +3896,65 @@ Plecs {
       Type          Signal
       SrcComponent  "Gain1"
       SrcTerminal   2
-      Points        [465, 765; 465, 755]
+      Points        [465, 755]
       DstComponent  "Mux2"
       DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay"
+      SrcTerminal   2
+      DstComponent  "Goto2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay1"
+      SrcTerminal   2
+      DstComponent  "Goto1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   8
+      DstComponent  "Delay1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   7
+      DstComponent  "Delay"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "power controller"
+      SrcTerminal   2
+      DstComponent  "Saturation2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Saturation2"
+      SrcTerminal   2
+      DstComponent  "Goto9"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "power controller"
+      SrcTerminal   7
+      DstComponent  "Saturation3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Saturation3"
+      SrcTerminal   2
+      DstComponent  "Goto10"
+      DstTerminal   1
     }
     RectangleAnnotation {
       Position     [500, 375]
@@ -3906,8 +4021,8 @@ Plecs {
       Position      [775, 315]
     } 
     RectangleAnnotation {
-      Position     [940, 710]
-      Width        470
+      Position     [965, 710]
+      Width        520
       Height       210
       CornerRadius 3
       Thickness    2
