@@ -1,14 +1,14 @@
 Plecs {
   Name          "PQ_controller_verify"
   Version       "4.9"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-6"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "T_s"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-6"
@@ -28,10 +28,10 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "%Grid info\nV_g=220;\nf_g=50;\nL_g=0.001;\n\n%MMC pa"
-"rameter\nL_arm=0.001;\n\n%Current controller parameter\nK_p_i=5000;\nK_i_i=10"
-"00000;\nL_eq=L_g+L_arm/2;\n\n%PQ controller parameter\nK_p_P=0.001;\nK_i_P=0."
-"0001;\n\n"
+  InitializationCommands "%Simulation parameters\nT_s=1e-7; %simulation step\n"
+"%Grid info\nV_g=220;\nf_g=50;\nL_g=0.001;\n\n%MMC parameter\nL_arm=0.001;\n\n"
+"%Current controller parameter\nK_p_i=5000;\nK_i_i=1000000;\nL_eq=L_g+L_arm/2;"
+"\n\n%PQ controller parameter\nK_p_P=0.001;\nK_i_P=100;\n\n"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -56,7 +56,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1679, 3; 3039, 923]
+    Location      [94, 61; 1454, 839]
     ZoomFactor    0.988828
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -344,7 +344,7 @@ Plecs {
       Type          Goto
       Name          "Goto1"
       Show          off
-      Position      [555, 70]
+      Position      [510, 70]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -368,7 +368,7 @@ Plecs {
       Type          Goto
       Name          "Goto2"
       Show          off
-      Position      [555, 50]
+      Position      [510, 35]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -1772,7 +1772,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1949, 199; 2773, 718]
+      Location      [646, 199; 1470, 718]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -2235,7 +2235,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [2328, 223; 3152, 742]
+      Location      [298, 112; 1122, 631]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -2468,7 +2468,7 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "0"
+        Value         "40000"
         Show          on
       }
       Parameter {
@@ -2508,6 +2508,54 @@ Plecs {
       Parameter {
         Variable      "DataType"
         Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay"
+      Show          off
+      Position      [555, 35]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "T_s"
+        Show          off
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay1"
+      Show          off
+      Position      [545, 70]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "T_s"
         Show          off
       }
     }
@@ -2597,21 +2645,6 @@ Plecs {
       SrcComponent  "3-phase_grid"
       SrcTerminal   5
       DstComponent  "Goto"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   8
-      DstComponent  "Goto1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   7
-      Points        [585, 50]
-      DstComponent  "Goto2"
       DstTerminal   1
     }
     Connection {
@@ -3005,6 +3038,34 @@ Plecs {
         DstComponent  "Goto18"
         DstTerminal   1
       }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   7
+      DstComponent  "Delay"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay"
+      SrcTerminal   2
+      DstComponent  "Goto2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   8
+      DstComponent  "Delay1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay1"
+      SrcTerminal   2
+      DstComponent  "Goto1"
+      DstTerminal   1
     }
     RectangleAnnotation {
       Position     [175, 320]

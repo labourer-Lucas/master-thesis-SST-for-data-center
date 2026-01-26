@@ -1,14 +1,14 @@
 Plecs {
   Name          "MMC_FB_single_verify"
   Version       "4.9"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "1e-7"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -54,149 +54,10 @@ Plecs {
   ScriptsDialogSplitterPos "0"
   Schematic {
     Location      [155, 119; 1216, 785]
-    ZoomFactor    2.09474
-    SliderPosition [-1, 683]
+    ZoomFactor    1.06735
+    SliderPosition [0, 26]
     ShowBrowser   off
     BrowserWidth  100
-    Component {
-      Type          ModelReference
-      SrcComponent  "MMC_FB_single/MMC_single"
-      SrcModel      "MMC_FB_single.plecs"
-      Name          "MMC_single"
-      Show          on
-      Position      [650, 375]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-95, -85; 95, 85]
-      Parameter {
-        Variable      "C_sub"
-        Value         "C_sub"
-        Show          off
-      }
-      Parameter {
-        Variable      "N"
-        Value         "N"
-        Show          off
-      }
-      Parameter {
-        Variable      "L_0"
-        Value         "L_arm"
-        Show          off
-      }
-      Parameter {
-        Variable      "V_c_0"
-        Value         "V_c_0"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [99, 70]
-        Direction     right
-      }
-      Terminal {
-        Type          Port
-        Position      [100, -5]
-        Direction     right
-      }
-      Terminal {
-        Type          Output
-        Position      [99, 80]
-        Direction     right
-      }
-      Terminal {
-        Type          Port
-        Position      [-100, -35]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-95, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Port
-        Position      [-100, -65]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [99, 15]
-        Direction     right
-      }
-      Terminal {
-        Type          Output
-        Position      [99, 25]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-95, 15]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [99, 50]
-        Direction     right
-      }
-      Terminal {
-        Type          Output
-        Position      [99, 60]
-        Direction     right
-      }
-    }
-    Component {
-      Type          ModelReference
-      SrcComponent  "DeltaSigma_PSPWM/modulator"
-      SrcModel      "../midware model/DeltaSigma_PSPWM.plecs"
-      Name          "Ref"
-      Show          on
-      Position      [380, 400]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-70, -40; 70, 40]
-      Parameter {
-        Variable      "f_sw"
-        Value         "1e3"
-        Show          off
-      }
-      Parameter {
-        Variable      "N"
-        Value         "N"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, -35]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [74, -25]
-        Direction     right
-      }
-      Terminal {
-        Type          Output
-        Position      [74, 10]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, -25]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, 10]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-70, 25]
-        Direction     left
-      }
-    }
     Component {
       Type          Voltmeter
       Name          "Vm1"
@@ -1047,19 +908,19 @@ Plecs {
       Location      [415, 224; 803, 452]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAAcvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAABVAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAGEAAAAnfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAYQAAAA+AP///wAAAYQAAAAAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":164,\"Labels\":[\""
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":134,\"Labels\":[\""
 "Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1127,9 +988,148 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          ModelReference
+      SrcComponent  "MMC_FB_single/MMC_single"
+      SrcModel      "../MMC model/MMC_FB_single.plecs"
+      Name          "Ref1"
+      Show          on
+      Position      [650, 375]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-95, -85; 95, 85]
+      Parameter {
+        Variable      "C_sub"
+        Value         "C_sub"
+        Show          off
+      }
+      Parameter {
+        Variable      "N"
+        Value         "N"
+        Show          off
+      }
+      Parameter {
+        Variable      "L_0"
+        Value         "L_arm"
+        Show          off
+      }
+      Parameter {
+        Variable      "V_c_0"
+        Value         "V_c_0"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 70]
+        Direction     right
+      }
+      Terminal {
+        Type          Port
+        Position      [100, -5]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 80]
+        Direction     right
+      }
+      Terminal {
+        Type          Port
+        Position      [-100, -35]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-95, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Port
+        Position      [-100, -65]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 15]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 25]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-95, 15]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 50]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [99, 60]
+        Direction     right
+      }
+    }
+    Component {
+      Type          ModelReference
+      SrcComponent  "DeltaSigma_PSPWM/modulator"
+      SrcModel      "../midware model/DeltaSigma_PSPWM.plecs"
+      Name          "Ref"
+      Show          on
+      Position      [380, 400]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-70, -40; 70, 40]
+      Parameter {
+        Variable      "f_sw"
+        Value         "1e3"
+        Show          off
+      }
+      Parameter {
+        Variable      "N"
+        Value         "N"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, -35]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [74, -25]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [74, 10]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, -25]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, 10]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-70, 25]
+        Direction     left
+      }
+    }
     Connection {
       Type          Wire
-      SrcComponent  "MMC_single"
+      SrcComponent  "Ref1"
       SrcTerminal   4
       DstComponent  "Vm1"
       DstTerminal   2
@@ -1139,7 +1139,7 @@ Plecs {
       SrcComponent  "Vm1"
       SrcTerminal   1
       Points        [450, 285; 550, 285]
-      DstComponent  "MMC_single"
+      DstComponent  "Ref1"
       DstTerminal   6
     }
     Connection {
@@ -1189,14 +1189,14 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "MMC_single"
+      SrcComponent  "Ref1"
       SrcTerminal   10
       DstComponent  "Goto1"
       DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "MMC_single"
+      SrcComponent  "Ref1"
       SrcTerminal   11
       DstComponent  "Goto2"
       DstTerminal   1
@@ -1205,7 +1205,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Ref"
       SrcTerminal   2
-      DstComponent  "MMC_single"
+      DstComponent  "Ref1"
       DstTerminal   5
     }
     Connection {
@@ -1213,19 +1213,19 @@ Plecs {
       SrcComponent  "Ref"
       SrcTerminal   3
       Points        [500, 410; 500, 390]
-      DstComponent  "MMC_single"
+      DstComponent  "Ref1"
       DstTerminal   9
     }
     Connection {
       Type          Signal
-      SrcComponent  "MMC_single"
+      SrcComponent  "Ref1"
       SrcTerminal   7
       DstComponent  "Goto4"
       DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "MMC_single"
+      SrcComponent  "Ref1"
       SrcTerminal   8
       DstComponent  "Goto5"
       DstTerminal   1
