@@ -58,6 +58,7 @@ Modular Multilevel Converter topology models.
 | File | Description |
 |------|-------------|
 | `MMC_3phase_average.plecs` | Three-phase MMC average model (simplified for control design) |
+| `MMC_3phase_average_capacitor.plecs` | Three-phase MMC average model with included capacitor dynamics (simplified for control design) |
 | `MMC_HB_3phase.plecs` | Three-phase MMC with Half-Bridge (HB) submodules |
 | `MMC_FB_3phase.plecs` | Three-phase MMC with Full-Bridge (FB) submodules |
 | `MMC_FB_single.plecs` | Single-phase MMC with Full-Bridge submodules |
