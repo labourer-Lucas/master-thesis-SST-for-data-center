@@ -563,7 +563,7 @@ Plecs {
           }
           Parameter {
             Variable      "Inputs"
-            Value         "-+"
+            Value         "+-"
             Show          off
           }
           Parameter {

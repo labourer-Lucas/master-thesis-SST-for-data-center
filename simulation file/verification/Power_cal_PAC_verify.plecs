@@ -324,7 +324,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -431,7 +431,7 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "5000"
+        Value         "0"
         Show          on
       }
       Parameter {
