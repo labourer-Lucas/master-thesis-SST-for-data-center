@@ -5,10 +5,10 @@ Plecs {
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "1e-7"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -482,7 +482,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Mux"
       SrcTerminal   1
-      Points        [510, 310; 510, 255; 210, 255]
+      Points        [510, 310; 510, 255; 210, 255; 210, 195]
       DstComponent  "Ref"
       DstTerminal   7
     }

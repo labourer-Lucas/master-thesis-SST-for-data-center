@@ -5,10 +5,10 @@ Plecs {
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-6"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "T_s"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-6"
@@ -28,9 +28,10 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "%Grid info\nV_g=220;\nf_g=50;\nL_g=0.001;\n\n%MMC pa"
-"rameter\nL_arm=0.001;\n\n%Current controller parameter\nK_p_i=5000;\nK_i_i=10"
-"00000;\nL_eq=L_g+L_arm/2;\n"
+  InitializationCommands "%Simulation parameters\nT_s=1e-7; %simulation step\n"
+"%Grid info\nV_g=220;\nf_g=50;\nL_g=0.001;\n\n%MMC parameter\nL_arm=0.001;\n\n"
+"%Current controller parameter\nK_p_i=5000;\nK_i_i=1000000;\nL_eq=L_g+L_arm/2;"
+"\n"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -55,9 +56,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1768, 58; 3128, 963]
+    Location      [110, 61; 1470, 929]
     ZoomFactor    1.48189
-    SliderPosition [0, 35]
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -343,7 +344,7 @@ Plecs {
       Type          Goto
       Name          "Goto1"
       Show          off
-      Position      [555, 70]
+      Position      [505, 70]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -367,7 +368,7 @@ Plecs {
       Type          Goto
       Name          "Goto2"
       Show          off
-      Position      [555, 50]
+      Position      [505, 25]
       Direction     right
       Flipped       on
       LabelPosition south
@@ -1848,7 +1849,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1886,7 +1887,7 @@ Plecs {
           AutoScale     1
           MinValue      0
           MaxValue      1
-          Signals       {"V_ref_df", "V_g_d"}
+          Signals       {}
           Untangle      0
           KeepBaseline  off
           BaselineValue 0
@@ -1901,6 +1902,54 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay"
+      Show          off
+      Position      [555, 25]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "T_s"
+        Show          off
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay1"
+      Show          off
+      Position      [545, 70]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "T_s"
+        Show          off
       }
     }
     Connection {
@@ -1989,21 +2038,6 @@ Plecs {
       SrcComponent  "3-phase_grid"
       SrcTerminal   5
       DstComponent  "Goto"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   8
-      DstComponent  "Goto1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   7
-      Points        [585, 50]
-      DstComponent  "Goto2"
       DstTerminal   1
     }
     Connection {
@@ -2262,6 +2296,35 @@ Plecs {
       Points        [140, 595; 140, 560]
       DstComponent  "Scope"
       DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   7
+      DstComponent  "Delay"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay"
+      SrcTerminal   2
+      DstComponent  "Goto2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   8
+      Points        [575, 70]
+      DstComponent  "Delay1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay1"
+      SrcTerminal   2
+      DstComponent  "Goto1"
+      DstTerminal   1
     }
     RectangleAnnotation {
       Position     [180, 310]
