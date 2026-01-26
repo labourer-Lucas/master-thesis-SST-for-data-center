@@ -1,5 +1,5 @@
 Plecs {
-  Name          "MMC_3phase_average"
+  Name          "MMC_3phase_average_capacitor"
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [-1154, 11; -108, 615]
+    Location      [106, 194; 1152, 798]
     ZoomFactor    1.45221
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -79,6 +79,33 @@ Plecs {
         Prompt        "Arm inductance L_arm"
         Type          FreeText
         Value         "0.001"
+        Show          off
+        Tunable       off
+        TabName       ""
+      }
+      Parameter {
+        Variable      "C_sub"
+        Prompt        "SM capacitance C_sub"
+        Type          FreeText
+        Value         ""
+        Show          off
+        Tunable       off
+        TabName       ""
+      }
+      Parameter {
+        Variable      "N"
+        Prompt        "Number of SMs"
+        Type          FreeText
+        Value         ""
+        Show          off
+        Tunable       off
+        TabName       ""
+      }
+      Parameter {
+        Variable      "V_c_0"
+        Prompt        "SM capacitance initial voltage V_c_0"
+        Type          FreeText
+        Value         ""
         Show          off
         Tunable       off
         TabName       ""
@@ -119,9 +146,9 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [-1772, -183; -694, 527]
-        ZoomFactor    0.581788
-        SliderPosition [0, 0]
+        Location      [1659, 132; 3224, 942]
+        ZoomFactor    0.997757
+        SliderPosition [113, 0]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -439,7 +466,7 @@ Plecs {
           Type          Goto
           Name          "Goto38"
           Show          off
-          Position      [545, 325]
+          Position      [525, 325]
           Direction     left
           Flipped       off
           LabelPosition north
@@ -463,7 +490,7 @@ Plecs {
           Type          Goto
           Name          "Goto39"
           Show          off
-          Position      [545, 405]
+          Position      [525, 405]
           Direction     left
           Flipped       off
           LabelPosition north
@@ -487,7 +514,7 @@ Plecs {
           Type          Goto
           Name          "Goto40"
           Show          off
-          Position      [735, 325]
+          Position      [710, 325]
           Direction     left
           Flipped       off
           LabelPosition north
@@ -511,7 +538,7 @@ Plecs {
           Type          Goto
           Name          "Goto41"
           Show          off
-          Position      [735, 405]
+          Position      [710, 405]
           Direction     left
           Flipped       off
           LabelPosition north
@@ -535,7 +562,7 @@ Plecs {
           Type          From
           Name          "From36"
           Show          off
-          Position      [1285, 385]
+          Position      [365, 755]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -559,7 +586,7 @@ Plecs {
           Type          From
           Name          "From37"
           Show          off
-          Position      [1285, 400]
+          Position      [365, 770]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -583,7 +610,7 @@ Plecs {
           Type          From
           Name          "From38"
           Show          off
-          Position      [1285, 415]
+          Position      [365, 785]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -607,7 +634,7 @@ Plecs {
           Type          From
           Name          "From39"
           Show          off
-          Position      [1285, 430]
+          Position      [365, 800]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -631,7 +658,7 @@ Plecs {
           Type          From
           Name          "From40"
           Show          off
-          Position      [1285, 445]
+          Position      [365, 815]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -655,7 +682,7 @@ Plecs {
           Type          From
           Name          "From41"
           Show          off
-          Position      [1285, 460]
+          Position      [365, 830]
           Direction     right
           Flipped       off
           LabelPosition north
@@ -679,7 +706,7 @@ Plecs {
           Type          SignalMux
           Name          "Mux2"
           Show          off
-          Position      [1330, 425]
+          Position      [410, 795]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -693,7 +720,7 @@ Plecs {
           Type          Output
           Name          "Iarm_abc_pl"
           Show          on
-          Position      [1390, 425]
+          Position      [470, 795]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -731,13 +758,13 @@ Plecs {
           Type          Goto
           Name          "Goto24"
           Show          off
-          Position      [1185, 385]
+          Position      [265, 755]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VAU"
+            Value         "VAU_ref"
             Show          off
           }
           Parameter {
@@ -755,13 +782,13 @@ Plecs {
           Type          Goto
           Name          "Goto25"
           Show          off
-          Position      [1185, 400]
+          Position      [265, 770]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VAL"
+            Value         "VAL_ref"
             Show          off
           }
           Parameter {
@@ -779,13 +806,13 @@ Plecs {
           Type          Goto
           Name          "Goto42"
           Show          off
-          Position      [1185, 415]
+          Position      [265, 785]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VBU"
+            Value         "VBU_ref"
             Show          off
           }
           Parameter {
@@ -803,13 +830,13 @@ Plecs {
           Type          Goto
           Name          "Goto43"
           Show          off
-          Position      [1185, 430]
+          Position      [265, 800]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VBL"
+            Value         "VBL_ref"
             Show          off
           }
           Parameter {
@@ -827,13 +854,13 @@ Plecs {
           Type          Goto
           Name          "Goto44"
           Show          off
-          Position      [1185, 445]
+          Position      [265, 815]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VCU"
+            Value         "VCU_ref"
             Show          off
           }
           Parameter {
@@ -851,13 +878,13 @@ Plecs {
           Type          Goto
           Name          "Goto45"
           Show          off
-          Position      [1185, 460]
+          Position      [265, 830]
           Direction     right
           Flipped       off
           LabelPosition south
           Parameter {
             Variable      "Tag"
-            Value         "VCL"
+            Value         "VCL_ref"
             Show          off
           }
           Parameter {
@@ -875,7 +902,7 @@ Plecs {
           Type          Input
           Name          "Varm_abc_pl"
           Show          on
-          Position      [1090, 425]
+          Position      [170, 795]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -894,7 +921,7 @@ Plecs {
           Type          SignalDemux
           Name          "Demux6"
           Show          off
-          Position      [1140, 425]
+          Position      [220, 795]
           Direction     right
           Flipped       on
           LabelPosition south
@@ -1097,30 +1124,6 @@ Plecs {
         }
         Component {
           Type          From
-          Name          "From4"
-          Show          off
-          Position      [870, 165]
-          Direction     right
-          Flipped       on
-          LabelPosition north
-          Parameter {
-            Variable      "Tag"
-            Value         "VCU"
-            Show          off
-          }
-          Parameter {
-            Variable      "Visibility"
-            Value         "3"
-            Show          off
-          }
-          Parameter {
-            Variable      "NoMatchingCounterpartAction"
-            Value         "1"
-            Show          off
-          }
-        }
-        Component {
-          Type          From
           Name          "From5"
           Show          off
           Position      [880, 560]
@@ -1140,6 +1143,368 @@ Plecs {
           Parameter {
             Variable      "NoMatchingCounterpartAction"
             Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          CurrentSource
+          Name          "I2"
+          Show          off
+          Position      [870, 225]
+          Direction     down
+          Flipped       off
+          LabelPosition east
+          Parameter {
+            Variable      "DiscretizationBehavior"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "StateSpaceInlining"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Capacitor
+          Name          "C3"
+          Show          off
+          Position      [920, 225]
+          Direction     down
+          Flipped       on
+          LabelPosition west
+          Parameter {
+            Variable      "C"
+            Value         "C_sub/N"
+            Show          off
+          }
+          Parameter {
+            Variable      "v_init"
+            Value         "V_c_0*N"
+            Show          off
+          }
+        }
+        Component {
+          Type          Delay
+          Name          "Delay"
+          Show          off
+          Position      [745, 325]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "N"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Delay
+          Name          "Delay1"
+          Show          off
+          Position      [745, 405]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "N"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Delay
+          Name          "Delay2"
+          Show          off
+          Position      [560, 325]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "N"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Delay
+          Name          "Delay3"
+          Show          off
+          Position      [560, 405]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "N"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Delay
+          Name          "Delay4"
+          Show          off
+          Position      [380, 325]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "N"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Delay
+          Name          "Delay5"
+          Show          off
+          Position      [380, 405]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "N"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Voltmeter
+          Name          "Vm1"
+          Show          off
+          Position      [960, 225]
+          Direction     up
+          Flipped       off
+          LabelPosition west
+        }
+        Component {
+          Type          From
+          Name          "From6"
+          Show          off
+          Position      [830, 225]
+          Direction     left
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Tag"
+            Value         "ICU"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "3"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Goto
+          Name          "Goto"
+          Show          off
+          Position      [1045, 225]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Tag"
+            Value         "VCU_sum"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          CurrentSource
+          Name          "I3"
+          Show          off
+          Position      [870, 505]
+          Direction     down
+          Flipped       off
+          LabelPosition east
+          Parameter {
+            Variable      "DiscretizationBehavior"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "StateSpaceInlining"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Capacitor
+          Name          "C4"
+          Show          off
+          Position      [920, 505]
+          Direction     down
+          Flipped       on
+          LabelPosition west
+          Parameter {
+            Variable      "C"
+            Value         "C_sub/N"
+            Show          off
+          }
+          Parameter {
+            Variable      "v_init"
+            Value         "V_c_0*N"
+            Show          off
+          }
+        }
+        Component {
+          Type          Voltmeter
+          Name          "Vm2"
+          Show          off
+          Position      [960, 505]
+          Direction     up
+          Flipped       off
+          LabelPosition west
+        }
+        Component {
+          Type          From
+          Name          "From7"
+          Show          off
+          Position      [830, 505]
+          Direction     left
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Tag"
+            Value         "ICL"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "3"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Goto
+          Name          "Goto1"
+          Show          off
+          Position      [1045, 505]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Tag"
+            Value         "VCL_sum"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          Memory
+          Name          "Memory"
+          Show          off
+          Position      [1005, 505]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "X0"
+            Value         "0"
+            Show          off
+          }
+        }
+        Component {
+          Type          Memory
+          Name          "Memory1"
+          Show          off
+          Position      [1005, 225]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "X0"
+            Value         "0"
             Show          off
           }
         }
@@ -1172,13 +1537,6 @@ Plecs {
           DstTerminal   2
         }
         Connection {
-          Type          Signal
-          SrcComponent  "Am2"
-          SrcTerminal   3
-          DstComponent  "Goto37"
-          DstTerminal   1
-        }
-        Connection {
           Type          Wire
           SrcComponent  "VDC+"
           SrcTerminal   1
@@ -1208,13 +1566,6 @@ Plecs {
           DstTerminal   1
         }
         Connection {
-          Type          Signal
-          SrcComponent  "Am3"
-          SrcTerminal   3
-          DstComponent  "Goto38"
-          DstTerminal   1
-        }
-        Connection {
           Type          Wire
           SrcComponent  "VB"
           SrcTerminal   1
@@ -1236,24 +1587,10 @@ Plecs {
           DstTerminal   2
         }
         Connection {
-          Type          Signal
-          SrcComponent  "Am4"
-          SrcTerminal   3
-          DstComponent  "Goto39"
-          DstTerminal   1
-        }
-        Connection {
           Type          Wire
           SrcComponent  "Am5"
           SrcTerminal   2
           DstComponent  "L5"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Am5"
-          SrcTerminal   3
-          DstComponent  "Goto40"
           DstTerminal   1
         }
         Connection {
@@ -1279,23 +1616,9 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Am6"
-          SrcTerminal   3
-          DstComponent  "Goto41"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Am1"
-          SrcTerminal   3
-          DstComponent  "Goto36"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "From36"
           SrcTerminal   1
-          Points        [1305, 385; 1305, 400]
+          Points        [385, 755; 385, 770]
           DstComponent  "Mux2"
           DstTerminal   2
         }
@@ -1303,7 +1626,7 @@ Plecs {
           Type          Signal
           SrcComponent  "From37"
           SrcTerminal   1
-          Points        [1300, 400; 1300, 410]
+          Points        [380, 770; 380, 780]
           DstComponent  "Mux2"
           DstTerminal   3
         }
@@ -1311,7 +1634,7 @@ Plecs {
           Type          Signal
           SrcComponent  "From38"
           SrcTerminal   1
-          Points        [1295, 415; 1295, 420]
+          Points        [375, 785; 375, 790]
           DstComponent  "Mux2"
           DstTerminal   4
         }
@@ -1326,7 +1649,7 @@ Plecs {
           Type          Signal
           SrcComponent  "From40"
           SrcTerminal   1
-          Points        [1305, 445; 1305, 440]
+          Points        [385, 815; 385, 810]
           DstComponent  "Mux2"
           DstTerminal   6
         }
@@ -1334,7 +1657,7 @@ Plecs {
           Type          Signal
           SrcComponent  "From41"
           SrcTerminal   1
-          Points        [1310, 460; 1310, 450]
+          Points        [390, 830; 390, 820]
           DstComponent  "Mux2"
           DstTerminal   7
         }
@@ -1347,16 +1670,9 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Varm_abc_pl"
-          SrcTerminal   1
-          DstComponent  "Demux6"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Demux6"
           SrcTerminal   2
-          Points        [1145, 385]
+          Points        [225, 755]
           DstComponent  "Goto24"
           DstTerminal   1
         }
@@ -1364,7 +1680,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Demux6"
           SrcTerminal   4
-          Points        [1155, 420; 1155, 415]
+          Points        [235, 790; 235, 785]
           DstComponent  "Goto42"
           DstTerminal   1
         }
@@ -1379,7 +1695,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Demux6"
           SrcTerminal   6
-          Points        [1155, 440; 1155, 445]
+          Points        [235, 810; 235, 815]
           DstComponent  "Goto44"
           DstTerminal   1
         }
@@ -1387,7 +1703,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Demux6"
           SrcTerminal   7
-          Points        [1145, 460]
+          Points        [225, 830]
           DstComponent  "Goto45"
           DstTerminal   1
         }
@@ -1395,7 +1711,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Demux6"
           SrcTerminal   3
-          Points        [1150, 410; 1150, 400]
+          Points        [230, 780; 230, 770]
           DstComponent  "Goto25"
           DstTerminal   1
         }
@@ -1493,21 +1809,211 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "From4"
-          SrcTerminal   1
-          DstComponent  "V4"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "From5"
           SrcTerminal   1
           DstComponent  "V5"
           DstTerminal   3
         }
+        Connection {
+          Type          Signal
+          SrcComponent  "Varm_abc_pl"
+          SrcTerminal   1
+          DstComponent  "Demux6"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am5"
+          SrcTerminal   3
+          DstComponent  "Delay"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay"
+          SrcTerminal   2
+          DstComponent  "Goto40"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am6"
+          SrcTerminal   3
+          DstComponent  "Delay1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay1"
+          SrcTerminal   2
+          DstComponent  "Goto41"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am3"
+          SrcTerminal   3
+          DstComponent  "Delay2"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay2"
+          SrcTerminal   2
+          DstComponent  "Goto38"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am4"
+          SrcTerminal   3
+          DstComponent  "Delay3"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay3"
+          SrcTerminal   2
+          DstComponent  "Goto39"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am1"
+          SrcTerminal   3
+          DstComponent  "Delay4"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay4"
+          SrcTerminal   2
+          DstComponent  "Goto36"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am2"
+          SrcTerminal   3
+          DstComponent  "Delay5"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay5"
+          SrcTerminal   2
+          DstComponent  "Goto37"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "C3"
+          SrcTerminal   2
+          Points        [920, 250]
+          Branch {
+            Points        [870, 250]
+            DstComponent  "I2"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [960, 250]
+            DstComponent  "Vm1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "C3"
+          SrcTerminal   1
+          Points        [920, 195]
+          Branch {
+            Points        [870, 195]
+            DstComponent  "I2"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [960, 195]
+            DstComponent  "Vm1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From6"
+          SrcTerminal   1
+          DstComponent  "I2"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vm1"
+          SrcTerminal   3
+          DstComponent  "Memory1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Memory1"
+          SrcTerminal   2
+          DstComponent  "Goto"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "C4"
+          SrcTerminal   2
+          Points        [920, 530]
+          Branch {
+            Points        [870, 530]
+            DstComponent  "I3"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [960, 530]
+            DstComponent  "Vm2"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "C4"
+          SrcTerminal   1
+          Points        [920, 475]
+          Branch {
+            Points        [870, 475]
+            DstComponent  "I3"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [960, 475]
+            DstComponent  "Vm2"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From7"
+          SrcTerminal   1
+          DstComponent  "I3"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vm2"
+          SrcTerminal   3
+          DstComponent  "Memory"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Memory"
+          SrcTerminal   2
+          DstComponent  "Goto1"
+          DstTerminal   1
+        }
         RectangleAnnotation {
-          Position     [1240, 395]
-          Width        400
+          Position     [325, 805]
+          Width        410
           Height       180
           CornerRadius 3
           Thickness    2
@@ -1519,7 +2025,7 @@ Plecs {
         Annotation {
           Name          "<html><body>\n<p><span style=\" font-size:22px;\">Sig"
 "nal Bus</span></p></body></html>"
-          Position      [1380, 330]
+          Position      [470, 740]
         } 
       }
     }
