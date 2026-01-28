@@ -32,9 +32,9 @@ Plecs {
 "%Grid info\nV_g=10000;\nf_g=50;\nL_g=0.001;\n\n%MMC parameter\nL_arm=0.001;\n"
 "C_sub=1e-3;\nN_sub=10;\nV_c_0=V_g*2/N_sub;\n\n%Current controller parameter\n"
 "K_p_i=5000;\nK_i_i=1000000;\nL_eq_g=L_g+L_arm/2;\n\n%PQ controller parameter"
-"\nK_p_P=0.00001;\nK_i_P=1;\n\n%Balancing controller parameter\nK_p_bal=0;\nK_"
-"i_bal=1000;\n\n%Secondary side Load parameter\nf_sw=1000;\nV_dc=800;\nN=10;\n"
-"L_power=0.001;\nL_eq_dc=2/3*L_arm+L_power;\n\n"
+"\nK_p_P=0.00001;\nK_i_P=1;\n\n%Balancing controller parameter\nK_p_bal=5000;"
+"\nK_i_bal=100000;\n\n%Secondary side Load parameter\nf_sw=1000;\nV_dc=800;\nN"
+"=10;\nL_power=0.001;\nL_eq_dc=2/3*L_arm+L_power;\n\n"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -59,9 +59,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1846, 421; 3316, 1202]
+    Location      [0, 66; 1470, 847]
     ZoomFactor    1.13158
-    SliderPosition [89, -1]
+    SliderPosition [89, 455]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -2070,11 +2070,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1587, 19; 2411, 538]
+      Location      [787, 467; 1470, 880]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAzgAAAHrAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAqsAAAGBAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -2090,7 +2090,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -2422,7 +2422,7 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA/AP///wAAAYQAAADIAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -2475,7 +2475,7 @@ Plecs {
       Direction     down
       Flipped       on
       LabelPosition south
-      Location      [344, 146; 955, 610]
+      Location      [285, 340; 896, 804]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAACsAAAAyPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAcAA"
 "AAyAAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAJjAAABC/w"
@@ -3219,7 +3219,7 @@ Plecs {
       Frame         [-30, -10; 30, 10]
       Parameter {
         Variable      "Value"
-        Value         "V_c_0*N"
+        Value         "V_c_0* N"
         Show          off
       }
       Parameter {
@@ -3250,11 +3250,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1638, 585; 2249, 977]
+      Location      [1853, 87; 2884, 906]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAmMAAAFsAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAABAcAAAMXAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3422,7 +3422,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [2477, 55; 2865, 283]
+      Location      [1082, 61; 1470, 289]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
@@ -3431,6 +3431,63 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":181,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope6"
+      Show          on
+      Position      [1140, 1055]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [415, 217; 803, 445]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAAA+AP///wAAAYQAAADIAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":168,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
@@ -4106,13 +4163,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Ref1"
-      SrcTerminal   5
-      DstComponent  "Goto21"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Constant2"
       SrcTerminal   1
       Points        [455, 865; 455, 850]
@@ -4193,7 +4243,6 @@ Plecs {
       Type          Signal
       SrcComponent  "Fcn"
       SrcTerminal   2
-      Points        [380, 820]
       DstComponent  "Mux8"
       DstTerminal   2
     }
@@ -4208,7 +4257,6 @@ Plecs {
       Type          Signal
       SrcComponent  "Fcn2"
       SrcTerminal   2
-      Points        [380, 840]
       DstComponent  "Mux8"
       DstTerminal   4
     }
@@ -4239,6 +4287,21 @@ Plecs {
       }
       Branch {
         DstComponent  "Scope5"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Ref1"
+      SrcTerminal   5
+      Points        [1080, 1000]
+      Branch {
+        DstComponent  "Goto21"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [1080, 1055]
+        DstComponent  "Scope6"
         DstTerminal   1
       }
     }
