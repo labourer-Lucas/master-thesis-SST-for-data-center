@@ -1,0 +1,534 @@
+Plecs {
+  Name          "PAC_modulation_3phase"
+  Version       "4.9"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "1.0"
+  Timeout       ""
+  Solver        "auto"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  NonIdealSwitchResistance "1"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  DatatypeOverflowMsg "3"
+  DatatypeInheritanceConflictMsg "2"
+  ContSampleTimeConflictMsg "2"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  FixedPointDatatypeOverride "1"
+  InitializationCommands ""
+  InitialState  "1"
+  SystemState   ""
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  RemoveUnusedStateSpaceOutputs "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  Schematic {
+    Location      [323, 397; 1015, 847]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          Subsystem
+      Name          "PAC_modulation"
+      Show          on
+      Position      [215, 165]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-60, -40; 60, 40]
+      SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
+      CodeGenTarget "Generic"
+      MaskDisplayLang "2"
+      MaskIconFrame on
+      MaskIconOpaque off
+      MaskIconRotates on
+      Terminal {
+        Type          Input
+        Position      [-60, -15]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [64, 5]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, -30]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 15]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-60, 30]
+        Direction     left
+      }
+      Schematic {
+        Location      [886, 89; 1470, 509]
+        ZoomFactor    1
+        SliderPosition [0, 0]
+        ShowBrowser   off
+        BrowserWidth  100
+        Component {
+          Type          Input
+          Name          "Vd"
+          Show          on
+          Position      [60, 80]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "1"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "V_PAC_ref"
+          Show          on
+          Position      [285, 170]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "2"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          CScript
+          Name          "C-Script"
+          Show          on
+          Position      [195, 170]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "DialogGeometry"
+            Value         "[2042 85 877 753]"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumInputs"
+            Value         "[3 1 1 1 1]"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumOutputs"
+            Value         "3"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumContStates"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumDiscStates"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumZCSignals"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "DirectFeedthrough"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "TerminalBasedSampleTimes"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Parameters"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "LangStandard"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "GnuExtensions"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "RuntimeCheck"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "HighlightLevel"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Declarations"
+            Value         "#include <math.h>\n"
+"\n"
+"// Ensure M_PI is defined\n"
+"#ifndef M_PI\n"
+"#define M_PI 3.14159265358979323846\n"
+"#endif\n"
+"\n"
+"// ========================================================================="
+"\n"
+"// Input Port Definitions\n"
+"// Assumption: \"Number of inputs\" is set to 5 in the C-Script dialog.\n"
+"// ========================================================================="
+"\n"
+"\n"
+"// Input 0: Vd (Vector, width=3). \n"
+"// We do not define a macro for specific elements here. \n"
+"// Instead, we access it via InputSignal(0, i) inside the loop.\n"
+"\n"
+"// Input 1: Vb (Scalar) - Base Voltage\n"
+"#define Vb_in      InputSignal(1, 0)\n"
+"\n"
+"// Input 2: Vq (Scalar) - Quadrature Voltage\n"
+"#define Vq_in      InputSignal(2, 0)\n"
+"\n"
+"// Input 3: Sigma (Scalar) - Pulse Width [radians]\n"
+"#define sigma_in   InputSignal(3, 0)  \n"
+"\n"
+"// Input 4: Frequency (Scalar) [Hz]\n"
+"#define freq_in    InputSignal(4, 0)\n"
+"\n"
+"// ========================================================================="
+"\n"
+"// Static Variables & Constants\n"
+"// ========================================================================="
+"\n"
+"#define NUM_PHASES 3\n"
+"\n"
+"// Static variables retain their values between simulation steps\n"
+"static double sigma_latched;          // Latched pulse width\n"
+"static double Vd_latched[NUM_PHASES]; // Latched Vd amplitudes for 3 phases\n"
+"static double theta_prev;             // Previous phase angle (for zero-cross"
+"ing)\n"
+"static int is_first_run;              // Initialization flag"
+            Show          off
+          }
+          Parameter {
+            Variable      "StartFcn"
+            Value         "// Initialize static variables at the start of the "
+"simulation\n"
+"sigma_latched = 0.0;\n"
+"\n"
+"// Initialize the Vd array\n"
+"for(int i = 0; i < NUM_PHASES; i++){\n"
+"    Vd_latched[i] = 0.0;\n"
+"}\n"
+"\n"
+"theta_prev = 0.0;\n"
+"is_first_run = 1;"
+            Show          off
+          }
+          Parameter {
+            Variable      "OutputFcn"
+            Value         "// 1. Get current simulation time\n"
+"double t = CurrentTime;\n"
+"\n"
+"// 2. Calculate current phase angle theta [0, 2*pi]\n"
+"double omega = 2.0 * M_PI * freq_in;\n"
+"double theta = fmod(omega * t, 2.0 * M_PI);\n"
+"\n"
+"// Handle precision issues for negative results from fmod\n"
+"if (theta < 0.0) {\n"
+"    theta += 2.0 * M_PI;\n"
+"}\n"
+"\n"
+"// ========================================================================="
+"\n"
+"// Latching Logic (Critical for Transformer Balance)\n"
+"// -------------------------------------------------------------------------"
+"\n"
+"// Parameters are updated only when theta resets to 0 (Start of period).\n"
+"// This maintains the Volt-Second balance to prevent core saturation.\n"
+"// ========================================================================="
+"\n"
+"if (is_first_run || (theta < theta_prev)) {\n"
+"    \n"
+"    // --- Latch Scalar Inputs ---\n"
+"    sigma_latched = sigma_in;\n"
+"    \n"
+"    // Safety clamp for sigma [0, PI]\n"
+"    if (sigma_latched < 0.0) sigma_latched = 0.0;\n"
+"    if (sigma_latched > M_PI) sigma_latched = M_PI;\n"
+"    \n"
+"    // --- Latch Vector Input (Vd) ---\n"
+"    // Iterate through the input vector at Port 0\n"
+"    for(int i = 0; i < NUM_PHASES; i++) {\n"
+"        // Read element i from input port 0\n"
+"        Vd_latched[i] = InputSignal(0, i); \n"
+"    }\n"
+"    \n"
+"    is_first_run = 0; \n"
+"}\n"
+"\n"
+"// Store current theta for the next step's comparison\n"
+"theta_prev = theta;\n"
+"\n"
+"// ========================================================================="
+"\n"
+"// Waveform Synthesis\n"
+"// ========================================================================="
+"\n"
+"\n"
+"// --- A. Generate Shared Components (Vb and Vq) ---\n"
+"// Since inputs are scalar, these are identical for all 3 phases in this logi"
+"c.\n"
+"\n"
+"// Base voltage (Square wave)\n"
+"double val_b = Vb_in; \n"
+"\n"
+"// Quadrature voltage (Square wave, phase shifted by 90 deg relative to Vb)\n"
+"double val_q;\n"
+"if (theta < M_PI) {\n"
+"    val_q = -Vq_in;\n"
+"} else {\n"
+"    val_q = Vq_in;\n"
+"}\n"
+"\n"
+"// Pre-calculate half width for the Vd pulse\n"
+"double half_width = sigma_latched / 2.0;\n"
+"\n"
+"// --- B. Generate Phase-Specific Components (Vd) and Output ---\n"
+"for(int i = 0; i < NUM_PHASES; i++) {\n"
+"    double val_d = 0.0;\n"
+"    \n"
+"    // Retrieve the latched amplitude specific to this phase\n"
+"    double current_Vd_amp = Vd_latched[i]; \n"
+"\n"
+"    // Generate Vd Pulse:\n"
+"    // 1. Positive pulse centered at theta = 0 (and 2*pi)\n"
+"    if (theta < half_width || theta > (2.0 * M_PI - half_width)) {\n"
+"        val_d = current_Vd_amp;\n"
+"    }\n"
+"    // 2. Negative pulse centered at theta = pi\n"
+"    else if (theta > (M_PI - half_width) && theta < (M_PI + half_width)) {\n"
+"        val_d = -current_Vd_amp;\n"
+"    }\n"
+"    \n"
+"    // --- C. Summation and Output ---\n"
+"    // Write result to Output Port 0, Channel i\n"
+"    OutputSignal(0, i) = val_b + val_q + val_d;\n"
+"}"
+            Show          off
+          }
+          Parameter {
+            Variable      "UpdateFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "DerivativeFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "TerminateFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "StoreCustomStateFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "RestoreCustomStateFcn"
+            Value         ""
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "Vb"
+          Show          on
+          Position      [60, 120]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "3"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "Vq"
+          Show          on
+          Position      [60, 170]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "4"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "sigma"
+          Show          on
+          Position      [60, 205]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "5"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "freq"
+          Show          on
+          Position      [60, 255]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "6"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "C-Script"
+          SrcTerminal   6
+          DstComponent  "V_PAC_ref"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vd"
+          SrcTerminal   1
+          Points        [95, 80; 95, 150]
+          DstComponent  "C-Script"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vb"
+          SrcTerminal   1
+          Points        [90, 120; 90, 160]
+          DstComponent  "C-Script"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vq"
+          SrcTerminal   1
+          DstComponent  "C-Script"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "freq"
+          SrcTerminal   1
+          Points        [100, 255; 100, 190]
+          DstComponent  "C-Script"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "sigma"
+          SrcTerminal   1
+          Points        [95, 205; 95, 180]
+          DstComponent  "C-Script"
+          DstTerminal   4
+        }
+      }
+    }
+  }
+}
