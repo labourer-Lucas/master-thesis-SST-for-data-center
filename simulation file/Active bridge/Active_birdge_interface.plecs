@@ -750,20 +750,6 @@ Plecs {
           }
         }
         Component {
-          Type          PeriodicAverage
-          Name          "Periodic Average"
-          Show          on
-          Position      [230, 520]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "T_average"
-            Value         "1/f_sw"
-            Show          off
-          }
-        }
-        Component {
           Type          Scope
           Name          "Scope2"
           Show          off
@@ -962,6 +948,42 @@ Plecs {
           Flipped       off
           LabelPosition west
         }
+        Component {
+          Type          Reference
+          SrcComponent  "Components/Control/Filters/Moving Average"
+          Name          "Moving Average"
+          Show          on
+          Position      [230, 520]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-15, -15; 15, 15]
+          Parameter {
+            Variable      "x0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_period"
+            Value         "1/f_sw"
+            Show          off
+          }
+          Parameter {
+            Variable      "buffer_size"
+            Value         "256"
+            Show          off
+          }
+          Terminal {
+            Type          Output
+            Position      [19, 0]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-15, 0]
+            Direction     left
+          }
+        }
         Connection {
           Type          Wire
           SrcComponent  "IGBTD1"
@@ -1087,7 +1109,7 @@ Plecs {
             DstTerminal   2
           }
           Branch {
-            DstComponent  "Periodic Average"
+            DstComponent  "Moving Average"
             DstTerminal   2
           }
         }
@@ -1100,7 +1122,7 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Periodic Average"
+          SrcComponent  "Moving Average"
           SrcTerminal   1
           Points        [270, 520]
           Branch {
