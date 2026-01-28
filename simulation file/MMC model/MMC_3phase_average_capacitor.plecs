@@ -53,7 +53,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1716, 136; 2762, 740]
+    Location      [424, 136; 1470, 740]
     ZoomFactor    1.45221
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -160,9 +160,9 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [1419, 74; 2889, 855]
-        ZoomFactor    1.71114
-        SliderPosition [1098, 341]
+        Location      [0, 66; 1470, 847]
+        ZoomFactor    0.871887
+        SliderPosition [0, 37]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -1044,7 +1044,7 @@ Plecs {
           Type          CurrentSource
           Name          "I2"
           Show          off
-          Position      [1260, 225]
+          Position      [1350, 225]
           Direction     down
           Flipped       off
           LabelPosition east
@@ -1063,7 +1063,7 @@ Plecs {
           Type          Capacitor
           Name          "C3"
           Show          off
-          Position      [1310, 225]
+          Position      [1400, 225]
           Direction     down
           Flipped       on
           LabelPosition west
@@ -1226,7 +1226,7 @@ Plecs {
           Type          Voltmeter
           Name          "Vm1"
           Show          off
-          Position      [1350, 225]
+          Position      [1440, 225]
           Direction     up
           Flipped       off
           LabelPosition west
@@ -1235,7 +1235,7 @@ Plecs {
           Type          From
           Name          "From6"
           Show          off
-          Position      [1220, 225]
+          Position      [1250, 220]
           Direction     left
           Flipped       on
           LabelPosition south
@@ -1259,7 +1259,7 @@ Plecs {
           Type          Goto
           Name          "Goto"
           Show          off
-          Position      [1435, 225]
+          Position      [1525, 225]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1283,7 +1283,7 @@ Plecs {
           Type          CurrentSource
           Name          "I3"
           Show          off
-          Position      [1260, 505]
+          Position      [1310, 495]
           Direction     down
           Flipped       off
           LabelPosition east
@@ -1302,7 +1302,7 @@ Plecs {
           Type          Capacitor
           Name          "C4"
           Show          off
-          Position      [1310, 505]
+          Position      [1360, 495]
           Direction     down
           Flipped       on
           LabelPosition west
@@ -1321,7 +1321,7 @@ Plecs {
           Type          Voltmeter
           Name          "Vm2"
           Show          off
-          Position      [1350, 505]
+          Position      [1400, 495]
           Direction     up
           Flipped       off
           LabelPosition west
@@ -1330,7 +1330,7 @@ Plecs {
           Type          From
           Name          "From7"
           Show          off
-          Position      [1220, 505]
+          Position      [1215, 480]
           Direction     left
           Flipped       on
           LabelPosition south
@@ -1354,7 +1354,7 @@ Plecs {
           Type          Goto
           Name          "Goto1"
           Show          off
-          Position      [1435, 505]
+          Position      [1485, 495]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1378,7 +1378,7 @@ Plecs {
           Type          Delay
           Name          "Delay6"
           Show          off
-          Position      [1400, 505]
+          Position      [1450, 495]
           Direction     left
           Flipped       on
           LabelPosition north
@@ -1402,7 +1402,7 @@ Plecs {
           Type          Delay
           Name          "Delay7"
           Show          off
-          Position      [1395, 225]
+          Position      [1485, 225]
           Direction     left
           Flipped       on
           LabelPosition north
@@ -1426,7 +1426,7 @@ Plecs {
           Type          CurrentSource
           Name          "I4"
           Show          off
-          Position      [925, 225]
+          Position      [940, 225]
           Direction     down
           Flipped       off
           LabelPosition east
@@ -1445,7 +1445,7 @@ Plecs {
           Type          Capacitor
           Name          "C5"
           Show          off
-          Position      [975, 225]
+          Position      [990, 225]
           Direction     down
           Flipped       on
           LabelPosition west
@@ -1464,7 +1464,7 @@ Plecs {
           Type          Voltmeter
           Name          "Vm3"
           Show          off
-          Position      [1015, 225]
+          Position      [1030, 225]
           Direction     up
           Flipped       off
           LabelPosition west
@@ -1473,7 +1473,7 @@ Plecs {
           Type          From
           Name          "From8"
           Show          off
-          Position      [885, 225]
+          Position      [865, 200]
           Direction     left
           Flipped       on
           LabelPosition south
@@ -1497,7 +1497,7 @@ Plecs {
           Type          Goto
           Name          "Goto2"
           Show          off
-          Position      [1100, 225]
+          Position      [1115, 225]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1521,7 +1521,7 @@ Plecs {
           Type          Delay
           Name          "Delay8"
           Show          off
-          Position      [1060, 225]
+          Position      [1075, 225]
           Direction     left
           Flipped       on
           LabelPosition north
@@ -1592,7 +1592,7 @@ Plecs {
           Type          From
           Name          "From9"
           Show          off
-          Position      [885, 495]
+          Position      [850, 505]
           Direction     left
           Flipped       on
           LabelPosition south
@@ -1664,7 +1664,7 @@ Plecs {
           Type          CurrentSource
           Name          "I6"
           Show          off
-          Position      [515, 245]
+          Position      [560, 245]
           Direction     down
           Flipped       off
           LabelPosition east
@@ -1683,7 +1683,7 @@ Plecs {
           Type          Capacitor
           Name          "C7"
           Show          off
-          Position      [565, 245]
+          Position      [610, 245]
           Direction     down
           Flipped       on
           LabelPosition west
@@ -1702,7 +1702,7 @@ Plecs {
           Type          Voltmeter
           Name          "Vm5"
           Show          off
-          Position      [605, 245]
+          Position      [650, 245]
           Direction     up
           Flipped       off
           LabelPosition west
@@ -1711,7 +1711,7 @@ Plecs {
           Type          From
           Name          "From10"
           Show          off
-          Position      [475, 245]
+          Position      [475, 225]
           Direction     left
           Flipped       on
           LabelPosition south
@@ -1735,7 +1735,7 @@ Plecs {
           Type          Goto
           Name          "Goto4"
           Show          off
-          Position      [690, 245]
+          Position      [735, 245]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1759,7 +1759,7 @@ Plecs {
           Type          Delay
           Name          "Delay10"
           Show          off
-          Position      [650, 245]
+          Position      [695, 245]
           Direction     left
           Flipped       on
           LabelPosition north
@@ -1783,7 +1783,7 @@ Plecs {
           Type          CurrentSource
           Name          "I7"
           Show          off
-          Position      [515, 475]
+          Position      [560, 475]
           Direction     down
           Flipped       off
           LabelPosition east
@@ -1802,7 +1802,7 @@ Plecs {
           Type          Capacitor
           Name          "C8"
           Show          off
-          Position      [565, 475]
+          Position      [610, 475]
           Direction     down
           Flipped       on
           LabelPosition west
@@ -1821,7 +1821,7 @@ Plecs {
           Type          Voltmeter
           Name          "Vm6"
           Show          off
-          Position      [605, 475]
+          Position      [650, 475]
           Direction     up
           Flipped       off
           LabelPosition west
@@ -1830,7 +1830,7 @@ Plecs {
           Type          From
           Name          "From11"
           Show          off
-          Position      [475, 475]
+          Position      [475, 480]
           Direction     left
           Flipped       on
           LabelPosition south
@@ -1854,7 +1854,7 @@ Plecs {
           Type          Goto
           Name          "Goto5"
           Show          off
-          Position      [690, 475]
+          Position      [735, 475]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -1878,7 +1878,7 @@ Plecs {
           Type          Delay
           Name          "Delay11"
           Show          off
-          Position      [650, 475]
+          Position      [695, 475]
           Direction     left
           Flipped       on
           LabelPosition north
@@ -3257,6 +3257,324 @@ Plecs {
             Show          off
           }
         }
+        Component {
+          Type          Product
+          Name          "Product12"
+          Show          off
+          Position      [520, 245]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "**"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          From
+          Name          "From42"
+          Show          off
+          Position      [475, 250]
+          Direction     right
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Tag"
+            Value         "dAU"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Product
+          Name          "Product13"
+          Show          off
+          Position      [520, 475]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "**"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          From
+          Name          "From43"
+          Show          off
+          Position      [475, 460]
+          Direction     right
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Tag"
+            Value         "dAL"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Product
+          Name          "Product14"
+          Show          off
+          Position      [905, 225]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "**"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          From
+          Name          "From44"
+          Show          off
+          Position      [865, 230]
+          Direction     right
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Tag"
+            Value         "dBU"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Product
+          Name          "Product15"
+          Show          off
+          Position      [890, 495]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "**"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          From
+          Name          "From45"
+          Show          off
+          Position      [850, 475]
+          Direction     right
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Tag"
+            Value         "dBL"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Product
+          Name          "Product16"
+          Show          off
+          Position      [1305, 225]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "**"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          From
+          Name          "From46"
+          Show          off
+          Position      [1250, 240]
+          Direction     right
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Tag"
+            Value         "dCU"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Product
+          Name          "Product17"
+          Show          off
+          Position      [1260, 495]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "IconShape"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Inputs"
+            Value         "**"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          From
+          Name          "From47"
+          Show          off
+          Position      [1215, 500]
+          Direction     right
+          Flipped       off
+          LabelPosition north
+          Parameter {
+            Variable      "Tag"
+            Value         "dCL"
+            Show          off
+          }
+          Parameter {
+            Variable      "Visibility"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "NoMatchingCounterpartAction"
+            Value         "1"
+            Show          off
+          }
+        }
         Connection {
           Type          Wire
           SrcComponent  "Am1"
@@ -3623,14 +3941,14 @@ Plecs {
           Type          Wire
           SrcComponent  "C3"
           SrcTerminal   2
-          Points        [1310, 250]
+          Points        [1400, 250]
           Branch {
-            Points        [1260, 250]
+            Points        [1350, 250]
             DstComponent  "I2"
             DstTerminal   2
           }
           Branch {
-            Points        [1350, 250]
+            Points        [1440, 250]
             DstComponent  "Vm1"
             DstTerminal   2
           }
@@ -3639,24 +3957,17 @@ Plecs {
           Type          Wire
           SrcComponent  "C3"
           SrcTerminal   1
-          Points        [1310, 195]
+          Points        [1400, 195]
           Branch {
-            Points        [1260, 195]
+            Points        [1350, 195]
             DstComponent  "I2"
             DstTerminal   1
           }
           Branch {
-            Points        [1350, 195]
+            Points        [1440, 195]
             DstComponent  "Vm1"
             DstTerminal   1
           }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From6"
-          SrcTerminal   1
-          DstComponent  "I2"
-          DstTerminal   3
         }
         Connection {
           Type          Signal
@@ -3676,14 +3987,14 @@ Plecs {
           Type          Wire
           SrcComponent  "C4"
           SrcTerminal   2
-          Points        [1310, 530]
+          Points        [1360, 520]
           Branch {
-            Points        [1260, 530]
+            Points        [1310, 520]
             DstComponent  "I3"
             DstTerminal   2
           }
           Branch {
-            Points        [1350, 530]
+            Points        [1400, 520]
             DstComponent  "Vm2"
             DstTerminal   2
           }
@@ -3692,24 +4003,17 @@ Plecs {
           Type          Wire
           SrcComponent  "C4"
           SrcTerminal   1
-          Points        [1310, 475]
+          Points        [1360, 465]
           Branch {
-            Points        [1260, 475]
+            Points        [1310, 465]
             DstComponent  "I3"
             DstTerminal   1
           }
           Branch {
-            Points        [1350, 475]
+            Points        [1400, 465]
             DstComponent  "Vm2"
             DstTerminal   1
           }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From7"
-          SrcTerminal   1
-          DstComponent  "I3"
-          DstTerminal   3
         }
         Connection {
           Type          Signal
@@ -3729,14 +4033,14 @@ Plecs {
           Type          Wire
           SrcComponent  "C5"
           SrcTerminal   2
-          Points        [975, 250]
+          Points        [990, 250]
           Branch {
-            Points        [925, 250]
+            Points        [940, 250]
             DstComponent  "I4"
             DstTerminal   2
           }
           Branch {
-            Points        [1015, 250]
+            Points        [1030, 250]
             DstComponent  "Vm3"
             DstTerminal   2
           }
@@ -3745,24 +4049,17 @@ Plecs {
           Type          Wire
           SrcComponent  "C5"
           SrcTerminal   1
-          Points        [975, 195]
+          Points        [990, 195]
           Branch {
-            Points        [925, 195]
+            Points        [940, 195]
             DstComponent  "I4"
             DstTerminal   1
           }
           Branch {
-            Points        [1015, 195]
+            Points        [1030, 195]
             DstComponent  "Vm3"
             DstTerminal   1
           }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From8"
-          SrcTerminal   1
-          DstComponent  "I4"
-          DstTerminal   3
         }
         Connection {
           Type          Signal
@@ -3796,13 +4093,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "From9"
-          SrcTerminal   1
-          DstComponent  "I5"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Delay9"
           SrcTerminal   2
           DstComponent  "Goto3"
@@ -3819,14 +4109,14 @@ Plecs {
           Type          Wire
           SrcComponent  "C7"
           SrcTerminal   2
-          Points        [565, 270]
+          Points        [610, 270]
           Branch {
-            Points        [515, 270]
+            Points        [560, 270]
             DstComponent  "I6"
             DstTerminal   2
           }
           Branch {
-            Points        [605, 270]
+            Points        [650, 270]
             DstComponent  "Vm5"
             DstTerminal   2
           }
@@ -3835,24 +4125,17 @@ Plecs {
           Type          Wire
           SrcComponent  "C7"
           SrcTerminal   1
-          Points        [565, 215]
+          Points        [610, 215]
           Branch {
-            Points        [515, 215]
+            Points        [560, 215]
             DstComponent  "I6"
             DstTerminal   1
           }
           Branch {
-            Points        [605, 215]
+            Points        [650, 215]
             DstComponent  "Vm5"
             DstTerminal   1
           }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From10"
-          SrcTerminal   1
-          DstComponent  "I6"
-          DstTerminal   3
         }
         Connection {
           Type          Signal
@@ -3872,14 +4155,14 @@ Plecs {
           Type          Wire
           SrcComponent  "C8"
           SrcTerminal   2
-          Points        [565, 500]
+          Points        [610, 500]
           Branch {
-            Points        [515, 500]
+            Points        [560, 500]
             DstComponent  "I7"
             DstTerminal   2
           }
           Branch {
-            Points        [605, 500]
+            Points        [650, 500]
             DstComponent  "Vm6"
             DstTerminal   2
           }
@@ -3888,24 +4171,17 @@ Plecs {
           Type          Wire
           SrcComponent  "C8"
           SrcTerminal   1
-          Points        [565, 445]
+          Points        [610, 445]
           Branch {
-            Points        [515, 445]
+            Points        [560, 445]
             DstComponent  "I7"
             DstTerminal   1
           }
           Branch {
-            Points        [605, 445]
+            Points        [650, 445]
             DstComponent  "Vm6"
             DstTerminal   1
           }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "From11"
-          SrcTerminal   1
-          DstComponent  "I7"
-          DstTerminal   3
         }
         Connection {
           Type          Signal
@@ -4295,6 +4571,139 @@ Plecs {
             DstComponent  "C6"
             DstTerminal   2
           }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From10"
+          SrcTerminal   1
+          Points        [490, 225]
+          DstComponent  "Product12"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Product12"
+          SrcTerminal   1
+          DstComponent  "I6"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From42"
+          SrcTerminal   1
+          DstComponent  "Product12"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Product13"
+          SrcTerminal   1
+          DstComponent  "I7"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From11"
+          SrcTerminal   1
+          DstComponent  "Product13"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From43"
+          SrcTerminal   1
+          Points        [485, 460; 485, 470]
+          DstComponent  "Product13"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Product14"
+          SrcTerminal   1
+          DstComponent  "I4"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From8"
+          SrcTerminal   1
+          Points        [875, 200]
+          DstComponent  "Product14"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From44"
+          SrcTerminal   1
+          DstComponent  "Product14"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From9"
+          SrcTerminal   1
+          Points        [860, 505]
+          DstComponent  "Product15"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Product15"
+          SrcTerminal   1
+          DstComponent  "I5"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From45"
+          SrcTerminal   1
+          Points        [860, 475]
+          DstComponent  "Product15"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Product16"
+          SrcTerminal   1
+          DstComponent  "I2"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From6"
+          SrcTerminal   1
+          DstComponent  "Product16"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From46"
+          SrcTerminal   1
+          Points        [1270, 240; 1270, 230]
+          DstComponent  "Product16"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Product17"
+          SrcTerminal   1
+          DstComponent  "I3"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From7"
+          SrcTerminal   1
+          Points        [1230, 480]
+          DstComponent  "Product17"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "From47"
+          SrcTerminal   1
+          DstComponent  "Product17"
+          DstTerminal   3
         }
         RectangleAnnotation {
           Position     [435, 770]
